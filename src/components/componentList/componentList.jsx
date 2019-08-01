@@ -7,17 +7,7 @@ import TypographyComponent from "../typographyComponent/typographyComponent";
 import TableComponent from "../tableComponent/tableComponent";
 import cssPresets from "../../cssPresets/cssPresets";
 
-<<<<<<< HEAD
-import MainNav from "../common/MainNav";
-import Button from "../common/Button";
-import Breadcrumb from "../common/Breadcrumb";
-import AccordionBar from "../common/AccordionBar";
-import Card from "../common/Card";
-import Callout from "../common/Callout";
-import Notification from "../common/notification";
-=======
-import { MainNav, Button, Breadcrumb, AccordionBar, Card, Callout } from "../common";
->>>>>>> 33659e3539d7438adbe0f0f2e73bed1c74290443
+import { MainNav, Button, Breadcrumb, AccordionBar, Card, Callout, Notification } from "../common";
 
 // Import Redux Store
 import {
