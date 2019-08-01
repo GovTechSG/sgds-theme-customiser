@@ -7,6 +7,7 @@ import TypographyComponent from "../typographyComponent/typographyComponent";
 import TableComponent from "../tableComponent/tableComponent";
 import cssPresets from "../../cssPresets/cssPresets";
 
+<<<<<<< HEAD
 import MainNav from "../common/MainNav";
 import Button from "../common/Button";
 import Breadcrumb from "../common/Breadcrumb";
@@ -14,6 +15,9 @@ import AccordionBar from "../common/AccordionBar";
 import Card from "../common/Card";
 import Callout from "../common/Callout";
 import Notification from "../common/notification";
+=======
+import { MainNav, Button, Breadcrumb, AccordionBar, Card, Callout } from "../common";
+>>>>>>> 33659e3539d7438adbe0f0f2e73bed1c74290443
 
 // Import Redux Store
 import {
@@ -175,8 +179,7 @@ class ComponentList extends Component {
         name: "MEGA MENU1",
         subMenuInfo: {
           title: "Sub Menu 1 Info",
-          content:
-            "You can put short paragraph of information here to describe about this section."
+          content: "You can put short paragraph of information here to describe about this section."
         },
         subMenus: [
           {
@@ -331,7 +334,9 @@ class ComponentList extends Component {
             paddingVertical={smBtnPaddingVertical}
             themePrimaryColor={themePrimaryColor}
             buttonSize="small"
-          />
+          >
+            button
+          </Button>
           <Button
             isPrimary={true}
             isOutlined={true}
@@ -339,7 +344,9 @@ class ComponentList extends Component {
             paddingVertical={smBtnPaddingVertical}
             themePrimaryColor={themePrimaryColor}
             buttonSize="small"
-          />
+          >
+            button
+          </Button>
           <Button
             isPrimary={true}
             isRounded={true}
@@ -347,7 +354,9 @@ class ComponentList extends Component {
             paddingVertical={smBtnPaddingVertical}
             themePrimaryColor={themePrimaryColor}
             buttonSize="small"
-          />
+          >
+            button
+          </Button>
           <Button
             isPrimary={true}
             isDisabled={true}
@@ -355,7 +364,9 @@ class ComponentList extends Component {
             paddingVertical={smBtnPaddingVertical}
             themePrimaryColor={themePrimaryColor}
             buttonSize="small"
-          />
+          >
+            button
+          </Button>
         </div>
         <div className="button-row">
           <Button
@@ -364,7 +375,9 @@ class ComponentList extends Component {
             paddingVertical={meBtnPaddingVertical}
             themePrimaryColor={themePrimaryColor}
             buttonSize="medium"
-          />
+          >
+            button
+          </Button>
           <Button
             isPrimary={true}
             isOutlined={true}
@@ -372,7 +385,9 @@ class ComponentList extends Component {
             paddingVertical={meBtnPaddingVertical}
             themePrimaryColor={themePrimaryColor}
             buttonSize="medium"
-          />
+          >
+            button
+          </Button>
           <Button
             isPrimary={true}
             isRounded={true}
@@ -380,7 +395,9 @@ class ComponentList extends Component {
             paddingVertical={meBtnPaddingVertical}
             themePrimaryColor={themePrimaryColor}
             buttonSize="medium"
-          />
+          >
+            button
+          </Button>
           <Button
             isPrimary={true}
             isDisabled={true}
@@ -388,7 +405,9 @@ class ComponentList extends Component {
             paddingVertical={meBtnPaddingVertical}
             themePrimaryColor={themePrimaryColor}
             buttonSize="medium"
-          />
+          >
+            button
+          </Button>
         </div>
         <div className="button-row">
           <Button
@@ -397,7 +416,9 @@ class ComponentList extends Component {
             paddingVertical={laBtnPaddingVertical}
             themePrimaryColor={themePrimaryColor}
             buttonSize="large"
-          />
+          >
+            button
+          </Button>
           <Button
             isPrimary={true}
             isOutlined={true}
@@ -405,7 +426,9 @@ class ComponentList extends Component {
             paddingVertical={laBtnPaddingVertical}
             themePrimaryColor={themePrimaryColor}
             buttonSize="large"
-          />
+          >
+            button
+          </Button>
           <Button
             isPrimary={true}
             isRounded={true}
@@ -413,7 +436,9 @@ class ComponentList extends Component {
             paddingVertical={laBtnPaddingVertical}
             themePrimaryColor={themePrimaryColor}
             buttonSize="large"
-          />
+          >
+            button
+          </Button>
           <Button
             isPrimary={true}
             isDisabled={true}
@@ -421,13 +446,12 @@ class ComponentList extends Component {
             paddingVertical={laBtnPaddingVertical}
             themePrimaryColor={themePrimaryColor}
             buttonSize="large"
-          />
+          >
+            button
+          </Button>
         </div>
         <div className="elementTitle">Navigation Bar</div>
-        <MainNav
-          brand={this.mainNavItems.brand}
-          links={this.mainNavItems.links}
-        />
+        <MainNav brand={this.mainNavItems.brand} links={this.mainNavItems.links} />
         <div className="elementTitle">Typography</div>
         <TypographyComponent
           displayFontsize={displayFontsize}
@@ -447,16 +471,8 @@ class ComponentList extends Component {
           isNarrow={this.props.tableIsNarrow}
         />
         <div className="elementTitle">Breadcrumb</div>
-        <Breadcrumb
-          hasBackgroundDark={false}
-          hasTextWhite={false}
-          items={this.breadcrumbItems}
-        />
-        <Breadcrumb
-          hasBackgroundDark={true}
-          hasTextWhite={true}
-          items={this.breadcrumbItems}
-        />
+        <Breadcrumb hasBackgroundDark={false} hasTextWhite={false} items={this.breadcrumbItems} />
+        <Breadcrumb hasBackgroundDark={true} hasTextWhite={true} items={this.breadcrumbItems} />
         <div className="elementTitle">Accordion Bar</div>
         <AccordionBar items={this.accordionBarItems} />
         <div className="elementTitle">Card</div>
@@ -477,15 +493,11 @@ class ComponentList extends Component {
 
 const mapStateToProps = state => {
   return {
-    buttonSmallHorizontalPadding:
-      state.cssProperties.buttonSmallHorizontalPadding,
+    buttonSmallHorizontalPadding: state.cssProperties.buttonSmallHorizontalPadding,
     buttonSmallVerticalPadding: state.cssProperties.buttonSmallVerticalPadding,
-    buttonMediumHorizontalPadding:
-      state.cssProperties.buttonMediumHorizontalPadding,
-    buttonMediumVerticalPadding:
-      state.cssProperties.buttonMediumVerticalPadding,
-    buttonLargeHorizontalPadding:
-      state.cssProperties.buttonLargeHorizontalPadding,
+    buttonMediumHorizontalPadding: state.cssProperties.buttonMediumHorizontalPadding,
+    buttonMediumVerticalPadding: state.cssProperties.buttonMediumVerticalPadding,
+    buttonLargeHorizontalPadding: state.cssProperties.buttonLargeHorizontalPadding,
     buttonLargeVerticalPadding: state.cssProperties.buttonLargeVerticalPadding,
     displayFontsize: state.cssProperties.displayFontsize,
     h1Fontsize: state.cssProperties.h1Fontsize,
@@ -517,21 +529,17 @@ const mapDispatchToProps = dispatch => {
       dispatch(updateLargeButtonHorizontalPadding(laButtonHorizontalPadding)),
     updateLargeButtonVerticalPadding: laButtonVerticalPadding =>
       dispatch(updateLargeButtonVerticalPadding(laButtonVerticalPadding)),
-    updateDisplayFontsize: displayFontsize =>
-      dispatch(updateDisplayFontsize(displayFontsize)),
+    updateDisplayFontsize: displayFontsize => dispatch(updateDisplayFontsize(displayFontsize)),
     updateH1Fontsize: h1Fontsize => dispatch(updateH1Fontsize(h1Fontsize)),
     updateH2Fontsize: h2Fontsize => dispatch(updateH2Fontsize(h2Fontsize)),
     updateH3Fontsize: h3Fontsize => dispatch(updateH3Fontsize(h3Fontsize)),
     updateH4Fontsize: h4Fontsize => dispatch(updateH4Fontsize(h4Fontsize)),
     updateH5Fontsize: h5Fontsize => dispatch(updateH5Fontsize(h5Fontsize)),
     updateH6Fontsize: h6Fontsize => dispatch(updateH6Fontsize(h6Fontsize)),
-    updateSmallFontsize: smallFontsize =>
-      dispatch(updateSmallFontsize(smallFontsize)),
+    updateSmallFontsize: smallFontsize => dispatch(updateSmallFontsize(smallFontsize)),
     updateTableHeadColor: color => dispatch(updateTableHeadColor(color)),
-    updateTableHoverable: isHoverable =>
-      dispatch(updateTableHoverable(isHoverable)),
-    updateTableFullwidth: isFullWidth =>
-      dispatch(updateTableFullwidth(isFullWidth)),
+    updateTableHoverable: isHoverable => dispatch(updateTableHoverable(isHoverable)),
+    updateTableFullwidth: isFullWidth => dispatch(updateTableFullwidth(isFullWidth)),
     updateThemePrimaryColor: themePrimaryColor =>
       dispatch(updateThemePrimaryColor(themePrimaryColor))
   };
