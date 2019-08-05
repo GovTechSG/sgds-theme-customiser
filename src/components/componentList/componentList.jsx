@@ -51,47 +51,36 @@ class ComponentList extends Component {
   // Export style
   exportStyle = exportcss => {
 
-    var variableStart = ":root \r\n { \r\n\t ";
+    var variableStart = ":root \r\n { \r\n\t";
 
     var themePrimaryColor = ""
     if(cssPresets.themePresets.primaryColor !== this.props.themePrimaryColor) {
-      themePrimaryColor = "--primary-color: " + this.props.themePrimaryColor + ";"
+      themePrimaryColor = "--primary-color: " + this.props.themePrimaryColor + "; \r\n\t"
     }
-
-    // themePrimaryColor: state.cssProperties.themePrimaryColor,
-    // themeSecondaryColor: state.cssProperties.themeSecondaryColor,
-    // infoColor: state.cssProperties.infoColor,
-    // successColor: state.cssProperties.successColor,
-    // dangerColor: state.cssProperties.dangerColor,
-    // warningColor: state.cssProperties.warningColor,
-    // tableHeadColor: state.cssProperties.tableHeadColor,
-    // tableIsNarrow: state.cssProperties.tableIsNarrow,
-    // tableIsHoverable: state.cssProperties.tableIsHoverable,
-    // tableIsFullwidth: state.cssProperties.tableIsFullwidth
 
     var themeSecondaryColor = ""
     if(cssPresets.themePresets.secondaryColor !== this.props.themeSecondaryColor) {
-      themeSecondaryColor = "--secondary-color: " + this.props.themeSecondaryColor + ";"
+      themeSecondaryColor = "--secondary-color: " + this.props.themeSecondaryColor + "; \r\n\t"
     }
 
     var infoColor = ""
     if(cssPresets.themePresets.infoColor !== this.props.infoColor) {
-      infoColor = "--info-color: " + this.props.infoColor + ";"
+      infoColor = "--info-color: " + this.props.infoColor + "; \r\n\t"
     }
 
     var successColor = ""
     if(cssPresets.themePresets.successColor !== this.props.successColor) {
-      successColor = "--success-color: " + this.props.successColor + ";"
+      successColor = "--success-color: " + this.props.successColor + "; \r\n\t"
     }
 
     var dangerColor = ""
     if(cssPresets.themePresets.dangerColor !== this.props.dangerColor) {
-      dangerColor = "--danger-color: " + this.props.dangerColor + ";"
+      dangerColor = "--danger-color: " + this.props.dangerColor + "; \r\n\t"
     }
 
     var warningColor = ""
     if(cssPresets.themePresets.warningColor !== this.props.warningColor) {
-      warningColor = "--warning-color: " + this.props.warningColor + ";"
+      warningColor = "--warning-color: " + this.props.warningColor + "; \r\n"
     }
 
     var tableHeadColor = ""
@@ -100,12 +89,9 @@ class ComponentList extends Component {
     }
 
 
-
-
     var variableEnd = "\r\n } \r\n ";
 
-    var variables = variableStart + themePrimaryColor + themeSecondaryColor + infoColor + successColor + dangerColor + warningColor + 
-    + variableEnd;
+    var variables = variableStart + themePrimaryColor + themeSecondaryColor + infoColor + successColor + dangerColor + warningColor + variableEnd;
 
     // var btnSmHorizontalPadding = ""
     // if(cssPresets.buttonPresets.smPaddingHorizontalDefault !== this.props.buttonSmallHorizontalPadding) {
@@ -183,10 +169,10 @@ class ComponentList extends Component {
 
     
 
-    var style  = variables 
+    var style  = variables + tableHeadColor;
     //  + btnSmHorizontalPadding + btnSmVerticalPadding + btnMeHorizontalPadding +  btnMeVerticalPadding + btnLaHortizontalPadding + btnLaVerticalPadding + 
     // displayFontSize + h1fontSize + h2fontSize + h3fontSize + h4fontSize + h5fontSize+ h6fontSize + smallFontsize +
-     + tableHeadColor;
+ 
 
     if(style.length > 0) {
       console.log(style);
