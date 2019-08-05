@@ -93,6 +93,12 @@ class ComponentList extends Component {
 
     var variables = variableStart + themePrimaryColor + themeSecondaryColor + infoColor + successColor + dangerColor + warningColor + variableEnd;
 
+    var primaryButtonStyle =  ".sgds-button.is-primary \r\n { \r\n\t background-color: var(--primary-color); \r\n\t color: var(--white); \r\n } \r\n";
+    var primaryButtonStyleHover =  ".sgds-button.is-primary:hover \r\n { \r\n\t background-color: var(--primary-color-2.5%); \r\n\t color: var(--white); \r\n } \r\n";
+
+    var outlinedButtonStyle =  ".sgds-button.is-outlined \r\n { \r\n\tborder-color: var(--primary-color); \r\n\t color: var(--white); \r\n } \r\n";
+    var outlinedButtonStyleHover =  ".sgds-button.is-outlined:hover \r\n { \r\n\t border-color: var(--primary-color-2.5%); \r\n\t color: var(--white); \r\n } \r\n\t ";
+
     // var btnSmHorizontalPadding = ""
     // if(cssPresets.buttonPresets.smPaddingHorizontalDefault !== this.props.buttonSmallHorizontalPadding) {
     //   btnSmHorizontalPadding = ".sgds-button-small \r\n { \r\n\t padding-left: "+ this.props.buttonSmallHorizontalPadding + "px; \r\n\t padding-right: " + this.props.buttonSmallHorizontalPadding + "px; \r\n } \r\n"
@@ -169,7 +175,7 @@ class ComponentList extends Component {
 
     
 
-    var style  = variables + tableHeadColor;
+    var style  = variables + tableHeadColor + primaryButtonStyle + primaryButtonStyleHover + outlinedButtonStyle + outlinedButtonStyleHover;
     //  + btnSmHorizontalPadding + btnSmVerticalPadding + btnMeHorizontalPadding +  btnMeVerticalPadding + btnLaHortizontalPadding + btnLaVerticalPadding + 
     // displayFontSize + h1fontSize + h2fontSize + h3fontSize + h4fontSize + h5fontSize+ h6fontSize + smallFontsize +
  
