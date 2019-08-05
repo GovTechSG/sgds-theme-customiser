@@ -7,6 +7,29 @@ class Notification extends Component {
         hovered: false
       };
     }
+
+
+    getClassName() {
+      let className = "sgds-notification";
+      if (this.props.isPrimary) {
+        className = className.concat(" is-primary");
+      }
+      if (this.props.isOutlined) {
+        className = className.concat(" is-outlined");
+      }
+      if (this.props.isRounded) {
+        className = className.concat(" is-rounded");
+      }
+      if (this.props.buttonSize === "small") {
+        className = className.concat(" is-small");
+      } else if (this.props.buttonSize === "medium") {
+        className = className.concat(" is-medium");
+      } else if (this.props.buttonSize === "large") {
+        className = className.concat(" is-large");
+      }
+      return className;
+    }
+
   
     render() {
       return (
