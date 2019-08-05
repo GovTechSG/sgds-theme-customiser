@@ -13,6 +13,9 @@ class Notification extends Component {
     if (this.props.isToast) {
       className = className.concat(" is-toast");
     }
+    if (this.props.isDanger) {
+      className = className.concat(" is-danger");
+    }
     return className;
   }
 
@@ -27,16 +30,36 @@ class Notification extends Component {
     return className;
   }
 
+  getDetailClassName() {
+    let className = "sgds-notification-detail";
+    return className;
+  }
+
+  getContentClassName() {
+    let className = "sgds-notification-content";
+    return className;
+  }
+
+  getPClassName() {
+    let className = "has-text-weight-bold";
+    return className;
+  }
+
+  getSpanClassName() {
+    let className = "delete";
+    return className;
+  }
+
 
   render() {
     return (
-      <div className = {this.getClassNameForBase()}>
-        <div class="sgds-notification-detail">
-          <div class="sgds-notification-content">
-            <p class="has-text-weight-bold">Updates</p>
+      <div className={this.getClassNameForBase()}>
+        <div className={this.getDetailClassName()}>
+          <div className={this.getContentClassName()}>
+            <p className={this.getPClassName()}>Updates</p>
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus adipisci aut dicta, ea facere fugit incidunt laborum officia quod unde.</p>
           </div>
-          <span class="delete" id="cancel-notification"></span>
+          <span className={this.getSpanClassName()} id="cancel-notification"></span>
         </div>
       </div>
     );
