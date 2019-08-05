@@ -16,6 +16,16 @@ class Notification extends Component {
     if (this.props.isDanger) {
       className = className.concat(" is-danger");
     }
+    if (this.props.isSuccess) {
+      className = className.concat(" is-warning");
+    }
+    if (this.props.isWarning) {
+      className = className.concat(" is-success");
+    }
+    if (this.props.isInfo) {
+      className = className.concat(" is-info");
+    }
+
     return className;
   }
 
@@ -50,10 +60,14 @@ class Notification extends Component {
     return className;
   }
 
+  getStyle() {
+    return { backgroundColor: this.props.themePrimaryColor } ;
+  }
+
 
   render() {
     return (
-      <div className={this.getClassNameForBase()}>
+      <div className={this.getClassNameForBase()} style={this.getStyle()}>
         <div className={this.getDetailClassName()}>
           <div className={this.getContentClassName()}>
             <p className={this.getPClassName()}>Updates</p>

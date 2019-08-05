@@ -468,7 +468,10 @@ class ComponentList extends Component {
         <div className="elementTitle">Callout</div>
         <Callout callout={this.callout} />
         <div className="elementTitle">Notifications</div>
+        <Notification isToast={true} isSuccess={true} />
+        <Notification isToast={true} isWarning={true} />
         <Notification isToast={true} isDanger={true} />
+        <Notification isToast={true} isInfo={true} />
         <Notification isToast={false} />
         <div className="row">
           <div className="sgds-button sgds-button is-rounded is-primary is-large">
