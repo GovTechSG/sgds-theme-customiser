@@ -11,20 +11,6 @@ import { MainNav, Button, Breadcrumb, AccordionBar, Card, Callout, Notification 
 
 // Import Redux Store
 import {
-  updateSmallButtonHorizontalPadding,
-  updateSmallButtonVerticalPadding,
-  updateMediumButtonHorizontalPadding,
-  updateMediumButtonVerticalPadding,
-  updateLargeButtonHorizontalPadding,
-  updateLargeButtonVerticalPadding,
-  updateDisplayFontsize,
-  updateH1Fontsize,
-  updateH2Fontsize,
-  updateH3Fontsize,
-  updateH4Fontsize,
-  updateH5Fontsize,
-  updateH6Fontsize,
-  updateSmallFontsize,
   updateTableHeadColor,
   updateTableHoverable,
   updateTableFullwidth,
@@ -35,9 +21,32 @@ class ComponentList extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      hover: false
+      defaultButtonText: "Default Button",
+      primaryButtonText: "Primary Button"
     };
   }
+  defaultButtonClicked = () => {
+    this.setState({
+      defaultButtonText: "Clicked!"
+    });
+    setTimeout(() => {
+      this.setState({
+        defaultButtonText: "Default Button"
+      });
+    }, 1500);
+  };
+
+  primaryButtonClicked = () => {
+    this.setState({
+      primaryButtonText: "Clicked!"
+    });
+    setTimeout(() => {
+      this.setState({
+        primaryButtonText: "Default Button"
+      });
+    }, 1500);
+  };
+
   // Export style
   // Export style
   exportStyle = exportcss => {
@@ -169,7 +178,8 @@ class ComponentList extends Component {
         name: "MEGA MENU1",
         subMenuInfo: {
           title: "Sub Menu 1 Info",
-          content: "You can put short paragraph of information here to describe about this section."
+          content:
+            "You can put short paragraph of information here to describe about this section."
         },
         subMenus: [
           {
@@ -284,44 +294,23 @@ class ComponentList extends Component {
     excerpt: ["Excerpt 1", "Excerpt 2", "Excerpt 3", "Excerpt 4", "Excerpt 5"]
   };
 
-  // Handle button hovered
-  hoverOn() {
-    this.setState({
-      hover: true
-    });
-  }
-
-  hoverOff() {
-    this.setState({
-      hover: false
-    });
-  }
-
   render() {
-    const smBtnPaddingHorizontal = this.props.buttonSmallHorizontalPadding;
-    const smBtnPaddingVertical = this.props.buttonSmallVerticalPadding;
-    const meBtnPaddingHorizontal = this.props.buttonMediumHorizontalPadding;
-    const meBtnPaddingVertical = this.props.buttonMediumVerticalPadding;
-    const laBtnPaddingHorizontal = this.props.buttonLargeHorizontalPadding;
-    const laBtnPaddingVertical = this.props.buttonLargeVerticalPadding;
-    const displayFontsize = this.props.displayFontsize;
-    const h1Fontsize = this.props.h1Fontsize;
-    const h2Fontsize = this.props.h2Fontsize;
-    const h3Fontsize = this.props.h3Fontsize;
-    const h4Fontsize = this.props.h4Fontsize;
-    const h5Fontsize = this.props.h5Fontsize;
-    const h6Fontsize = this.props.h6Fontsize;
-    const smallFontsize = this.props.smallFontsize;
     const tableHeadColor = this.props.tableHeadColor;
     const themePrimaryColor = this.props.themePrimaryColor;
     return (
       <div className="componentList content">
         <div className="elementTitle">Buttons</div>
         <div className="button-row">
+          <Button onClick={this.defaultButtonClicked}>
+            {this.state.defaultButtonText}
+          </Button>
+          <Button isPrimary={true} onClick={this.primaryButtonClicked}>
+            {this.state.primaryButtonText}
+          </Button>
+        </div>
+        <div className="button-row">
           <Button
             isPrimary={true}
-            paddingHorizontal={smBtnPaddingHorizontal}
-            paddingVertical={smBtnPaddingVertical}
             themePrimaryColor={themePrimaryColor}
             buttonSize="small"
           >
@@ -330,8 +319,6 @@ class ComponentList extends Component {
           <Button
             isPrimary={true}
             isOutlined={true}
-            paddingHorizontal={smBtnPaddingHorizontal}
-            paddingVertical={smBtnPaddingVertical}
             themePrimaryColor={themePrimaryColor}
             buttonSize="small"
           >
@@ -340,8 +327,6 @@ class ComponentList extends Component {
           <Button
             isPrimary={true}
             isRounded={true}
-            paddingHorizontal={smBtnPaddingHorizontal}
-            paddingVertical={smBtnPaddingVertical}
             themePrimaryColor={themePrimaryColor}
             buttonSize="small"
           >
@@ -350,8 +335,6 @@ class ComponentList extends Component {
           <Button
             isPrimary={true}
             isDisabled={true}
-            paddingHorizontal={smBtnPaddingHorizontal}
-            paddingVertical={smBtnPaddingVertical}
             themePrimaryColor={themePrimaryColor}
             buttonSize="small"
           >
@@ -361,8 +344,6 @@ class ComponentList extends Component {
         <div className="button-row">
           <Button
             isPrimary={true}
-            paddingHorizontal={meBtnPaddingHorizontal}
-            paddingVertical={meBtnPaddingVertical}
             themePrimaryColor={themePrimaryColor}
             buttonSize="medium"
           >
@@ -371,8 +352,6 @@ class ComponentList extends Component {
           <Button
             isPrimary={true}
             isOutlined={true}
-            paddingHorizontal={meBtnPaddingHorizontal}
-            paddingVertical={meBtnPaddingVertical}
             themePrimaryColor={themePrimaryColor}
             buttonSize="medium"
           >
@@ -381,8 +360,6 @@ class ComponentList extends Component {
           <Button
             isPrimary={true}
             isRounded={true}
-            paddingHorizontal={meBtnPaddingHorizontal}
-            paddingVertical={meBtnPaddingVertical}
             themePrimaryColor={themePrimaryColor}
             buttonSize="medium"
           >
@@ -391,8 +368,6 @@ class ComponentList extends Component {
           <Button
             isPrimary={true}
             isDisabled={true}
-            paddingHorizontal={meBtnPaddingHorizontal}
-            paddingVertical={meBtnPaddingVertical}
             themePrimaryColor={themePrimaryColor}
             buttonSize="medium"
           >
@@ -402,8 +377,6 @@ class ComponentList extends Component {
         <div className="button-row">
           <Button
             isPrimary={true}
-            paddingHorizontal={laBtnPaddingHorizontal}
-            paddingVertical={laBtnPaddingVertical}
             themePrimaryColor={themePrimaryColor}
             buttonSize="large"
           >
@@ -412,8 +385,6 @@ class ComponentList extends Component {
           <Button
             isPrimary={true}
             isOutlined={true}
-            paddingHorizontal={laBtnPaddingHorizontal}
-            paddingVertical={laBtnPaddingVertical}
             themePrimaryColor={themePrimaryColor}
             buttonSize="large"
           >
@@ -422,8 +393,6 @@ class ComponentList extends Component {
           <Button
             isPrimary={true}
             isRounded={true}
-            paddingHorizontal={laBtnPaddingHorizontal}
-            paddingVertical={laBtnPaddingVertical}
             themePrimaryColor={themePrimaryColor}
             buttonSize="large"
           >
@@ -432,8 +401,6 @@ class ComponentList extends Component {
           <Button
             isPrimary={true}
             isDisabled={true}
-            paddingHorizontal={laBtnPaddingHorizontal}
-            paddingVertical={laBtnPaddingVertical}
             themePrimaryColor={themePrimaryColor}
             buttonSize="large"
           >
@@ -441,18 +408,12 @@ class ComponentList extends Component {
           </Button>
         </div>
         <div className="elementTitle">Navigation Bar</div>
-        <MainNav brand={this.mainNavItems.brand} links={this.mainNavItems.links} />
-        <div className="elementTitle">Typography</div>
-        <TypographyComponent
-          displayFontsize={displayFontsize}
-          h1Fontsize={h1Fontsize}
-          h2Fontsize={h2Fontsize}
-          h3Fontsize={h3Fontsize}
-          h4Fontsize={h4Fontsize}
-          h5Fontsize={h5Fontsize}
-          h6Fontsize={h6Fontsize}
-          smallFontsize={smallFontsize}
+        <MainNav
+          brand={this.mainNavItems.brand}
+          links={this.mainNavItems.links}
         />
+        <div className="elementTitle">Typography</div>
+        <TypographyComponent />
         <div className="elementTitle">Tables{this.props.tableIsNarrow}</div>
         <TableComponent
           tableBackgroundColor={tableHeadColor}
@@ -461,8 +422,16 @@ class ComponentList extends Component {
           isNarrow={this.props.tableIsNarrow}
         />
         <div className="elementTitle">Breadcrumb</div>
-        <Breadcrumb hasBackgroundDark={false} hasTextWhite={false} items={this.breadcrumbItems} />
-        <Breadcrumb hasBackgroundDark={true} hasTextWhite={true} items={this.breadcrumbItems} />
+        <Breadcrumb
+          hasBackgroundDark={false}
+          hasTextWhite={false}
+          items={this.breadcrumbItems}
+        />
+        <Breadcrumb
+          hasBackgroundDark={true}
+          hasTextWhite={true}
+          items={this.breadcrumbItems}
+        />
         <div className="elementTitle">Accordion Bar</div>
         <AccordionBar items={this.accordionBarItems} />
         <div className="elementTitle">Card</div>
@@ -483,53 +452,26 @@ class ComponentList extends Component {
 
 const mapStateToProps = state => {
   return {
-    buttonSmallHorizontalPadding: state.cssProperties.buttonSmallHorizontalPadding,
-    buttonSmallVerticalPadding: state.cssProperties.buttonSmallVerticalPadding,
-    buttonMediumHorizontalPadding: state.cssProperties.buttonMediumHorizontalPadding,
-    buttonMediumVerticalPadding: state.cssProperties.buttonMediumVerticalPadding,
-    buttonLargeHorizontalPadding: state.cssProperties.buttonLargeHorizontalPadding,
-    buttonLargeVerticalPadding: state.cssProperties.buttonLargeVerticalPadding,
-    displayFontsize: state.cssProperties.displayFontsize,
-    h1Fontsize: state.cssProperties.h1Fontsize,
-    h2Fontsize: state.cssProperties.h2Fontsize,
-    h3Fontsize: state.cssProperties.h3Fontsize,
-    h4Fontsize: state.cssProperties.h4Fontsize,
-    h5Fontsize: state.cssProperties.h5Fontsize,
-    h6Fontsize: state.cssProperties.h6Fontsize,
-    smallFontsize: state.cssProperties.smallFontsize,
+    themePrimaryColor: state.cssProperties.themePrimaryColor,
+    themeSecondaryColor: state.cssProperties.themeSecondaryColor,
+    infoColor: state.cssProperties.infoColor,
+    successColor: state.cssProperties.successColor,
+    dangerColor: state.cssProperties.dangerColor,
+    warningColor: state.cssProperties.warningColor,
     tableHeadColor: state.cssProperties.tableHeadColor,
     tableIsNarrow: state.cssProperties.tableIsNarrow,
     tableIsHoverable: state.cssProperties.tableIsHoverable,
-    tableIsFullwidth: state.cssProperties.tableIsFullwidth,
-    themePrimaryColor: state.cssProperties.themePrimaryColor
+    tableIsFullwidth: state.cssProperties.tableIsFullwidth
   };
 };
 
 const mapDispatchToProps = dispatch => {
   return {
-    updateSmallButtonHorizontalPadding: smButtonHorizontalPadding =>
-      dispatch(updateSmallButtonHorizontalPadding(smButtonHorizontalPadding)),
-    updateSmallButtonVerticalPadding: smButtonVerticalPadding =>
-      dispatch(updateSmallButtonVerticalPadding(smButtonVerticalPadding)),
-    updateMediumButtonHorizontalPadding: meButtonHorizontalPadding =>
-      dispatch(updateMediumButtonHorizontalPadding(meButtonHorizontalPadding)),
-    updateMediumButtonVerticalPadding: meButtonVerticalPadding =>
-      dispatch(updateMediumButtonVerticalPadding(meButtonVerticalPadding)),
-    updateLargeButtonHorizontalPadding: laButtonHorizontalPadding =>
-      dispatch(updateLargeButtonHorizontalPadding(laButtonHorizontalPadding)),
-    updateLargeButtonVerticalPadding: laButtonVerticalPadding =>
-      dispatch(updateLargeButtonVerticalPadding(laButtonVerticalPadding)),
-    updateDisplayFontsize: displayFontsize => dispatch(updateDisplayFontsize(displayFontsize)),
-    updateH1Fontsize: h1Fontsize => dispatch(updateH1Fontsize(h1Fontsize)),
-    updateH2Fontsize: h2Fontsize => dispatch(updateH2Fontsize(h2Fontsize)),
-    updateH3Fontsize: h3Fontsize => dispatch(updateH3Fontsize(h3Fontsize)),
-    updateH4Fontsize: h4Fontsize => dispatch(updateH4Fontsize(h4Fontsize)),
-    updateH5Fontsize: h5Fontsize => dispatch(updateH5Fontsize(h5Fontsize)),
-    updateH6Fontsize: h6Fontsize => dispatch(updateH6Fontsize(h6Fontsize)),
-    updateSmallFontsize: smallFontsize => dispatch(updateSmallFontsize(smallFontsize)),
     updateTableHeadColor: color => dispatch(updateTableHeadColor(color)),
-    updateTableHoverable: isHoverable => dispatch(updateTableHoverable(isHoverable)),
-    updateTableFullwidth: isFullWidth => dispatch(updateTableFullwidth(isFullWidth)),
+    updateTableHoverable: isHoverable =>
+      dispatch(updateTableHoverable(isHoverable)),
+    updateTableFullwidth: isFullWidth =>
+      dispatch(updateTableFullwidth(isFullWidth)),
     updateThemePrimaryColor: themePrimaryColor =>
       dispatch(updateThemePrimaryColor(themePrimaryColor))
   };
