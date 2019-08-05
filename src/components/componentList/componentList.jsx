@@ -58,92 +58,135 @@ class ComponentList extends Component {
       themePrimaryColor = "--primary-color: " + this.props.themePrimaryColor + ";"
     }
 
-    var variableEnd = "\r\n } \r\n ";
-
-    var variables = variableStart + themePrimaryColor + variableEnd;
-
-    var btnSmHorizontalPadding = ""
-    if(cssPresets.buttonPresets.smPaddingHorizontalDefault !== this.props.buttonSmallHorizontalPadding) {
-      btnSmHorizontalPadding = ".sgds-button-small \r\n { \r\n\t padding-left: "+ this.props.buttonSmallHorizontalPadding + "px; \r\n\t padding-right: " + this.props.buttonSmallHorizontalPadding + "px; \r\n } \r\n"
-    }
-
-    var btnSmVerticalPadding = ""
-    if(cssPresets.buttonPresets.smPaddingVerticalDefault !== this.props.buttonSmallVerticalPadding) {
-      btnSmVerticalPadding = ".sgds-button-small \r\n { \r\n\t padding-top: "+ this.props.buttonSmallVerticalPadding + "px; \r\n\t padding-bottom: " + this.props.buttonSmallVerticalPadding + "px; \r\n } \r\n"
-    }
-    
-    var btnMeHorizontalPadding = ""
-    if(cssPresets.buttonPresets.mePaddingHorizontalDefault !== this.props.buttonMediumHorizontalPadding) {
-      btnMeHorizontalPadding = ".sgds-button-medium  \r\n { \r\n\t padding-left: "+ this.props.buttonMediumHorizontalPadding + "px; \r\n\t padding-right: " + this.props.buttonMediumHorizontalPadding + "px; \r\n } \r\n"
-    }
-
-    var btnMeVerticalPadding = ""
-    if(cssPresets.buttonPresets.mePaddingVerticalDefault !== this.props.buttonMediumVerticalPadding) {
-      btnMeVerticalPadding = ".sgds-button-medium  \r\n { \r\n\t padding-left: "+ this.props.buttonMediumVerticalPadding + "px; \r\n\t padding-right: " + this.props.buttonMediumVerticalPadding + "px; \r\n } \r\n"
-    }
-
-    var btnLaHortizontalPadding =""
-    if(cssPresets.buttonPresets.laPaddingHorizontalDefault !== this.props.buttonLargeHorizontalPadding) {
-      btnLaHortizontalPadding = ".sgds-button-large \r\n { \r\n\t padding-left: "+ this.props.buttonLargeHorizontalPadding + "px; \r\n\t padding-right: " + this.props.buttonLargeHorizontalPadding + "px;  \r\n } \r\n"
-    }
-
-    var btnLaVerticalPadding =""
-    if(cssPresets.buttonPresets.laPaddingVerticalDefault !== this.props.buttonLargeVerticalPadding) {
-      btnLaHortizontalPadding = ".sgds-button-large \r\n { \r\n\t padding-left: "+ this.props.buttonLargeVerticalPadding + "px; \r\n\t padding-right: " + this.props.buttonLargeVerticalPadding + "px;  \r\n } \r\n"
-    }
-
-    var displayFontSize = "";
-    if (cssPresets.typographyPresets.displayFontsizeDefault !== this.props.displayFontsize) {
-      displayFontSize = "display \r\n { \r\n\t font-size: " + this.props.displayFontsize + "px; \r\n } \r\n";
-    }
-
-    var h1fontSize = ""
-    if(cssPresets.typographyPresets.h1FontsizeDefault !== this.props.h1Fontsize){
-      h1fontSize = "h1 \r\n { \r\n\t font-size: " + this.props.h1Fontsize + "px; \r\n } \r\n";
-    }
-
-    var h2fontSize = ""
-    if(cssPresets.typographyPresets.h2FontsizeDefault !== this.props.h2Fontsize) {
-      h2fontSize = "h2 \r\n { \r\n\t font-size: " + this.props.h2Fontsize + "px; \r\n } \r\n";
-    }
-
-    var h3fontSize= ""
-    if(cssPresets.typographyPresets.h3FontsizeDefault !== this.props.h3Fontsize) {
-      h3fontSize = "h3 \r\n { \r\n\t font-size: " + this.props.h3Fontsize + "px; \r\n } \r\n";
-    }
-    
-    var h4fontSize = ""
-    if(cssPresets.typographyPresets.h4FontsizeDefault !== this.props.h4Fontsize){
-      h4fontSize = "h4 \r\n { \r\n\t font-size: " + this.props.h4Fontsize + "px; \r\n } \r\n";
-    }
-    
-    var h5fontSize = ""
-    if(cssPresets.typographyPresets.h5FontsizeDefault !== this.props.h5Fontsize) {
-      h5fontSize = "h5 \r\n { \r\n\t font-size: " + this.props.h5Fontsize + "px; \r\n } \r\n";
-    }
-    
-    var h6fontSize = ""
-    if(cssPresets.typographyPresets.h6FontsizeDefault !== this.props.h6Fontsize) {
-      h6fontSize = "h6 \r\n { \r\n\t font-size: " + this.props.h6Fontsize + "px; \r\n } \r\n";
-    }
-    
-    var smallFontsize = ""
-    if(cssPresets.typographyPresets.smallFontsizeDefault !== this.props.smallFontsize) {
-      smallFontsize = "small \r\n { \r\n\t font-size: " + this.props.smallFontsize + "px; \r\n } \r\n";
-    }
-
+    // themePrimaryColor: state.cssProperties.themePrimaryColor,
+    // themeSecondaryColor: state.cssProperties.themeSecondaryColor,
+    // infoColor: state.cssProperties.infoColor,
+    // successColor: state.cssProperties.successColor,
+    // dangerColor: state.cssProperties.dangerColor,
+    // warningColor: state.cssProperties.warningColor,
+    // tableHeadColor: state.cssProperties.tableHeadColor,
     // tableIsNarrow: state.cssProperties.tableIsNarrow,
     // tableIsHoverable: state.cssProperties.tableIsHoverable,
-    // tableIsFullwidth: state.cssProperties.tableIsFullwidth,
+    // tableIsFullwidth: state.cssProperties.tableIsFullwidth
+
+    var themeSecondaryColor = ""
+    if(cssPresets.themePresets.secondaryColor !== this.props.themeSecondaryColor) {
+      themeSecondaryColor = "--secondary-color: " + this.props.themeSecondaryColor + ";"
+    }
+
+    var infoColor = ""
+    if(cssPresets.themePresets.infoColor !== this.props.infoColor) {
+      infoColor = "--info-color: " + this.props.infoColor + ";"
+    }
+
+    var successColor = ""
+    if(cssPresets.themePresets.successColor !== this.props.successColor) {
+      successColor = "--success-color: " + this.props.successColor + ";"
+    }
+
+    var dangerColor = ""
+    if(cssPresets.themePresets.dangerColor !== this.props.dangerColor) {
+      dangerColor = "--danger-color: " + this.props.dangerColor + ";"
+    }
+
+    var warningColor = ""
+    if(cssPresets.themePresets.warningColor !== this.props.warningColor) {
+      warningColor = "--warning-color: " + this.props.warningColor + ";"
+    }
 
     var tableHeadColor = ""
     if(cssPresets.tablePresets.tableHeadColorDefault !== this.props.tableHeadColor) {
       tableHeadColor = "table \r\n { \r\n\t background-color: " + this.props.tableHeadColor + "; \r\n } \r\n"
     }
 
-    var style  = variables +  btnSmHorizontalPadding + btnSmVerticalPadding + btnMeHorizontalPadding +  btnMeVerticalPadding + btnLaHortizontalPadding + btnLaVerticalPadding + 
-    displayFontSize + h1fontSize + h2fontSize + h3fontSize + h4fontSize + h5fontSize+ h6fontSize + smallFontsize +
-    tableHeadColor;
+
+
+
+    var variableEnd = "\r\n } \r\n ";
+
+    var variables = variableStart + themePrimaryColor + themeSecondaryColor + infoColor + successColor + dangerColor + warningColor + 
+    + variableEnd;
+
+    // var btnSmHorizontalPadding = ""
+    // if(cssPresets.buttonPresets.smPaddingHorizontalDefault !== this.props.buttonSmallHorizontalPadding) {
+    //   btnSmHorizontalPadding = ".sgds-button-small \r\n { \r\n\t padding-left: "+ this.props.buttonSmallHorizontalPadding + "px; \r\n\t padding-right: " + this.props.buttonSmallHorizontalPadding + "px; \r\n } \r\n"
+    // }
+
+    // var btnSmVerticalPadding = ""
+    // if(cssPresets.buttonPresets.smPaddingVerticalDefault !== this.props.buttonSmallVerticalPadding) {
+    //   btnSmVerticalPadding = ".sgds-button-small \r\n { \r\n\t padding-top: "+ this.props.buttonSmallVerticalPadding + "px; \r\n\t padding-bottom: " + this.props.buttonSmallVerticalPadding + "px; \r\n } \r\n"
+    // }
+    
+    // var btnMeHorizontalPadding = ""
+    // if(cssPresets.buttonPresets.mePaddingHorizontalDefault !== this.props.buttonMediumHorizontalPadding) {
+    //   btnMeHorizontalPadding = ".sgds-button-medium  \r\n { \r\n\t padding-left: "+ this.props.buttonMediumHorizontalPadding + "px; \r\n\t padding-right: " + this.props.buttonMediumHorizontalPadding + "px; \r\n } \r\n"
+    // }
+
+    // var btnMeVerticalPadding = ""
+    // if(cssPresets.buttonPresets.mePaddingVerticalDefault !== this.props.buttonMediumVerticalPadding) {
+    //   btnMeVerticalPadding = ".sgds-button-medium  \r\n { \r\n\t padding-left: "+ this.props.buttonMediumVerticalPadding + "px; \r\n\t padding-right: " + this.props.buttonMediumVerticalPadding + "px; \r\n } \r\n"
+    // }
+
+    // var btnLaHortizontalPadding =""
+    // if(cssPresets.buttonPresets.laPaddingHorizontalDefault !== this.props.buttonLargeHorizontalPadding) {
+    //   btnLaHortizontalPadding = ".sgds-button-large \r\n { \r\n\t padding-left: "+ this.props.buttonLargeHorizontalPadding + "px; \r\n\t padding-right: " + this.props.buttonLargeHorizontalPadding + "px;  \r\n } \r\n"
+    // }
+
+    // var btnLaVerticalPadding =""
+    // if(cssPresets.buttonPresets.laPaddingVerticalDefault !== this.props.buttonLargeVerticalPadding) {
+    //   btnLaHortizontalPadding = ".sgds-button-large \r\n { \r\n\t padding-left: "+ this.props.buttonLargeVerticalPadding + "px; \r\n\t padding-right: " + this.props.buttonLargeVerticalPadding + "px;  \r\n } \r\n"
+    // }
+
+    // var displayFontSize = "";
+    // if (cssPresets.typographyPresets.displayFontsizeDefault !== this.props.displayFontsize) {
+    //   displayFontSize = "display \r\n { \r\n\t font-size: " + this.props.displayFontsize + "px; \r\n } \r\n";
+    // }
+
+    // var h1fontSize = ""
+    // if(cssPresets.typographyPresets.h1FontsizeDefault !== this.props.h1Fontsize){
+    //   h1fontSize = "h1 \r\n { \r\n\t font-size: " + this.props.h1Fontsize + "px; \r\n } \r\n";
+    // }
+
+    // var h2fontSize = ""
+    // if(cssPresets.typographyPresets.h2FontsizeDefault !== this.props.h2Fontsize) {
+    //   h2fontSize = "h2 \r\n { \r\n\t font-size: " + this.props.h2Fontsize + "px; \r\n } \r\n";
+    // }
+
+    // var h3fontSize= ""
+    // if(cssPresets.typographyPresets.h3FontsizeDefault !== this.props.h3Fontsize) {
+    //   h3fontSize = "h3 \r\n { \r\n\t font-size: " + this.props.h3Fontsize + "px; \r\n } \r\n";
+    // }
+    
+    // var h4fontSize = ""
+    // if(cssPresets.typographyPresets.h4FontsizeDefault !== this.props.h4Fontsize){
+    //   h4fontSize = "h4 \r\n { \r\n\t font-size: " + this.props.h4Fontsize + "px; \r\n } \r\n";
+    // }
+    
+    // var h5fontSize = ""
+    // if(cssPresets.typographyPresets.h5FontsizeDefault !== this.props.h5Fontsize) {
+    //   h5fontSize = "h5 \r\n { \r\n\t font-size: " + this.props.h5Fontsize + "px; \r\n } \r\n";
+    // }
+    
+    // var h6fontSize = ""
+    // if(cssPresets.typographyPresets.h6FontsizeDefault !== this.props.h6Fontsize) {
+    //   h6fontSize = "h6 \r\n { \r\n\t font-size: " + this.props.h6Fontsize + "px; \r\n } \r\n";
+    // }
+    
+    // var smallFontsize = ""
+    // if(cssPresets.typographyPresets.smallFontsizeDefault !== this.props.smallFontsize) {
+    //   smallFontsize = "small \r\n { \r\n\t font-size: " + this.props.smallFontsize + "px; \r\n } \r\n";
+    // }
+
+    // tableIsNarrow: state.cssProperties.tableIsNarrow,
+    // tableIsHoverable: state.cssProperties.tableIsHoverable,
+    // tableIsFullwidth: state.cssProperties.tableIsFullwidth,
+
+    
+
+    var style  = variables 
+    //  + btnSmHorizontalPadding + btnSmVerticalPadding + btnMeHorizontalPadding +  btnMeVerticalPadding + btnLaHortizontalPadding + btnLaVerticalPadding + 
+    // displayFontSize + h1fontSize + h2fontSize + h3fontSize + h4fontSize + h5fontSize+ h6fontSize + smallFontsize +
+     + tableHeadColor;
 
     if(style.length > 0) {
       console.log(style);
