@@ -12,6 +12,7 @@ import {
   MainNav,
   Button,
   Breadcrumb,
+  Accordion,
   AccordionSet,
   Card,
   Callout,
@@ -251,24 +252,6 @@ class ComponentList extends Component {
     }
   ];
 
-  accordionBarItems = [
-    {
-      title: "accodion bar 1",
-      content:
-        "You can add is-open className to sgds-accordion-body to show the content on page load"
-    },
-    {
-      title: "accodion bar 2",
-      content:
-        "You can add is-open className to sgds-accordion-body to show the content on page load"
-    },
-    {
-      title: "accodion bar 2",
-      content:
-        "You can add is-open className to sgds-accordion-body to show the content on page load"
-    }
-  ];
-
   hero = {
     defaultHero: {
       title: "design system",
@@ -478,8 +461,18 @@ class ComponentList extends Component {
           hasTextWhite={true}
           items={this.breadcrumbItems}
         />
-        <div className="elementTitle">Accordion Bar</div>
-        <AccordionSet items={this.accordionBarItems} />
+        <div className="elementTitle">Accordion Set</div>
+        <AccordionSet>
+          <Accordion header="Click me to reveal/hide my content">
+            <p>Hello there!</p>
+          </Accordion>
+          <Accordion header="Click me to reveal/hide my content">
+            <p>Hello there!</p>
+          </Accordion>
+          <Accordion header="Click me to reveal/hide my content">
+            <p>Hello there!</p>
+          </Accordion>
+        </AccordionSet>
         <div className="elementTitle">Card</div>
         <Card card={this.cardItems} />
         <div className="elementTitle">Callout</div>
