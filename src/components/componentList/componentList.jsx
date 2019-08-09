@@ -12,11 +12,11 @@ import {
   MainNav,
   Button,
   Breadcrumb,
-  AccordionBar,
+  AccordionSet,
   Card,
   Callout,
   Hero
-} from "../common";
+} from "sgds-govtech-react";
 
 // Import Redux Store
 import {
@@ -325,12 +325,12 @@ class ComponentList extends Component {
   render() {
     const tableHeadColor = this.props.tableHeadColor;
     const themePrimaryColor = this.props.themePrimaryColor;
-    const styles = {
-      backgroundColor: "#f1f1f1",
-      "&:hover": {
-        backgroundColor: "#000"
-      }
-    };
+    // const styles = {
+    //   backgroundColor: "#f1f1f1",
+    //   "&:hover": {
+    //     backgroundColor: "#000"
+    //   }
+    // };
     return (
       <div className="componentList content">
         <div className="elementTitle">Buttons</div>
@@ -479,21 +479,25 @@ class ComponentList extends Component {
           items={this.breadcrumbItems}
         />
         <div className="elementTitle">Accordion Bar</div>
-        <AccordionBar items={this.accordionBarItems} />
+        <AccordionSet items={this.accordionBarItems} />
         <div className="elementTitle">Card</div>
         <Card card={this.cardItems} />
         <div className="elementTitle">Callout</div>
         <Callout callout={this.callout} />
         <Hero
-          themePrimaryColor={themePrimaryColor}
+          color={themePrimaryColor}
           title={this.hero.defaultHero.title}
           subtitle={this.hero.defaultHero.subtitle}
         />
-        <div className="row">
-          <div className="sgds-button sgds-button is-rounded is-primary is-large">
-            <button onClick={this.exportStyle}>Export</button>
+        <section className="sgds-section">
+          <div className="row">
+            <div className="col is-flex" style={{ justifyContent: "center" }}>
+              <Button onClick={this.exportStyle} isRounded buttonSize="large">
+                Export
+              </Button>
+            </div>
           </div>
-        </div>
+        </section>
       </div>
     );
   }
