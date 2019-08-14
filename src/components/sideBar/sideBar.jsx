@@ -202,95 +202,109 @@ class Sidebar extends Component {
     if (this.state.showElement === elementList[0]) {
       return (
         <div className="buttonGroup">
-          <ColorPicker
-            colorName="Primary Color"
-            inputColor={this.props.themePrimaryColor}
-            changeColor={event => this.handleColorChange(event, "prcolor")}
-          />
-          {this.props.themePrimaryColor ===
-          cssPresets.themePresets.primaryColor ? null : (
-            <div
-              className="col is-12 resetBtn"
-              onClick={() => this.resetColors("prcolor")}
-            >
-              <a>Reset to default</a>
-            </div>
-          )}
-          <ColorPicker
-            colorName="Secondary Color"
-            inputColor={this.props.themeSecondaryColor}
-            changeColor={event => this.handleColorChange(event, "secolor")}
-          />
-          {this.props.themeSecondaryColor ===
-          cssPresets.themePresets.secondaryColor ? null : (
-            <div
-              className="col is-12 resetBtn"
-              onClick={() => this.resetColors("secolor")}
-            >
-              <a>Reset to default</a>
-            </div>
-          )}
-          <ColorPicker
-            colorName="Info Color"
-            inputColor={this.props.infoColor}
-            changeColor={event => this.handleColorChange(event, "incolor")}
-          />
-          {this.props.infoColor === cssPresets.themePresets.infoColor ? null : (
-            <div
-              className="col is-12 resetBtn"
-              onClick={() => this.resetColors("incolor")}
-            >
-              <a>Reset to default</a>
-            </div>
-          )}
-          <ColorPicker
-            colorName="Success Color"
-            inputColor={this.props.successColor}
-            changeColor={event => this.handleColorChange(event, "sucolor")}
-          />
-          {this.props.successColor ===
-          cssPresets.themePresets.successColor ? null : (
-            <div
-              className="col is-12 resetBtn"
-              onClick={() => this.resetColors("sucolor")}
-            >
-              <a>Reset to default</a>
-            </div>
-          )}
-          <ColorPicker
-            colorName="Danger Color"
-            inputColor={this.props.dangerColor}
-            changeColor={event => this.handleColorChange(event, "dacolor")}
-          />
-          {this.props.dangerColor ===
-          cssPresets.themePresets.dangerColor ? null : (
-            <div
-              className="col is-12 resetBtn"
-              onClick={() => this.resetColors("dacolor")}
-            >
-              <a>Reset to default</a>
-            </div>
-          )}
-          <ColorPicker
-            colorName="Warning Color"
-            inputColor={this.props.warningColor}
-            changeColor={event => this.handleColorChange(event, "wacolor")}
-          />
-          {this.props.warningColor ===
-          cssPresets.themePresets.warningColor ? null : (
-            <div
-              className="col is-12 resetBtn"
-              onClick={() => this.resetColors("wacolor")}
-            >
-              <a>Reset to default</a>
-            </div>
-          )}
-          <ColorPicker
-            colorName="Table Head Color"
-            inputColor={this.props.tableHeadColor}
-            changeColor={this.handleTableHeadColorUpdate}
-          />
-          {this.renderSetTableHeadColorDefault()}
+          <div className="colorpickerCon">
+            <ColorPicker
+              colorName="Primary Color"
+              inputColor={this.props.themePrimaryColor}
+              changeColor={event => this.handleColorChange(event, "prcolor")}
+            />
+            {this.props.themePrimaryColor ===
+            cssPresets.themePresets.primaryColor ? null : (
+              <div
+                className="resetBtn"
+                onClick={() => this.resetColors("prcolor")}
+              >
+                <a>Reset to default</a>
+              </div>
+            )}
+          </div>
+          <div className="colorpickerCon">
+            <ColorPicker
+              colorName="Secondary Color"
+              inputColor={this.props.themeSecondaryColor}
+              changeColor={event => this.handleColorChange(event, "secolor")}
+            />
+            {this.props.themeSecondaryColor ===
+            cssPresets.themePresets.secondaryColor ? null : (
+              <div
+                className="resetBtn"
+                onClick={() => this.resetColors("secolor")}
+              >
+                <a>Reset to default</a>
+              </div>
+            )}
+          </div>
+          <div className="colorpickerCon">
+            <ColorPicker
+              colorName="Info Color"
+              inputColor={this.props.infoColor}
+              changeColor={event => this.handleColorChange(event, "incolor")}
+            />
+            {this.props.infoColor === cssPresets.themePresets.infoColor ? null : (
+              <div
+                className="resetBtn"
+                onClick={() => this.resetColors("incolor")}
+              >
+                <a>Reset to default</a>
+              </div>
+            )}
+          </div>
+          <div className="colorpickerCon">
+            <ColorPicker
+              colorName="Success Color"
+              inputColor={this.props.successColor}
+              changeColor={event => this.handleColorChange(event, "sucolor")}
+            />
+            {this.props.successColor ===
+            cssPresets.themePresets.successColor ? null : (
+              <div
+                className="resetBtn"
+                onClick={() => this.resetColors("sucolor")}
+              >
+                <a>Reset to default</a>
+              </div>
+            )}
+          </div>
+          <div className="colorpickerCon">
+            <ColorPicker
+              colorName="Danger Color"
+              inputColor={this.props.dangerColor}
+              changeColor={event => this.handleColorChange(event, "dacolor")}
+            />
+            {this.props.dangerColor ===
+            cssPresets.themePresets.dangerColor ? null : (
+              <div
+                className="resetBtn"
+                onClick={() => this.resetColors("dacolor")}
+              >
+                <a>Reset to default</a>
+              </div>
+            )}
+          </div>
+          <div className="colorpickerCon">
+            <ColorPicker
+              colorName="Warning Color"
+              inputColor={this.props.warningColor}
+              changeColor={event => this.handleColorChange(event, "wacolor")}
+            />
+            {this.props.warningColor ===
+            cssPresets.themePresets.warningColor ? null : (
+              <div
+                className="resetBtn"
+                onClick={() => this.resetColors("wacolor")}
+              >
+                <a>Reset to default</a>
+              </div>
+            )}
+          </div>
+          <div className="colorpickerCon">
+            <ColorPicker
+              colorName="Table Head Color"
+              inputColor={this.props.tableHeadColor}
+              changeColor={this.handleTableHeadColorUpdate}
+            />
+            {this.renderSetTableHeadColorDefault()}
+          </div>
         </div>
       );
     }

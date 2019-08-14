@@ -6,6 +6,12 @@ body {
   margin: 0;
   padding: 0;
 }
+
+iframe{
+  width: 100%;
+  padding: 2rem;
+  background-color: grey;
+}
 .appBody {
   display: flex;
   height: calc(100vh - 30px);
@@ -21,18 +27,23 @@ body {
     overflow-y: auto;
     background-color: rgb(244, 247, 251);
     padding: 1.5rem;
+
+    .component-row{
+      & + .component-row{
+        margin-top: 1.5rem;
+      }
+    }
+
     .elementTitle {
-      font-size: 20px;
-      font-weight: 600;
+      font-size: 2rem;
+      font-weight: 700;
       padding: 0 0.7rem;
       padding-top: 50px;
+      &:first-child {
+        padding-top: 0px;
+      }
     }
-    .elementTitle:first-child {
-      padding-top: 0px;
-    }
-    & div {
-      padding: 0.5rem;
-    }
+
     .navbar {
       margin: 10px 0.7rem;
       .sgds-container {
@@ -47,7 +58,6 @@ body {
     }
     .button-row {
       padding: 10px 0.7rem;
-      max-height: 110px;
       .sgds-button {
         margin-right: 15px;
       }
@@ -106,6 +116,10 @@ body {
       overflow-y: auto;
       .buttonGroup {
         padding: 5px 10px;
+        .colorpickerCon{
+          min-height: 80px;
+          height: 80px;
+        }
         .colorPicker:first-child {
           padding-top: 0px;
         }
@@ -134,7 +148,7 @@ body {
         .resetBtn {
           color: #1890ff;
           font-size: 10px;
-          position: absolute;
+          margin-top: 3px;
         }
         .color {
           text-align: left;
@@ -143,9 +157,6 @@ body {
           border-radius: 0.5rem;
         }
       }
-    }
-    & div {
-      padding: 0px;
     }
     & label {
       padding: 0px;

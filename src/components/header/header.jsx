@@ -6,7 +6,7 @@ class Header extends Component {
   render() {
     return (
       <div className="sgds-masthead">
-        <div className="sgds-container">
+        <div className="sgds-container is-fluid">
           <div className="row">
             <div className="col">
               <a
