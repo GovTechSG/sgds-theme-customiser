@@ -1,5 +1,5 @@
 {
-  "name": "sgds-govtech-react",
+  "name": "sgds-theme-customiser",
   "version": "0.1.1",
   "files": [
     "dist"
@@ -7,7 +7,6 @@
   "main": "dist/index.js",
   "scripts": {
     "build": "react-scripts build",
-    "compile": "rm -rf ./dist && NODE_ENV=production babel src/components/common --out-dir ./dist --source-maps",
     "eject": "react-scripts eject",
     "start": "react-scripts start",
     "test": "react-scripts test"
@@ -28,24 +27,23 @@
     "extends": "react-app"
   },
   "devDependencies": {
-    "@babel/cli": "^7.5.5",
-    "@babel/preset-react": "^7.0.0",
     "node-sass": "^4.12.0",
     "prop-types": "^15.7.2",
     "react": "^16.8.6",
     "react-color": "^2.17.3",
     "react-compound-slider": "^2.0.0",
-    "react-dom": "^16.8.6",
+    "react-dom": "^16.9.0",
+    "react-frame-component": "^4.1.1",
     "react-redux": "^7.1.0",
-    "react-scripts": "3.0.0",
+    "react-scripts": "3.0.1",
     "redux": "^4.0.1",
     "redux-thunk": "^2.3.0",
     "sgds-govtech": "^1.2.3",
+    "styled-components": "^4.3.2",
     "throttle-debounce": "^2.1.0"
   },
   "dependencies": {
-    "react-frame-component": "^4.1.1",
-    "styled-components": "^4.3.2",
+    "sgds-govtech-react": "^0.1.1",
     "typescript": "^3.5.3"
   }
 }

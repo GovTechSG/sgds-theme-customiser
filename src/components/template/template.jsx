@@ -5,15 +5,7 @@ import Frame from "react-frame-component";
 
 
 // Import Element
-import {
-  MainNav,
-  Hero,
-  Button,
-  Breadcrumb,
-  AccordionBar,
-  Card,
-  Callout
-} from "../common";
+import { MainNav, Hero } from "sgds-govtech-react";
 
 // Import Redux Store
 import {

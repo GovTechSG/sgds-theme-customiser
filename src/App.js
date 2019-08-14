@@ -6,8 +6,8 @@ import configureStore from "./store/configureStore";
 import { Provider } from "react-redux";
 
 // elements
+import { MainNav } from "sgds-govtech-react";
 import Header from "./components/header/header";
-import MainNav from "./components/common/MainNav";
 import Body from "./components/body/body";
 import Footer from "./components/footer/footer";
 
