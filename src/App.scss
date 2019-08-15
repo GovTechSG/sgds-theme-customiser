@@ -75,6 +75,11 @@ iframe{
         padding: 0 !important;
       }
     }
+    .sgds-hero {
+      .sgds-hero-body {
+        width: auto !important;
+      }
+    }
   }
   .componentList::-webkit-scrollbar {
     display: none;
