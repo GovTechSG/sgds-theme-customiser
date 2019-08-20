@@ -482,7 +482,7 @@ class ComponentList extends Component {
           </Accordion>
         </AccordionSet>
         <div className="elementTitle">Card</div>
-        <Card card={this.cardItems} />
+        <Card infoColor={infoColor} card={this.cardItems} />
         <div className="elementTitle">Callout</div>
         <Callout callout={this.callout} />
         <div className="elementTitle">Default Hero</div>
