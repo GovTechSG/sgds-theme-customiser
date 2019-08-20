@@ -280,7 +280,8 @@ class ComponentList extends Component {
           "Other dropdown item"
         ]
       }
-    }
+    },
+    searchButtonText: "Search"
   };
 
   cardItems = {
@@ -301,19 +302,25 @@ class ComponentList extends Component {
     excerpt: ["Excerpt 1", "Excerpt 2", "Excerpt 3", "Excerpt 4", "Excerpt 5"]
   };
 
+  // Display the selected item from dropdown list in console
+  selectDropdown = item => {
+    console.log(item);
+  };
+
+  // Display the selected Main Nav item from the main nav in console
   selectMenuItem = item => {
     console.log(item);
+  };
+
+  // Display the seard query from hero component in console
+  clickSearchButton = searchQuery => {
+    console.log(searchQuery);
   };
 
   render() {
     const tableHeadColor = this.props.tableHeadColor;
     const themePrimaryColor = this.props.themePrimaryColor;
-    // const styles = {
-    //   backgroundColor: "#f1f1f1",
-    //   "&:hover": {
-    //     backgroundColor: "#000"
-    //   }
-    // };
+    const infoColor = this.props.infoColor;
     return (
       <div className="componentList content">
         <div className="elementTitle">Buttons</div>
@@ -452,6 +459,7 @@ class ComponentList extends Component {
         />
         <div className="elementTitle">Breadcrumb</div>
         <Breadcrumb
+          infoColor={infoColor}
           hasBackgroundDark={false}
           hasTextWhite={false}
           items={this.breadcrumbItems}
@@ -474,13 +482,28 @@ class ComponentList extends Component {
           </Accordion>
         </AccordionSet>
         <div className="elementTitle">Card</div>
-        <Card card={this.cardItems} />
+        <Card infoColor={infoColor} card={this.cardItems} />
         <div className="elementTitle">Callout</div>
         <Callout callout={this.callout} />
+        <div className="elementTitle">Default Hero</div>
         <Hero
           color={themePrimaryColor}
           title={this.hero.defaultHero.title}
           subtitle={this.hero.defaultHero.subtitle}
+        />
+        <div className="elementTitle">Hero with Dropdown</div>
+        <Hero
+          color={themePrimaryColor}
+          title={this.hero.withDropdown.title}
+          subtitle={this.hero.withDropdown.subtitle}
+          showDropdown={true}
+          dropdownTitle={this.hero.withDropdown.dropdown.dropdownText}
+          dropdownItems={this.hero.withDropdown.dropdown.dropdownList}
+          isHoverable={false}
+          selectItem={this.selectDropdown}
+          showSearch={true}
+          searchButtonText={this.hero.searchButtonText}
+          clickSearchButton={this.clickSearchButton}
         />
         <section className="sgds-section">
           <div className="row">
