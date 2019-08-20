@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 import Frame from "react-frame-component";
 
 // Import Element
-import { MainNav, Hero } from "sgds-govtech-react";
+import { MainNav, Hero, Masthead } from "sgds-govtech-react";
 
 // Import Redux Store
 import {
@@ -114,24 +114,7 @@ class Template extends Component {
         }
       >
         <div className="template">
-          <div className="sgds-masthead">
-            <div className="sgds-container">
-              <div className="row">
-                <div className="col">
-                  <a
-                    href="https://www.gov.sg"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    <span className="sgds-icon sgds-icon-sg-crest" />
-                    <span className="is-text">
-                      A Singapore Government Agency Website
-                    </span>
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
+          <Masthead languageSelectHandler={false} />
           <MainNav
             brand={this.mainNavItems.brand}
             links={this.mainNavItems.links}
@@ -141,18 +124,25 @@ class Template extends Component {
             isFluid={false}
           />
           <Hero
-            themePrimaryColor={this.props.themePrimaryColor}
+            color={this.props.themePrimaryColor}
             title={this.hero.defaultHero.title}
             subtitle={this.hero.defaultHero.subtitle}
+            showDropdown={false}
+            isHoverable={false}
+            showSearch={false}
           />
           <section
+            style={{
+              backgroundColor: this.props.themeSecondaryColor,
+              color: "#fff"
+            }}
             className="sgds-section is-paddingless has-background-secondary"
             id="key-highlights"
           >
             <div className="sgds-container">
               <div className="row is-gapless has-text-centered">
                 <div className="col">
-                  <a href="/learn" className="has-text-white">
+                  <a href="#" className="has-text-white">
                     <p className="margin--bottom--xs">
                       <b>Lorem, ipsum dolor.</b>
                     </p>
@@ -163,7 +153,7 @@ class Template extends Component {
                   </a>
                 </div>
                 <div className="col">
-                  <a href="/docs" className="has-text-white">
+                  <a href="#" className="has-text-white">
                     <p className="margin--bottom--xs">
                       <b>Lorem, ipsum dolor.</b>
                     </p>
@@ -174,7 +164,7 @@ class Template extends Component {
                   </a>
                 </div>
                 <div className="col">
-                  <a href="/coming-soon" className="has-text-white">
+                  <a href="#" className="has-text-white">
                     <p className="margin--bottom--xs">
                       <b>Lorem, ipsum dolor.</b>
                     </p>
@@ -280,7 +270,10 @@ class Template extends Component {
                   <div className="row">
                     <div className="col is-4">
                       <a href="" className="is-media-card">
-                        <div className="sgds-card is-success">
+                        <div
+                          style={{ backgroundColor: this.props.successColor }}
+                          className="sgds-card is-success"
+                        >
                           <div className="sgds-card-content">
                             <header>
                               <div className="padding--bottom">test</div>
@@ -298,7 +291,10 @@ class Template extends Component {
                     </div>
                     <div className="col is-4">
                       <a href="" className="is-media-card">
-                        <div className="sgds-card is-warning">
+                        <div
+                          style={{ backgroundColor: this.props.warningColor }}
+                          className="sgds-card is-warning"
+                        >
                           <div className="sgds-card-content">
                             <header>
                               <div className="padding--bottom">test</div>
@@ -316,7 +312,10 @@ class Template extends Component {
                     </div>
                     <div className="col is-4">
                       <a href="" className="is-media-card">
-                        <div className="sgds-card is-danger">
+                        <div
+                          style={{ backgroundColor: this.props.dangerColor }}
+                          className="sgds-card is-danger"
+                        >
                           <div className="sgds-card-content">
                             <header>
                               <div className="padding--bottom">test</div>
@@ -356,6 +355,9 @@ class Template extends Component {
                         elit. Tempora, quod.
                       </p>
                       <a
+                        style={{
+                          backgroundColor: this.props.themePrimaryColor
+                        }}
                         className="sgds-button is-primary margin--top"
                         role="button"
                       >
@@ -369,6 +371,9 @@ class Template extends Component {
                         elit. Tempora, quod.
                       </p>
                       <a
+                        style={{
+                          backgroundColor: this.props.themePrimaryColor
+                        }}
                         className="sgds-button is-primary margin--top"
                         role="button"
                       >
@@ -382,6 +387,9 @@ class Template extends Component {
                         elit. Tempora, quod.
                       </p>
                       <a
+                        style={{
+                          backgroundColor: this.props.themePrimaryColor
+                        }}
                         className="sgds-button is-primary margin--top"
                         role="button"
                       >
@@ -447,7 +455,11 @@ class Template extends Component {
                       <p>
                         Lorem ipsum dolor sit, amet consectetur adipisicing
                         elit. Aliquam quo quis provident nesciunt ut maiores
-                        minima, <a href="">ipsa explicabo doloremque quae</a>?
+                        minima,{" "}
+                        <a style={{ color: this.props.infoColor }} href="#">
+                          ipsa explicabo doloremque quae
+                        </a>
+                        ?
                       </p>
                     </div>
                     <div className="col has-text-centered">
@@ -466,7 +478,11 @@ class Template extends Component {
                       <p>
                         Lorem ipsum dolor sit, amet consectetur adipisicing
                         elit. Aliquam quo quis provident nesciunt ut maiores
-                        minima, <a href="">ipsa explicabo doloremque quae</a>?
+                        minima,{" "}
+                        <a style={{ color: this.props.infoColor }} href="#">
+                          ipsa explicabo doloremque quae
+                        </a>
+                        ?
                       </p>
                     </div>
                   </div>
@@ -501,23 +517,48 @@ class Template extends Component {
                         <td>Data 1A</td>
                         <td>Data 1B</td>
                       </tr>
-                      <tr className="has-background-primary has-text-white">
+                      <tr
+                        style={{
+                          backgroundColor: this.props.themePrimaryColor
+                        }}
+                        className="has-text-white"
+                      >
                         <td>Data 1A</td>
                         <td>Data 1B</td>
                       </tr>
-                      <tr className="has-background-secondary has-text-white">
+                      <tr
+                        style={{
+                          backgroundColor: this.props.themeSecondaryColor
+                        }}
+                        className="has-text-white"
+                      >
                         <td>Data 2A</td>
                         <td>Data 2B</td>
                       </tr>
-                      <tr className="has-background-warning has-text-white">
+                      <tr
+                        style={{
+                          backgroundColor: this.props.warningColor
+                        }}
+                        className="has-text-white"
+                      >
                         <td>Data 3A</td>
                         <td>Data 3B</td>
                       </tr>
-                      <tr className="has-background-danger has-text-white">
+                      <tr
+                        style={{
+                          backgroundColor: this.props.dangerColor
+                        }}
+                        className="has-background-danger has-text-white"
+                      >
                         <td>Data 3A</td>
                         <td>Data 3B</td>
                       </tr>
-                      <tr className="has-background-success has-text-white">
+                      <tr
+                        style={{
+                          backgroundColor: this.props.successColor
+                        }}
+                        className="has-background-success has-text-white"
+                      >
                         <td>Data 3A</td>
                         <td>Data 3B</td>
                       </tr>
@@ -527,7 +568,12 @@ class Template extends Component {
               </div>
             </div>
           </div>
-          <section className="sgds-section has-background-secondary">
+          <section
+            style={{
+              backgroundColor: this.props.themeSecondaryColor
+            }}
+            className="sgds-section"
+          >
             <div className="sgds-container">
               <div className="content has-text-white">
                 <div className="row has-text-centered">
