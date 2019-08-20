@@ -3,7 +3,6 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import Frame from "react-frame-component";
 
-
 // Import Element
 import { MainNav, Hero } from "sgds-govtech-react";
 
@@ -106,13 +105,14 @@ class Template extends Component {
   };
   render() {
     return (
-      <Frame>
-        <head>
+      <Frame
+        head={
           <link
             rel="stylesheet"
             href="https://cdn.jsdelivr.net/npm/sgds-govtech@1.2.3/css/sgds.css"
           />
-        </head>
+        }
+      >
         <div className="template">
           <div className="sgds-masthead">
             <div className="sgds-container">
