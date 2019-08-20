@@ -320,6 +320,7 @@ class ComponentList extends Component {
   render() {
     const tableHeadColor = this.props.tableHeadColor;
     const themePrimaryColor = this.props.themePrimaryColor;
+    const infoColor = this.props.infoColor;
     return (
       <div className="componentList content">
         <div className="elementTitle">Buttons</div>
@@ -458,6 +459,7 @@ class ComponentList extends Component {
         />
         <div className="elementTitle">Breadcrumb</div>
         <Breadcrumb
+          infoColor={infoColor}
           hasBackgroundDark={false}
           hasTextWhite={false}
           items={this.breadcrumbItems}
