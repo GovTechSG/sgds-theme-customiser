@@ -334,7 +334,7 @@ class ComponentList extends Component {
           <Button
             isPrimary={true}
             onClick={this.primaryButtonClicked}
-            themePrimaryColor={themePrimaryColor}
+            primaryColor={themePrimaryColor}
             isDisabled={this.state.primaryButtonDisabled}
           >
             {this.state.primaryButtonText}
@@ -343,7 +343,7 @@ class ComponentList extends Component {
         <div className="button-row">
           <Button
             isPrimary={true}
-            themePrimaryColor={themePrimaryColor}
+            primaryColor={themePrimaryColor}
             buttonSize="small"
           >
             button
@@ -351,7 +351,7 @@ class ComponentList extends Component {
           <Button
             isPrimary={true}
             isOutlined={true}
-            themePrimaryColor={themePrimaryColor}
+            primaryColor={themePrimaryColor}
             buttonSize="small"
           >
             button
@@ -359,7 +359,7 @@ class ComponentList extends Component {
           <Button
             isPrimary={true}
             isRounded={true}
-            themePrimaryColor={themePrimaryColor}
+            primaryColor={themePrimaryColor}
             buttonSize="small"
           >
             button
@@ -367,7 +367,7 @@ class ComponentList extends Component {
           <Button
             isPrimary={true}
             isDisabled={true}
-            themePrimaryColor={themePrimaryColor}
+            primaryColor={themePrimaryColor}
             buttonSize="small"
           >
             button
@@ -376,7 +376,7 @@ class ComponentList extends Component {
         <div className="button-row">
           <Button
             isPrimary={true}
-            themePrimaryColor={themePrimaryColor}
+            primaryColor={themePrimaryColor}
             buttonSize="medium"
           >
             button
@@ -384,7 +384,7 @@ class ComponentList extends Component {
           <Button
             isPrimary={true}
             isOutlined={true}
-            themePrimaryColor={themePrimaryColor}
+            primaryColor={themePrimaryColor}
             buttonSize="medium"
           >
             button
@@ -392,7 +392,7 @@ class ComponentList extends Component {
           <Button
             isPrimary={true}
             isRounded={true}
-            themePrimaryColor={themePrimaryColor}
+            primaryColor={themePrimaryColor}
             buttonSize="medium"
           >
             button
@@ -400,7 +400,7 @@ class ComponentList extends Component {
           <Button
             isPrimary={true}
             isDisabled={true}
-            themePrimaryColor={themePrimaryColor}
+            primaryColor={themePrimaryColor}
             buttonSize="medium"
           >
             button
@@ -409,7 +409,7 @@ class ComponentList extends Component {
         <div className="button-row">
           <Button
             isPrimary={true}
-            themePrimaryColor={themePrimaryColor}
+            primaryColor={themePrimaryColor}
             buttonSize="large"
           >
             button
@@ -417,7 +417,7 @@ class ComponentList extends Component {
           <Button
             isPrimary={true}
             isOutlined={true}
-            themePrimaryColor={themePrimaryColor}
+            primaryColor={themePrimaryColor}
             buttonSize="large"
           >
             button
@@ -425,7 +425,7 @@ class ComponentList extends Component {
           <Button
             isPrimary={true}
             isRounded={true}
-            themePrimaryColor={themePrimaryColor}
+            primaryColor={themePrimaryColor}
             buttonSize="large"
           >
             button
@@ -433,7 +433,7 @@ class ComponentList extends Component {
           <Button
             isPrimary={true}
             isDisabled={true}
-            themePrimaryColor={themePrimaryColor}
+            primaryColor={themePrimaryColor}
             buttonSize="large"
           >
             button
