@@ -12,7 +12,6 @@ class Body extends Component {
     return (
       <div className="appBody content-page">
         {this.props.display === 0 ? <ComponentList /> : <Template />}
-
         <Sidebar />
       </div>
     );

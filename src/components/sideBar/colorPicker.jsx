@@ -34,6 +34,7 @@ class ColorPicker extends Component {
           type="button"
           value={this.props.inputColor}
           onClick={() => this.toggleColorPicker()}
+          style={{cursor: "pointer"}}
           readOnly
         />
         <div

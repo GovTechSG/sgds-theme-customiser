@@ -7,7 +7,6 @@ import { Provider } from "react-redux";
 
 // elements
 import { MainNav } from "sgds-govtech-react";
-import Header from "./components/header/header";
 import Body from "./components/body/body";
 import Footer from "./components/footer/footer";
 
@@ -65,7 +64,6 @@ class App extends Component {
     };
     return (
       <Provider store={store}>
-        <Header />
         <MainNav
           brand={mainNavItems.brand}
           links={mainNavItems.links}
