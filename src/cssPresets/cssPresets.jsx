@@ -1,11 +1,11 @@
 const cssPresets = {
   themePresets: {
     primaryColor: "#6037b3",
-    secondaryColor: "#4675d3",
-    infoColor: "#4372D6",
-    successColor: "#1ca161",
+    secondaryColor: "#3e69be",
+    infoColor: "#008196",
+    successColor: "#008649",
     dangerColor: "#D0021B",
-    warningColor: "#F5A623"
+    warningColor: "#f5a623"
   },
   buttonPresets: {
     smPaddingHorizontalDefault: 9,
@@ -30,6 +30,14 @@ const cssPresets = {
     tableIsNarrow: false,
     tableIsHoverable: false,
     tableIsFullwidth: false
+  },
+  notificationPresets: {
+    isPrimary: 'primary',
+    isSecondary: 'secondary',
+    isInfo: 'info',
+    isSuccess: 'success',
+    isDanger: 'danger',
+    isWarning: 'warning'
   }
 };
 
