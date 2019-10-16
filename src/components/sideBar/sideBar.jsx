@@ -95,7 +95,7 @@ class Sidebar extends Component {
           className="col is-12 resetBtn"
           onClick={() => this.resetTableHeadColerDefault()}
         >
-          <a>Reset to default</a>
+          <a className="is-block margin-bottom">Reset to default</a>
         </div>
       );
     }
@@ -225,7 +225,7 @@ class Sidebar extends Component {
                 className="resetBtn"
                 onClick={() => this.resetColors("prcolor")}
               >
-                <a>Reset to default</a>
+                <a className="is-block margin-bottom">Reset to default</a>
               </div>
             )}
           </div>
@@ -241,7 +241,7 @@ class Sidebar extends Component {
                 className="resetBtn"
                 onClick={() => this.resetColors("secolor")}
               >
-                <a>Reset to default</a>
+                <a className="is-block margin-bottom">Reset to default</a>
               </div>
             )}
           </div>
@@ -256,7 +256,7 @@ class Sidebar extends Component {
                 className="resetBtn"
                 onClick={() => this.resetColors("incolor")}
               >
-                <a>Reset to default</a>
+                <a className="is-block margin-bottom">Reset to default</a>
               </div>
             )}
           </div>
@@ -272,7 +272,7 @@ class Sidebar extends Component {
                 className="resetBtn"
                 onClick={() => this.resetColors("sucolor")}
               >
-                <a>Reset to default</a>
+                <a className="is-block margin-bottom">Reset to default</a>
               </div>
             )}
           </div>
@@ -288,7 +288,7 @@ class Sidebar extends Component {
                 className="resetBtn"
                 onClick={() => this.resetColors("dacolor")}
               >
-                <a>Reset to default</a>
+                <a className="is-block margin-bottom">Reset to default</a>
               </div>
             )}
           </div>
@@ -304,7 +304,7 @@ class Sidebar extends Component {
                 className="resetBtn"
                 onClick={() => this.resetColors("wacolor")}
               >
-                <a>Reset to default</a>
+                <a className="is-block margin-bottom">Reset to default</a>
               </div>
             )}
           </div>
