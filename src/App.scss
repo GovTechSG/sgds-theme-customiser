@@ -122,14 +122,16 @@ iframe{
       .buttonGroup {
         padding: 5px 10px;
         .colorpickerCon{
-          min-height: 80px;
-          height: 80px;
+          padding: 10px 0 10px;
+          &:first-child{
+            padding-top: 0;
+          }
+          &:last-child{
+            padding-bottom: 20px;
+          }
         }
-        .colorPicker:first-child {
-          padding-top: 0px;
-        }
+
         .colorPicker {
-          padding: 10px 0 0 0;
           .color-preview {
             position: absolute;
             width: 20px;

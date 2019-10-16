@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 import Frame from "react-frame-component";
 
 // Import Element
-import { MainNav, Hero, Masthead } from "sgds-govtech-react";
+import { Hero } from "sgds-govtech-react";
 
 // Import Redux Store
 import {
@@ -109,20 +109,11 @@ class Template extends Component {
         head={
           <link
             rel="stylesheet"
-            href="https://cdn.jsdelivr.net/npm/sgds-govtech@1.2.3/css/sgds.css"
+            href="https://cdn.jsdelivr.net/npm/sgds-govtech@1.3.5/css/sgds.css"
           />
         }
       >
         <div className="template">
-          <Masthead languageSelectHandler={false} />
-          <MainNav
-            brand={this.mainNavItems.brand}
-            links={this.mainNavItems.links}
-            selectItem={this.selectMenuItem}
-            themePrimaryColor={this.props.themePrimaryColor}
-            displaySeardh={false}
-            isFluid={false}
-          />
           <Hero
             color={this.props.themePrimaryColor}
             title={this.hero.defaultHero.title}
@@ -615,98 +606,6 @@ class Template extends Component {
               </div>
             </div>
           </section>
-          <footer className="sgds-footer top-section">
-            <div className="sgds-container">
-              <div className="row">
-                <div className="col">
-                  <h5 className="has-text-white">
-                    <b>Design System</b>
-                  </h5>
-                </div>
-              </div>
-              <div className="row">
-                <div className="col is-3">
-                  <p className="has-text-white">
-                    <b>Category 1</b>
-                  </p>
-                  <p>
-                    <a href="">Link</a>
-                  </p>
-                  <p>
-                    <a href="">Link</a>
-                  </p>
-                </div>
-                <div className="col is-3">
-                  <p className="has-text-white">
-                    <b>Category 2</b>
-                  </p>
-                  <p>
-                    <a href="">Link</a>
-                  </p>
-                  <p>
-                    <a href="">Link</a>
-                  </p>
-                </div>
-              </div>
-              <div className="row">
-                <div className="col is-right-desktop-only">
-                  <ul>
-                    <li className="is-inline-block-desktop-only">
-                      <p>
-                        <a href="" target="_blank" rel="noopener noreferrer">
-                          Contact
-                        </a>
-                      </p>
-                    </li>
-                    <li className="is-inline-block-desktop-only">
-                      <p>
-                        <a href="" target="_blank" rel="noopener noreferrer">
-                          Feedback
-                        </a>
-                      </p>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-          </footer>
-          <footer className="sgds-footer bottom-section">
-            <div className="sgds-container">
-              <div className="row is-multiline">
-                <div className="col is-12">
-                  <ul>
-                    <li>
-                      <a
-                        href="https://tech.gov.sg/report_vulnerability"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                      >
-                        Report Vulnerability
-                      </a>
-                    </li>
-                    <li>
-                      <a href="">Privacy</a>
-                    </li>
-                    <li>
-                      <a href="">Terms of Use</a>
-                    </li>
-                  </ul>
-                </div>
-                <div className="col is-12 has-text-right-desktop has-text-right-tablet has-text-left-mobile">
-                  <p className="is-hidden-touch">
-                    {" "}
-                    © 2019 Government of Singapore. Last Updated 26 Jul 2019
-                  </p>
-                  <p className="is-hidden-desktop">
-                    © 2019 Government of Singapore
-                  </p>
-                  <p className="is-hidden-desktop last-updated">
-                    Last Updated 26 Jul 2019
-                  </p>
-                </div>
-              </div>
-            </div>
-          </footer>
         </div>
       </Frame>
     );

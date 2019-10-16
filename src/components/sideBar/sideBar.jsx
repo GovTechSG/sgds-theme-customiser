@@ -95,7 +95,7 @@ class Sidebar extends Component {
           className="col is-12 resetBtn"
           onClick={() => this.resetTableHeadColerDefault()}
         >
-          <a>Reset to default</a>
+          <a className="is-block margin-bottom">Reset to default</a>
         </div>
       );
     }
@@ -166,9 +166,7 @@ class Sidebar extends Component {
       }
     } else if (colorCat === "sucolor") {
       try {
-        this.props.updateThemeSuccessColor(
-          cssPresets.themePresets.successColor
-        );
+        this.props.updateThemeSuccessColor(cssPresets.themePresets.successColor);
       } catch (error) {
         console.log("Error: ", error);
       }
@@ -180,12 +178,25 @@ class Sidebar extends Component {
       }
     } else if (colorCat === "wacolor") {
       try {
-        this.props.updateThemeDangerColor(cssPresets.themePresets.warningColor);
+        this.props.updateThemeWarningColor(cssPresets.themePresets.warningColor);
       } catch (error) {
         console.log("Error: ", error);
       }
-    }
+    } else if (colorCat === "resetAll") {
+      try{
+        this.props.updateThemePrimaryColor(cssPresets.themePresets.primaryColor);
+        this.props.updateThemeSecondaryColor(cssPresets.themePresets.secondaryColor);
+        this.props.updateThemeInfoColor(cssPresets.themePresets.infoColor);
+        this.props.updateThemeSuccessColor(cssPresets.themePresets.successColor);
+        this.props.updateThemeDangerColor(cssPresets.themePresets.dangerColor);
+        this.props.updateThemeWarningColor(cssPresets.themePresets.warningColor);
+      } catch (error) {
+        console.log("Error: ", error);
+      }
+    }     
   };
+
+
 
   resetTableHeadColerDefault = () => {
     try {
@@ -214,7 +225,7 @@ class Sidebar extends Component {
                 className="resetBtn"
                 onClick={() => this.resetColors("prcolor")}
               >
-                <a>Reset to default</a>
+                <a className="is-block margin-bottom">Reset to default</a>
               </div>
             )}
           </div>
@@ -230,7 +241,7 @@ class Sidebar extends Component {
                 className="resetBtn"
                 onClick={() => this.resetColors("secolor")}
               >
-                <a>Reset to default</a>
+                <a className="is-block margin-bottom">Reset to default</a>
               </div>
             )}
           </div>
@@ -245,7 +256,7 @@ class Sidebar extends Component {
                 className="resetBtn"
                 onClick={() => this.resetColors("incolor")}
               >
-                <a>Reset to default</a>
+                <a className="is-block margin-bottom">Reset to default</a>
               </div>
             )}
           </div>
@@ -261,7 +272,7 @@ class Sidebar extends Component {
                 className="resetBtn"
                 onClick={() => this.resetColors("sucolor")}
               >
-                <a>Reset to default</a>
+                <a className="is-block margin-bottom">Reset to default</a>
               </div>
             )}
           </div>
@@ -277,7 +288,7 @@ class Sidebar extends Component {
                 className="resetBtn"
                 onClick={() => this.resetColors("dacolor")}
               >
-                <a>Reset to default</a>
+                <a className="is-block margin-bottom">Reset to default</a>
               </div>
             )}
           </div>
@@ -293,18 +304,22 @@ class Sidebar extends Component {
                 className="resetBtn"
                 onClick={() => this.resetColors("wacolor")}
               >
-                <a>Reset to default</a>
+                <a className="is-block margin-bottom">Reset to default</a>
               </div>
             )}
           </div>
-          <div className="colorpickerCon">
+          <button className="sgds-button is-primary is-small" 
+                  onClick={() => this.resetColors('resetAll')}
+                  
+                  >Reset All</button>
+          {/* <div className="colorpickerCon">
             <ColorPicker
               colorName="Table Head Color"
               inputColor={this.props.tableHeadColor}
               changeColor={this.handleTableHeadColorUpdate}
             />
             {this.renderSetTableHeadColorDefault()}
-          </div>
+          </div> */}
         </div>
       );
     }

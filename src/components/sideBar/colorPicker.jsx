@@ -2,7 +2,9 @@
 import React, { Component } from "react";
 
 // Import Color Picker
-import { SketchPicker } from "react-color";
+import { SketchPicker} from "react-color";
+import { readability } from 'tinycolor2';
+
 class ColorPicker extends Component {
   constructor(props) {
     super(props);
@@ -14,6 +16,15 @@ class ColorPicker extends Component {
   hideColorPicker() {
     this.setState({ showColorPicker: false });
   }
+
+  colorName(colorName){
+    return colorName === 'Warning Color' ? '#0f0f0f' : '#fff';
+  }
+
+  colorContrast(inputColor, colorName){
+    return readability(inputColor, this.colorName(colorName) ).toFixed(2);
+  }
+
   render() {
     const popover = {
       position: "absolute",
@@ -28,7 +39,12 @@ class ColorPicker extends Component {
     };
     return (
       <div className="colorPicker">
-        <div>{this.props.colorName}</div>
+        <p className="has-text-weight-bold">{this.props.colorName} 
+          <small className={this.colorContrast(this.props.inputColor, this.props.colorName) < 4.5 ? 'padding--left has-text-danger' : 'padding--left has-text-success' }>
+            {this.colorContrast( this.props.inputColor, this.props.colorName)}
+          </small>
+        </p>
+        
         <input
           className="col is-11 color"
           type="button"
@@ -52,6 +68,7 @@ class ColorPicker extends Component {
             />
           </div>
         ) : null}
+        
       </div>
     );
   }

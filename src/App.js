@@ -64,6 +64,19 @@ class App extends Component {
     };
     return (
       <Provider store={store}>
+        {/* <Masthead hasMaxWidth={false}/> */}
+        <div className="sgds-masthead">
+            <div className="sgds-container is-fluid">
+                <div className="row">
+                    <div className="col">
+                        <a href="https://www.gov.sg" target="_blank" rel="noopener noreferrer">
+                            <span className="sgds-icon sgds-icon-sg-crest"></span>
+                            <span className="is-text">A Singapore Government Agency Website</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
         <MainNav
           brand={mainNavItems.brand}
           links={mainNavItems.links}
