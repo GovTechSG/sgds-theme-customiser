@@ -17,12 +17,13 @@ class ColorPicker extends Component {
     this.setState({ showColorPicker: false });
   }
 
-  colorName(colorName){
+  //TODO change individual button font color
+  compareColorName(colorName){
     return colorName === 'Warning Color' ? '#0f0f0f' : '#fff';
   }
 
   colorContrast(inputColor, colorName){
-    return readability(inputColor, this.colorName(colorName) ).toFixed(2);
+    return readability(inputColor, this.compareColorName(colorName) ).toFixed(2);
   }
 
   render() {
@@ -39,7 +40,7 @@ class ColorPicker extends Component {
     };
     return (
       <div className="colorPicker">
-        <p className="has-text-weight-bold">{this.props.colorName} 
+        <p className="has-text-weight-bold">{this.props.colorName}
           <small className={this.colorContrast(this.props.inputColor, this.props.colorName) < 4.5 ? 'padding--left has-text-danger' : 'padding--left has-text-success' }>
             {this.colorContrast( this.props.inputColor, this.props.colorName)}
           </small>

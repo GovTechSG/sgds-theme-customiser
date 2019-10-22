@@ -5,7 +5,7 @@ import { connect } from "react-redux";
 
 // Import Elements
 // import TableComponent from "../tableComponent/tableComponent";
-import cssPresets from "../../cssPresets/cssPresets";
+// import cssPresets from "../../cssPresets/cssPresets";
 
 import {
 	MainNav,
@@ -61,102 +61,7 @@ class ComponentList extends Component {
 		}, 1500);
 	};
 
-	// Export style
-	exportStyle = exportcss => {
-		var buttonLarge =
-			".button-large \r\n { \r\n\t padding-left: " +
-			this.props.buttonLargeHorizontalPadding +
-			"px; \r\n\t padding-right: " +
-			this.props.buttonLargeHorizontalPadding +
-			"px;  \r\n } \r\n";
-		var buttonMedium =
-			".button-medium  \r\n { \r\n\t padding-left: " +
-			this.props.buttonMediumHorizontalPadding +
-			"px; \r\n\t padding-right: " +
-			this.props.buttonMediumHorizontalPadding +
-			"px; \r\n } \r\n";
-		var buttonSmall =
-			".button-small \r\n { \r\n\t padding-left: " +
-			this.props.buttonSmallHorizontalPadding +
-			"px; \r\n\t padding-right: " +
-			this.props.buttonSmallHorizontalPadding +
-			"px; \r\n } \r\n";
-
-		// const displayFontsize = this.props.displayFontsize;
-		// const smallFontsize = this.props.smallFontsize;
-		// const tableHeadColor = this.props.tableHeadColor;
-		// const themePrimaryColor = this.props.themePrimaryColor;
-
-		var displayFontSize = "";
-		if (
-			cssPresets.typographyPresets.displayFontSize !==
-			this.props.displayFontsize
-		) {
-			displayFontSize =
-				"display \r\n { \r\n\t font-size: " +
-				this.props.displayFontsize +
-				"px; \r\n } \r\n";
-		}
-
-		var h1fontSize =
-			"h1 \r\n { \r\n\t font-size: " +
-			this.props.h1Fontsize +
-			"px; \r\n } \r\n";
-		var h2fontSize =
-			"h2 \r\n { \r\n\t font-size: " +
-			this.props.h2Fontsize +
-			"px; \r\n } \r\n";
-		var h3fontSize =
-			"h3 \r\n { \r\n\t font-size: " +
-			this.props.h3Fontsize +
-			"px; \r\n } \r\n";
-		var h4fontSize =
-			"h4 \r\n { \r\n\t font-size: " +
-			this.props.h4Fontsize +
-			"px; \r\n } \r\n";
-		var h5fontSize =
-			"h5 \r\n { \r\n\t font-size: " +
-			this.props.h5Fontsize +
-			"px; \r\n } \r\n";
-		var h6fontSize =
-			"h6 \r\n { \r\n\t font-size: " +
-			this.props.h6Fontsize +
-			"px; \r\n } \r\n";
-		var smallFontsize =
-			"small \r\n { \r\n\t font-size: " +
-			this.props.smallFontsize +
-			"px; \r\n } \r\n";
-
-		var style =
-			buttonSmall +
-			buttonMedium +
-			buttonLarge +
-			displayFontSize +
-			h1fontSize +
-			h2fontSize +
-			h3fontSize +
-			h4fontSize +
-			h5fontSize +
-			h6fontSize +
-			smallFontsize;
-
-		console.log(style);
-
-		var data = new Blob([style], { type: "text/css" });
-		var csvURL = window.URL.createObjectURL(data);
-		var tempLink = document.createElement("a");
-		tempLink.href = csvURL;
-		tempLink.setAttribute("download", "custom.css");
-		tempLink.click();
-	};
-
-	remove_first_occurrence(str, searchstr) {
-		var index = str.indexOf(searchstr);
-		if (index === -1) {
-			return str;
-		}
-		return str.slice(0, index) + str.slice(index + searchstr.length);
-	}
+	
 
 
 	mainNavItems = {
@@ -398,6 +303,7 @@ class ComponentList extends Component {
 								<Button
 									isPrimary={true}
 									isRounded={true}
+									primaryColor={this.props.themePrimaryColor}
 									onClick={this.defaultButtonClicked}
 									isDisabled={this.state.defaultButtonDisabled}
 								>
@@ -882,16 +788,6 @@ class ComponentList extends Component {
 					</div>
 				</div>
 				{/* sgds-container */}
-
-				<section className="sgds-section">
-					<div className="row">
-						<div className="col is-flex" style={{ justifyContent: "center" }}>
-							<Button onClick={this.exportStyle} isRounded buttonSize="large">
-								Export
-              				</Button>
-						</div>
-					</div>
-				</section>
 			</div>
 		);
 	}
@@ -906,9 +802,9 @@ const mapStateToProps = state => {
 		dangerColor: state.cssProperties.dangerColor,
 		warningColor: state.cssProperties.warningColor,
 		// tableHeadColor: state.cssProperties.tableHeadColor,
-		tableIsNarrow: state.cssProperties.tableIsNarrow,
-		tableIsHoverable: state.cssProperties.tableIsHoverable,
-		tableIsFullwidth: state.cssProperties.tableIsFullwidth
+		// tableIsNarrow: state.cssProperties.tableIsNarrow,
+		// tableIsHoverable: state.cssProperties.tableIsHoverable,
+		// tableIsFullwidth: state.cssProperties.tableIsFullwidth
 	};
 };
 
