@@ -656,31 +656,30 @@ class Sidebar extends Component {
           />
           {this.renderSetTableHeadColorDefault()}
           <label className="col is-12 inputTitle">
-            $is-narrow {this.props.tableHeadColorDefault}
             <input
               name="tableIsNarrow"
               type="checkbox"
               checked={this.state.tableIsNarrow}
               onChange={this.handleTableIsNarrow}
-            />
+            /> $is-narrow {this.props.tableHeadColorDefault}
+            
           </label>
           <label className="col is-12 inputTitle">
-            $is-hoverable
             <input
               name="tableIsHovrable"
               type="checkbox"
               checked={this.state.tableIsHoverable}
               onChange={this.handleTableIsHoverableUpdate}
-            />
+            /> $is-hoverable
+            
           </label>
           <label className="col is-12 inputTitle">
-            $is-fullwidth
             <input
               name="tableIsFullwidth"
               type="checkbox"
               checked={this.state.tableIsFullwidth}
               onChange={this.handleTableIsFullwidthUpdate}
-            />
+            />  $is-fullwidth
           </label>
         </div>
       );
@@ -709,7 +708,7 @@ class Sidebar extends Component {
             }
             onClick={() => this.toggleElement(elementList[0])}
           >
-            <a>Global Styles</a>
+            <a>Colours</a>
           </div>
           <div
             className="listItem"

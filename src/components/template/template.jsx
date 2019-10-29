@@ -109,7 +109,7 @@ class Template extends Component {
         head={
           <link
             rel="stylesheet"
-            href="https://cdn.jsdelivr.net/npm/sgds-govtech@1.3.5/css/sgds.css"
+            href="https://cdn.jsdelivr.net/npm/sgds-govtech@1.3.7/css/sgds.css"
           />
         }
       >

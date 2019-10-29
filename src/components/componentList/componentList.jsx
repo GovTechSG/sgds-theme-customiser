@@ -232,7 +232,7 @@ class ComponentList extends Component {
 					{/* Buttons */}
 					<div className="row">
 						<div className="col">
-							<h3 className="has-text-weight-bold">Buttons</h3>
+							<h3 className="has-text-weight-bold has-text-primary">Buttons</h3>
 						</div>
 					</div>
 					<div className="row">
@@ -364,7 +364,7 @@ class ComponentList extends Component {
 					{/* Nav Bar */}
 					<div className="row">
 						<div className="col">
-							<h3 className="has-text-weight-bold">Navigation Bar</h3>
+							<h3 className="has-text-weight-bold has-text-primary">Navigation Bar</h3>
 						</div>
 					</div>
 					<div className="row">
@@ -386,7 +386,7 @@ class ComponentList extends Component {
 					{/* Typography */}
 					<div className="row">
 						<div className="col">
-							<h3 className="has-text-weight-bold">Typography</h3>
+							<h3 className="has-text-weight-bold has-text-primary">Typography</h3>
 						</div>
 					</div>
 					<div className="row">
@@ -413,6 +413,13 @@ class ComponentList extends Component {
 								parturient montes, nascetur ridiculus mus. Nullam id dolor id
 								nibh ultricies vehicula.
               				</p>
+
+							<ul>
+								<li>Lorem, ipsum dolor.</li>
+								<li>Veritatis, tempora similique!</li>
+								<li>Hic, itaque molestias.</li>
+							</ul>
+							
 						</div>
 						<div className="col is-4">
 							<p className="has-text-weight-bold">Default Text Color</p>
@@ -447,7 +454,7 @@ class ComponentList extends Component {
 					{/* Tables */}
 					<div className="row">
 						<div className="col">
-							<h3 className="has-text-weight-bold">Tables</h3>
+							<h3 className="has-text-weight-bold has-text-primary">Tables</h3>
 						</div>
 					</div>
 					<div className="row">
@@ -460,10 +467,6 @@ class ComponentList extends Component {
 									</tr>
 								</thead>
 								<tbody>
-									<tr>
-										<td>Data 1A</td>
-										<td>Data 1B</td>
-									</tr>
 									<tr>
 										<td>Data 1A</td>
 										<td>Data 1B</td>
@@ -499,7 +502,7 @@ class ComponentList extends Component {
 										style={{
 											backgroundColor: this.props.warningColor
 										}}
-										className="has-text-white"
+										className="has-text-black"
 									>
 										<td>Data 3A</td>
 										<td>Data 3B</td>
@@ -533,7 +536,7 @@ class ComponentList extends Component {
 					{/* Breadcrumb */}
 					<div className="row">
 						<div className="col">
-							<h3 className="has-text-weight-bold">Breadcrumb</h3>
+							<h3 className="has-text-weight-bold has-text-primary">Breadcrumb</h3>
 						</div>
 					</div>
 					<div className="row">
@@ -556,7 +559,7 @@ class ComponentList extends Component {
 					{/* Accordion */}
 					<div className="row">
 						<div className="col">
-							<h3 className="has-text-weight-bold">Accordion</h3>
+							<h3 className="has-text-weight-bold has-text-primary">Accordion</h3>
 						</div>
 					</div>
 					<div className="row">
@@ -579,7 +582,7 @@ class ComponentList extends Component {
 					{/* Card */}
 					<div className="row">
 						<div className="col">
-							<h3 className="has-text-weight-bold">Card</h3>
+							<h3 className="has-text-weight-bold has-text-primary">Card</h3>
 						</div>
 					</div>
 					<div className="row">
@@ -612,7 +615,7 @@ class ComponentList extends Component {
 					{/* Callout */}
 					<div className="row">
 						<div className="col">
-							<h3 className="has-text-weight-bold">Callout</h3>
+							<h3 className="has-text-weight-bold has-text-primary">Callout</h3>
 						</div>
 					</div>
 					<div className="row">
@@ -625,7 +628,7 @@ class ComponentList extends Component {
 					{/* Hero Banner */}
 					<div className="row is-multiline">
 						<div className="col is-three-fifths">
-							<h3 className="has-text-weight-bold margin--bottom--lg">
+							<h3 className="has-text-weight-bold has-text-primary margin--bottom--lg">
 								Default Hero Banner
               				</h3>
 							<Hero
@@ -635,7 +638,7 @@ class ComponentList extends Component {
 							/>
 						</div>
 						<div className="col is-three-fifths">
-							<h3 className="has-text-weight-bold margin--bottom--lg">
+							<h3 className="has-text-weight-bold has-text-primary margin--bottom--lg">
 								Hero Banner with Dropdown
               				</h3>
 							<Hero
@@ -658,7 +661,7 @@ class ComponentList extends Component {
 
 					<div className="row">
 						<div className="col">
-							<h3 className="has-text-weight-bold margin--bottom--lg">
+							<h3 className="has-text-weight-bold has-text-primary margin--bottom--lg">
 								Notification
               				</h3>
 						</div>

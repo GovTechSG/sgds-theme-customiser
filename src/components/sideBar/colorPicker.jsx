@@ -19,9 +19,13 @@ class ColorPicker extends Component {
 
   //TODO change individual button font color
   compareColorName(colorName){
-    return colorName === 'Warning Color' ? '#0f0f0f' : '#fff';
+    if(colorName === 'Warning Color' || colorName === 'Table Head Color'){
+      return  '#0f0f0f';
+    }else{
+      return '#fff';
+    }
   }
-
+  
   colorContrast(inputColor, colorName){
     return readability(inputColor, this.compareColorName(colorName) ).toFixed(2);
   }
