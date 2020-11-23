@@ -183,7 +183,7 @@ class Sidebar extends Component {
         console.log("Error: ", error);
       }
     } else if (colorCat === "resetAll") {
-      try{
+      try {
         this.props.updateThemePrimaryColor(cssPresets.themePresets.primaryColor);
         this.props.updateThemeSecondaryColor(cssPresets.themePresets.secondaryColor);
         this.props.updateThemeInfoColor(cssPresets.themePresets.infoColor);
@@ -193,7 +193,7 @@ class Sidebar extends Component {
       } catch (error) {
         console.log("Error: ", error);
       }
-    }     
+    }
   };
 
 
@@ -208,6 +208,119 @@ class Sidebar extends Component {
     }
   };
 
+  //Export css/scss
+  // Export style
+  exportStyle = exportcss => {
+    // var buttonLarge =
+    // 	".button-large \r\n { \r\n\t padding-left: " +
+    // 	this.props.buttonLargeHorizontalPadding +
+    // 	"px; \r\n\t padding-right: " +
+    // 	this.props.buttonLargeHorizontalPadding +
+    // 	"px;  \r\n } \r\n";
+    // var buttonMedium =
+    // 	".button-medium  \r\n { \r\n\t padding-left: " +
+    // 	this.props.buttonMediumHorizontalPadding +
+    // 	"px; \r\n\t padding-right: " +
+    // 	this.props.buttonMediumHorizontalPadding +
+    // 	"px; \r\n } \r\n";
+    // var buttonSmall =
+    // 	".button-small \r\n { \r\n\t padding-left: " +
+    // 	this.props.buttonSmallHorizontalPadding +
+    // 	"px; \r\n\t padding-right: " +
+    // 	this.props.buttonSmallHorizontalPadding +
+    // 	"px; \r\n } \r\n";
+
+    // // const displayFontsize = this.props.displayFontsize;
+    // // const smallFontsize = this.props.smallFontsize;
+    // // const tableHeadColor = this.props.tableHeadColor;
+    // // const themePrimaryColor = this.props.themePrimaryColor;
+
+    // var displayFontSize = "";
+    // if (
+    // 	cssPresets.typographyPresets.displayFontSize !==
+    // 	this.props.displayFontsize
+    // ) {
+    // 	displayFontSize =
+    // 		"display \r\n { \r\n\t font-size: " +
+    // 		this.props.displayFontsize +
+    // 		"px; \r\n } \r\n";
+    // }
+
+    // var h1fontSize =
+    // 	"h1 \r\n { \r\n\t font-size: " +
+    // 	this.props.h1Fontsize +
+    // 	"px; \r\n } \r\n";
+    // var h2fontSize =
+    // 	"h2 \r\n { \r\n\t font-size: " +
+    // 	this.props.h2Fontsize +
+    // 	"px; \r\n } \r\n";
+    // var h3fontSize =
+    // 	"h3 \r\n { \r\n\t font-size: " +
+    // 	this.props.h3Fontsize +
+    // 	"px; \r\n } \r\n";
+    // var h4fontSize =
+    // 	"h4 \r\n { \r\n\t font-size: " +
+    // 	this.props.h4Fontsize +
+    // 	"px; \r\n } \r\n";
+    // var h5fontSize =
+    // 	"h5 \r\n { \r\n\t font-size: " +
+    // 	this.props.h5Fontsize +
+    // 	"px; \r\n } \r\n";
+    // var h6fontSize =
+    // 	"h6 \r\n { \r\n\t font-size: " +
+    // 	this.props.h6Fontsize +
+    // 	"px; \r\n } \r\n";
+    // var smallFontsize =
+    // 	"small \r\n { \r\n\t font-size: " +
+    // 	this.props.smallFontsize +
+    // 	"px; \r\n } \r\n";
+
+
+    let exportPrimaryColor = '$primary: ' + this.props.themePrimaryColor + ';\r\n';
+    let exportSecondaryColor = '$secondary: ' + this.props.themeSecondaryColor + ';\r\n';
+    let exportInfoColor = '$cyan: ' + this.props.infoColor + ';\r\n';
+    let exportSuccessColor = '$green: ' + this.props.successColor + ';\r\n';
+    let exportDangerColor = '$red: ' + this.props.dangerColor + ';\r\n';
+    let exportWarningColor = '$yellow: ' + this.props.warningColor + ';\r\n';
+
+
+    var style =
+      exportPrimaryColor +
+      exportSecondaryColor +
+      exportInfoColor +
+      exportSuccessColor +
+      exportDangerColor +
+      exportWarningColor;
+    // buttonSmall +
+    // buttonMedium +
+    // buttonLarge +
+    // displayFontSize +
+    // h1fontSize +
+    // h2fontSize +
+    // h3fontSize +
+    // h4fontSize +
+    // h5fontSize +
+    // h6fontSize +
+    // smallFontsize;
+
+    console.log(style);
+
+    var data = new Blob([style], { type: "text/css" });
+    var csvURL = window.URL.createObjectURL(data);
+    var tempLink = document.createElement("a");
+    tempLink.href = csvURL;
+    tempLink.setAttribute("download", "_customVariables.scss");
+    tempLink.click();
+  };
+
+  remove_first_occurrence(str, searchstr) {
+    var index = str.indexOf(searchstr);
+    if (index === -1) {
+      return str;
+    }
+    return str.slice(0, index) + str.slice(index + searchstr.length);
+  }
+
   // Render Global Picker
   renderGlobalProperties = () => {
     if (this.state.showElement === elementList[0]) {
@@ -220,14 +333,14 @@ class Sidebar extends Component {
               changeColor={event => this.handleColorChange(event, "prcolor")}
             />
             {this.props.themePrimaryColor ===
-            cssPresets.themePresets.primaryColor ? null : (
-              <div
-                className="resetBtn"
-                onClick={() => this.resetColors("prcolor")}
-              >
-                <a className="is-block margin-bottom">Reset to default</a>
-              </div>
-            )}
+              cssPresets.themePresets.primaryColor ? null : (
+                <div
+                  className="resetBtn"
+                  onClick={() => this.resetColors("prcolor")}
+                >
+                  <a className="is-block margin-bottom">Reset to default</a>
+                </div>
+              )}
           </div>
           <div className="colorpickerCon">
             <ColorPicker
@@ -236,14 +349,14 @@ class Sidebar extends Component {
               changeColor={event => this.handleColorChange(event, "secolor")}
             />
             {this.props.themeSecondaryColor ===
-            cssPresets.themePresets.secondaryColor ? null : (
-              <div
-                className="resetBtn"
-                onClick={() => this.resetColors("secolor")}
-              >
-                <a className="is-block margin-bottom">Reset to default</a>
-              </div>
-            )}
+              cssPresets.themePresets.secondaryColor ? null : (
+                <div
+                  className="resetBtn"
+                  onClick={() => this.resetColors("secolor")}
+                >
+                  <a className="is-block margin-bottom">Reset to default</a>
+                </div>
+              )}
           </div>
           <div className="colorpickerCon">
             <ColorPicker
@@ -267,14 +380,14 @@ class Sidebar extends Component {
               changeColor={event => this.handleColorChange(event, "sucolor")}
             />
             {this.props.successColor ===
-            cssPresets.themePresets.successColor ? null : (
-              <div
-                className="resetBtn"
-                onClick={() => this.resetColors("sucolor")}
-              >
-                <a className="is-block margin-bottom">Reset to default</a>
-              </div>
-            )}
+              cssPresets.themePresets.successColor ? null : (
+                <div
+                  className="resetBtn"
+                  onClick={() => this.resetColors("sucolor")}
+                >
+                  <a className="is-block margin-bottom">Reset to default</a>
+                </div>
+              )}
           </div>
           <div className="colorpickerCon">
             <ColorPicker
@@ -283,14 +396,14 @@ class Sidebar extends Component {
               changeColor={event => this.handleColorChange(event, "dacolor")}
             />
             {this.props.dangerColor ===
-            cssPresets.themePresets.dangerColor ? null : (
-              <div
-                className="resetBtn"
-                onClick={() => this.resetColors("dacolor")}
-              >
-                <a className="is-block margin-bottom">Reset to default</a>
-              </div>
-            )}
+              cssPresets.themePresets.dangerColor ? null : (
+                <div
+                  className="resetBtn"
+                  onClick={() => this.resetColors("dacolor")}
+                >
+                  <a className="is-block margin-bottom">Reset to default</a>
+                </div>
+              )}
           </div>
           <div className="colorpickerCon">
             <ColorPicker
@@ -299,19 +412,23 @@ class Sidebar extends Component {
               changeColor={event => this.handleColorChange(event, "wacolor")}
             />
             {this.props.warningColor ===
-            cssPresets.themePresets.warningColor ? null : (
-              <div
-                className="resetBtn"
-                onClick={() => this.resetColors("wacolor")}
-              >
-                <a className="is-block margin-bottom">Reset to default</a>
-              </div>
-            )}
+              cssPresets.themePresets.warningColor ? null : (
+                <div
+                  className="resetBtn"
+                  onClick={() => this.resetColors("wacolor")}
+                >
+                  <a className="is-block margin-bottom">Reset to default</a>
+                </div>
+              )}
           </div>
-          <button className="sgds-button is-primary is-small" 
-                  onClick={() => this.resetColors('resetAll')}
-                  
-                  >Reset All</button>
+          <div className="sgds-buttons margin--top">
+            <button className="sgds-button is-secondary is-small" onClick={this.exportStyle} isRounded buttonSize="large">
+              Export
+            </button>
+            <button className="sgds-button is-text is-small" onClick={() => this.resetColors('resetAll')}>
+              Reset All
+            </button>
+          </div>
           {/* <div className="colorpickerCon">
             <ColorPicker
               colorName="Table Head Color"
@@ -539,31 +656,30 @@ class Sidebar extends Component {
           />
           {this.renderSetTableHeadColorDefault()}
           <label className="col is-12 inputTitle">
-            $is-narrow {this.props.tableHeadColorDefault}
             <input
               name="tableIsNarrow"
               type="checkbox"
               checked={this.state.tableIsNarrow}
               onChange={this.handleTableIsNarrow}
-            />
+            /> $is-narrow {this.props.tableHeadColorDefault}
+            
           </label>
           <label className="col is-12 inputTitle">
-            $is-hoverable
             <input
               name="tableIsHovrable"
               type="checkbox"
               checked={this.state.tableIsHoverable}
               onChange={this.handleTableIsHoverableUpdate}
-            />
+            /> $is-hoverable
+            
           </label>
           <label className="col is-12 inputTitle">
-            $is-fullwidth
             <input
               name="tableIsFullwidth"
               type="checkbox"
               checked={this.state.tableIsFullwidth}
               onChange={this.handleTableIsFullwidthUpdate}
-            />
+            />  $is-fullwidth
           </label>
         </div>
       );
@@ -578,13 +694,13 @@ class Sidebar extends Component {
   };
 
   render() {
-    const styleProperties = {
-      color: "#6037B3",
-      fontWeight: "600"
-    };
+    // const styleProperties = {
+    //   color: "#6037B3",
+    //   fontWeight: "600"
+    // };
     return (
       <div className="sideBar">
-        <div className="elementList">
+        {/* <div className="elementList">
           <div
             className="listItem"
             style={
@@ -592,7 +708,7 @@ class Sidebar extends Component {
             }
             onClick={() => this.toggleElement(elementList[0])}
           >
-            <a>Global Styles</a>
+            <a>Colours</a>
           </div>
           <div
             className="listItem"
@@ -621,7 +737,7 @@ class Sidebar extends Component {
           >
             <a>Tables</a>
           </div>
-        </div>
+        </div> */}
         <div className="elements">
           {this.renderGlobalProperties()}
           {this.renderButtonGroup()}

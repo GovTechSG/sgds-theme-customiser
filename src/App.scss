@@ -101,12 +101,16 @@ iframe{
     position: sticky;
     top: -1px;
 
+    &.left{
+      order:0;
+    }
+
     .elementList {
       height: 100%;
       width: 140px;
       padding: 10px 5px;
       overflow-y: auto;
-      display: none;
+      // display: none;
       .listItem {
         padding: 5px;
         a {

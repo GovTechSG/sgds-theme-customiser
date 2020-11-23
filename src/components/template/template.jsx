@@ -109,7 +109,7 @@ class Template extends Component {
         head={
           <link
             rel="stylesheet"
-            href="https://cdn.jsdelivr.net/npm/sgds-govtech@1.3.5/css/sgds.css"
+            href="https://cdn.jsdelivr.net/npm/sgds-govtech@1.3.7/css/sgds.css"
           />
         }
       >
@@ -127,7 +127,7 @@ class Template extends Component {
               backgroundColor: this.props.themeSecondaryColor,
               color: "#fff"
             }}
-            className="sgds-section is-paddingless has-background-secondary"
+            className="sgds-section is-paddingless"
             id="key-highlights"
           >
             <div className="sgds-container">
@@ -173,7 +173,10 @@ class Template extends Component {
               <div className="content">
                 <div className="row has-text-centered">
                   <div className="col is-10 is-offset-1">
-                    <h2 className="has-text-secondary padding--bottom">
+                    <h2 className="padding--bottom" 
+                        style={{
+                          color: this.props.themeSecondaryColor
+                      }}>
                       Lorem ipsum dolor sit amet.
                     </h2>
                   </div>
@@ -331,7 +334,10 @@ class Template extends Component {
             <div className="sgds-container">
               <div className="row has-text-centered">
                 <div className="col is-10 is-offset-1">
-                  <h2 className="has-text-secondary padding--bottom">
+                  <h2 className="padding--bottom" 
+                      style={{
+                      color: this.props.themeSecondaryColor,
+                  }}>
                     Lorem ipsum dolor sit.
                   </h2>
                 </div>
@@ -347,9 +353,10 @@ class Template extends Component {
                       </p>
                       <a
                         style={{
-                          backgroundColor: this.props.themePrimaryColor
+                          backgroundColor: this.props.themePrimaryColor,
+                          color: "#fff"
                         }}
-                        className="sgds-button is-primary margin--top"
+                        className="sgds-button margin--top"
                         role="button"
                       >
                         button
@@ -363,9 +370,10 @@ class Template extends Component {
                       </p>
                       <a
                         style={{
-                          backgroundColor: this.props.themePrimaryColor
+                          backgroundColor: this.props.themeSecondaryColor,
+                          color: "#fff"
                         }}
-                        className="sgds-button is-primary margin--top"
+                        className="sgds-button margin--top"
                         role="button"
                       >
                         button
@@ -379,9 +387,10 @@ class Template extends Component {
                       </p>
                       <a
                         style={{
-                          backgroundColor: this.props.themePrimaryColor
+                          backgroundColor: this.props.dangerColor,
+                          color: "#fff"
                         }}
-                        className="sgds-button is-primary margin--top"
+                        className="sgds-button margin--top"
                         role="button"
                       >
                         button
@@ -396,7 +405,28 @@ class Template extends Component {
                         elit. Tempora, quod.
                       </p>
                       <a
-                        className="sgds-button is-secondary margin--top"
+                        style={{
+                          backgroundColor: this.props.successColor,
+                          color: "#fff"
+                        }}
+                        className="sgds-button margin--top"
+                        role="button"
+                      >
+                        button
+                      </a>
+                    </div>
+                    <div className="col is-4">
+                      <h6 className="has-text-weight-bold">Lorem, ipsum.</h6>
+                      <p>
+                        Lorem ipsum dolor sit amet, consectetur adipisicing
+                        elit. Tempora, quod.
+                      </p>
+                      <a 
+                        style={{
+                          backgroundColor: this.props.infoColor,
+                          color: "#fff"
+                        }}
+                        className="sgds-button margin--top"
                         role="button"
                       >
                         button
@@ -409,20 +439,11 @@ class Template extends Component {
                         elit. Tempora, quod.
                       </p>
                       <a
-                        className="sgds-button is-secondary margin--top"
-                        role="button"
-                      >
-                        button
-                      </a>
-                    </div>
-                    <div className="col is-4">
-                      <h6 className="has-text-weight-bold">Lorem, ipsum.</h6>
-                      <p>
-                        Lorem ipsum dolor sit amet, consectetur adipisicing
-                        elit. Tempora, quod.
-                      </p>
-                      <a
-                        className="sgds-button is-secondary margin--top"
+                        style={{
+                          backgroundColor: this.props.warningColor,
+                          color: "#000"
+                        }}
+                        className="sgds-button margin--top"
                         role="button"
                       >
                         button

@@ -5,7 +5,7 @@ import { connect } from "react-redux";
 
 // Import Elements
 // import TableComponent from "../tableComponent/tableComponent";
-import cssPresets from "../../cssPresets/cssPresets";
+// import cssPresets from "../../cssPresets/cssPresets";
 
 import {
 	MainNav,
@@ -61,102 +61,7 @@ class ComponentList extends Component {
 		}, 1500);
 	};
 
-	// Export style
-	exportStyle = exportcss => {
-		var buttonLarge =
-			".button-large \r\n { \r\n\t padding-left: " +
-			this.props.buttonLargeHorizontalPadding +
-			"px; \r\n\t padding-right: " +
-			this.props.buttonLargeHorizontalPadding +
-			"px;  \r\n } \r\n";
-		var buttonMedium =
-			".button-medium  \r\n { \r\n\t padding-left: " +
-			this.props.buttonMediumHorizontalPadding +
-			"px; \r\n\t padding-right: " +
-			this.props.buttonMediumHorizontalPadding +
-			"px; \r\n } \r\n";
-		var buttonSmall =
-			".button-small \r\n { \r\n\t padding-left: " +
-			this.props.buttonSmallHorizontalPadding +
-			"px; \r\n\t padding-right: " +
-			this.props.buttonSmallHorizontalPadding +
-			"px; \r\n } \r\n";
-
-		// const displayFontsize = this.props.displayFontsize;
-		// const smallFontsize = this.props.smallFontsize;
-		// const tableHeadColor = this.props.tableHeadColor;
-		// const themePrimaryColor = this.props.themePrimaryColor;
-
-		var displayFontSize = "";
-		if (
-			cssPresets.typographyPresets.displayFontSize !==
-			this.props.displayFontsize
-		) {
-			displayFontSize =
-				"display \r\n { \r\n\t font-size: " +
-				this.props.displayFontsize +
-				"px; \r\n } \r\n";
-		}
-
-		var h1fontSize =
-			"h1 \r\n { \r\n\t font-size: " +
-			this.props.h1Fontsize +
-			"px; \r\n } \r\n";
-		var h2fontSize =
-			"h2 \r\n { \r\n\t font-size: " +
-			this.props.h2Fontsize +
-			"px; \r\n } \r\n";
-		var h3fontSize =
-			"h3 \r\n { \r\n\t font-size: " +
-			this.props.h3Fontsize +
-			"px; \r\n } \r\n";
-		var h4fontSize =
-			"h4 \r\n { \r\n\t font-size: " +
-			this.props.h4Fontsize +
-			"px; \r\n } \r\n";
-		var h5fontSize =
-			"h5 \r\n { \r\n\t font-size: " +
-			this.props.h5Fontsize +
-			"px; \r\n } \r\n";
-		var h6fontSize =
-			"h6 \r\n { \r\n\t font-size: " +
-			this.props.h6Fontsize +
-			"px; \r\n } \r\n";
-		var smallFontsize =
-			"small \r\n { \r\n\t font-size: " +
-			this.props.smallFontsize +
-			"px; \r\n } \r\n";
-
-		var style =
-			buttonSmall +
-			buttonMedium +
-			buttonLarge +
-			displayFontSize +
-			h1fontSize +
-			h2fontSize +
-			h3fontSize +
-			h4fontSize +
-			h5fontSize +
-			h6fontSize +
-			smallFontsize;
-
-		console.log(style);
-
-		var data = new Blob([style], { type: "text/css" });
-		var csvURL = window.URL.createObjectURL(data);
-		var tempLink = document.createElement("a");
-		tempLink.href = csvURL;
-		tempLink.setAttribute("download", "custom.css");
-		tempLink.click();
-	};
-
-	remove_first_occurrence(str, searchstr) {
-		var index = str.indexOf(searchstr);
-		if (index === -1) {
-			return str;
-		}
-		return str.slice(0, index) + str.slice(index + searchstr.length);
-	}
+	
 
 
 	mainNavItems = {
@@ -327,7 +232,7 @@ class ComponentList extends Component {
 					{/* Buttons */}
 					<div className="row">
 						<div className="col">
-							<h3 className="has-text-weight-bold">Buttons</h3>
+							<h3 className="has-text-weight-bold has-text-primary">Buttons</h3>
 						</div>
 					</div>
 					<div className="row">
@@ -398,6 +303,7 @@ class ComponentList extends Component {
 								<Button
 									isPrimary={true}
 									isRounded={true}
+									primaryColor={this.props.themePrimaryColor}
 									onClick={this.defaultButtonClicked}
 									isDisabled={this.state.defaultButtonDisabled}
 								>
@@ -458,7 +364,7 @@ class ComponentList extends Component {
 					{/* Nav Bar */}
 					<div className="row">
 						<div className="col">
-							<h3 className="has-text-weight-bold">Navigation Bar</h3>
+							<h3 className="has-text-weight-bold has-text-primary">Navigation Bar</h3>
 						</div>
 					</div>
 					<div className="row">
@@ -480,7 +386,7 @@ class ComponentList extends Component {
 					{/* Typography */}
 					<div className="row">
 						<div className="col">
-							<h3 className="has-text-weight-bold">Typography</h3>
+							<h3 className="has-text-weight-bold has-text-primary">Typography</h3>
 						</div>
 					</div>
 					<div className="row">
@@ -507,6 +413,13 @@ class ComponentList extends Component {
 								parturient montes, nascetur ridiculus mus. Nullam id dolor id
 								nibh ultricies vehicula.
               				</p>
+
+							<ul>
+								<li>Lorem, ipsum dolor.</li>
+								<li>Veritatis, tempora similique!</li>
+								<li>Hic, itaque molestias.</li>
+							</ul>
+							
 						</div>
 						<div className="col is-4">
 							<p className="has-text-weight-bold">Default Text Color</p>
@@ -541,7 +454,7 @@ class ComponentList extends Component {
 					{/* Tables */}
 					<div className="row">
 						<div className="col">
-							<h3 className="has-text-weight-bold">Tables</h3>
+							<h3 className="has-text-weight-bold has-text-primary">Tables</h3>
 						</div>
 					</div>
 					<div className="row">
@@ -554,10 +467,6 @@ class ComponentList extends Component {
 									</tr>
 								</thead>
 								<tbody>
-									<tr>
-										<td>Data 1A</td>
-										<td>Data 1B</td>
-									</tr>
 									<tr>
 										<td>Data 1A</td>
 										<td>Data 1B</td>
@@ -593,7 +502,7 @@ class ComponentList extends Component {
 										style={{
 											backgroundColor: this.props.warningColor
 										}}
-										className="has-text-white"
+										className="has-text-black"
 									>
 										<td>Data 3A</td>
 										<td>Data 3B</td>
@@ -627,7 +536,7 @@ class ComponentList extends Component {
 					{/* Breadcrumb */}
 					<div className="row">
 						<div className="col">
-							<h3 className="has-text-weight-bold">Breadcrumb</h3>
+							<h3 className="has-text-weight-bold has-text-primary">Breadcrumb</h3>
 						</div>
 					</div>
 					<div className="row">
@@ -650,7 +559,7 @@ class ComponentList extends Component {
 					{/* Accordion */}
 					<div className="row">
 						<div className="col">
-							<h3 className="has-text-weight-bold">Accordion</h3>
+							<h3 className="has-text-weight-bold has-text-primary">Accordion</h3>
 						</div>
 					</div>
 					<div className="row">
@@ -673,7 +582,7 @@ class ComponentList extends Component {
 					{/* Card */}
 					<div className="row">
 						<div className="col">
-							<h3 className="has-text-weight-bold">Card</h3>
+							<h3 className="has-text-weight-bold has-text-primary">Card</h3>
 						</div>
 					</div>
 					<div className="row">
@@ -706,7 +615,7 @@ class ComponentList extends Component {
 					{/* Callout */}
 					<div className="row">
 						<div className="col">
-							<h3 className="has-text-weight-bold">Callout</h3>
+							<h3 className="has-text-weight-bold has-text-primary">Callout</h3>
 						</div>
 					</div>
 					<div className="row">
@@ -719,7 +628,7 @@ class ComponentList extends Component {
 					{/* Hero Banner */}
 					<div className="row is-multiline">
 						<div className="col is-three-fifths">
-							<h3 className="has-text-weight-bold margin--bottom--lg">
+							<h3 className="has-text-weight-bold has-text-primary margin--bottom--lg">
 								Default Hero Banner
               				</h3>
 							<Hero
@@ -729,7 +638,7 @@ class ComponentList extends Component {
 							/>
 						</div>
 						<div className="col is-three-fifths">
-							<h3 className="has-text-weight-bold margin--bottom--lg">
+							<h3 className="has-text-weight-bold has-text-primary margin--bottom--lg">
 								Hero Banner with Dropdown
               				</h3>
 							<Hero
@@ -752,7 +661,7 @@ class ComponentList extends Component {
 
 					<div className="row">
 						<div className="col">
-							<h3 className="has-text-weight-bold margin--bottom--lg">
+							<h3 className="has-text-weight-bold has-text-primary margin--bottom--lg">
 								Notification
               				</h3>
 						</div>
@@ -882,16 +791,6 @@ class ComponentList extends Component {
 					</div>
 				</div>
 				{/* sgds-container */}
-
-				<section className="sgds-section">
-					<div className="row">
-						<div className="col is-flex" style={{ justifyContent: "center" }}>
-							<Button onClick={this.exportStyle} isRounded buttonSize="large">
-								Export
-              				</Button>
-						</div>
-					</div>
-				</section>
 			</div>
 		);
 	}
@@ -906,9 +805,9 @@ const mapStateToProps = state => {
 		dangerColor: state.cssProperties.dangerColor,
 		warningColor: state.cssProperties.warningColor,
 		// tableHeadColor: state.cssProperties.tableHeadColor,
-		tableIsNarrow: state.cssProperties.tableIsNarrow,
-		tableIsHoverable: state.cssProperties.tableIsHoverable,
-		tableIsFullwidth: state.cssProperties.tableIsFullwidth
+		// tableIsNarrow: state.cssProperties.tableIsNarrow,
+		// tableIsHoverable: state.cssProperties.tableIsHoverable,
+		// tableIsFullwidth: state.cssProperties.tableIsFullwidth
 	};
 };
 

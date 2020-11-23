@@ -1,7 +1,7 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { Component } from "react";
 
-class Fotter extends Component {
+class Footer extends Component {
   state = {};
 
   render() {
@@ -84,4 +84,4 @@ class Fotter extends Component {
   }
 }
 
-export default Fotter;
+export default Footer;
