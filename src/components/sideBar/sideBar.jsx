@@ -694,13 +694,13 @@ class Sidebar extends Component {
   };
 
   render() {
-    const styleProperties = {
-      color: "#6037B3",
-      fontWeight: "600"
-    };
+    // const styleProperties = {
+    //   color: "#6037B3",
+    //   fontWeight: "600"
+    // };
     return (
       <div className="sideBar">
-        <div className="elementList">
+        {/* <div className="elementList">
           <div
             className="listItem"
             style={
@@ -737,7 +737,7 @@ class Sidebar extends Component {
           >
             <a>Tables</a>
           </div>
-        </div>
+        </div> */}
         <div className="elements">
           {this.renderGlobalProperties()}
           {this.renderButtonGroup()}
