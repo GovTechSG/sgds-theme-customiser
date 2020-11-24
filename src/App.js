@@ -117,7 +117,7 @@ class App extends Component {
                 style={{ display: "flex", alignItems: "center" }}
               >
                 <a
-                  href="https://designsystem.gov.sg/docs"
+                  href="https://designsystem.gov.sg"
                   className="sgds-button is-small is-rounded is-primary"
                 >
                   SGDS Docs{" "}
