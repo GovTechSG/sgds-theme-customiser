@@ -1,6 +1,7 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import styled from "styled-components";
 
 // Import Presets
 import cssPresets from "../../cssPresets/cssPresets";
@@ -24,6 +25,18 @@ import {
 } from "../../store/actions/index";
 // import { statement } from "@babel/template";
 
+import { HelpModal, HelpModalToggle } from "../help";
+
+const StyledButtonGroup = styled.div`
+  button {
+    display: flex;
+    width: 100%;
+  }
+  button:not(:last-child) {
+    margin-bottom: 0.3rem;
+  }
+`;
+
 class Sidebar extends Component {
   constructor(props) {
     super(props);
@@ -34,6 +47,7 @@ class Sidebar extends Component {
       tableIsNarrow: cssPresets.tablePresets.tableIsNarrow,
       tableIsHoverable: cssPresets.tablePresets.tableIsHoverable,
       tableIsFullwidth: cssPresets.tablePresets.tableIsFullwidth,
+      showHelpModal: false,
     };
   }
 
@@ -432,22 +446,6 @@ class Sidebar extends Component {
               </div>
             )}
           </div>
-          <div className="sgds-buttons margin--top">
-            <button
-              className="sgds-button is-secondary is-small"
-              onClick={this.exportStyle}
-              isRounded
-              buttonSize="large"
-            >
-              Export as Sass variables
-            </button>
-            <button
-              className="sgds-button is-text is-small"
-              onClick={() => this.resetColors("resetAll")}
-            >
-              Reset All
-            </button>
-          </div>
           {/* <div className="colorpickerCon">
             <ColorPicker
               colorName="Table Head Color"
@@ -713,6 +711,12 @@ class Sidebar extends Component {
     });
   };
 
+  toggleHelpModal = () => {
+    this.setState({
+      showHelpModal: !this.state.showHelpModal,
+    });
+  };
+
   render() {
     // const styleProperties = {
     //   color: "#6037B3",
@@ -763,7 +767,30 @@ class Sidebar extends Component {
           {this.renderButtonGroup()}
           {this.renderTypography()}
           {this.renderTables()}
+          <div className="buttonGroup">
+            <StyledButtonGroup>
+              <button
+                className="sgds-button is-secondary is-small"
+                onClick={this.exportStyle}
+                isRounded
+                buttonSize="large"
+              >
+                Export as Sass variables
+              </button>
+              <button
+                className="sgds-button is-text is-small"
+                onClick={() => this.resetColors("resetAll")}
+              >
+                Reset All
+              </button>
+
+              <HelpModalToggle onToggle={this.toggleHelpModal} />
+            </StyledButtonGroup>
+          </div>
         </div>
+        {this.state.showHelpModal && (
+          <HelpModal onHide={() => this.setState({ showHelpModal: false })} />
+        )}
       </div>
     );
   }
