@@ -81,7 +81,7 @@ class App extends Component {
           <MainNavBrand>
             <MainNavItem href="/">
               <img
-                src="https://www.designsystem.gov.sg/assets/img/logo_sgds.png"
+                src="https://www.designsystem.gov.sg/assets/img/logo-sgds.svg"
                 alt="main logo"
               />
             </MainNavItem>

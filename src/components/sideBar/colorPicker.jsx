@@ -49,19 +49,20 @@ class ColorPicker extends Component {
             {this.colorContrast( this.props.inputColor, this.props.colorName)}
           </small>
         </p>
+        <div className="colorPickerContainer"  onClick={() => this.toggleColorPicker()}>
+          <input
+            className="col is-11 color"
+            type="button"
+            value={this.props.inputColor}
+            readOnly
+            style={{cursor: "pointer"}}
+          />
+          <div
+            className="color-preview"
+            style={{ backgroundColor: this.props.inputColor }}
+          />
+        </div>
         
-        <input
-          className="col is-11 color"
-          type="button"
-          value={this.props.inputColor}
-          onClick={() => this.toggleColorPicker()}
-          style={{cursor: "pointer"}}
-          readOnly
-        />
-        <div
-          className="color-preview"
-          style={{ backgroundColor: this.props.inputColor }}
-        />
         {this.state.showColorPicker ? (
           <div style={popover}>
             <div style={cover} onClick={() => this.hideColorPicker()} />

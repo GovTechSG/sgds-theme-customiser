@@ -75,10 +75,10 @@ class Footer extends Component {
               </div>
               <div className="col is-12 has-text-right-desktop has-text-right-tablet has-text-left-mobile">
                 <p className="is-hidden-touch">
-                  © 2019 Government of Singapore. Last Updated 23 Nov 2020
+                  © 2020 Government of Singapore. Last Updated 23 Nov 2020
                 </p>
                 <p className="is-hidden-desktop">
-                  © 2019 Government of Singapore
+                  © 2020 Government of Singapore
                 </p>
                 <p className="is-hidden-desktop last-updated">
                   Last Updated 23 Nov 2020
