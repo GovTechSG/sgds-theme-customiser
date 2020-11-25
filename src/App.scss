@@ -192,9 +192,14 @@ iframe{
   display: none;
 }
 
-.navbar-brand{
-  img{
-    width: 200px;
-    height: 80px;
+.sgds-navbar-brand{
+  .sgds-navbar-item,
+  .navbar-item{
+    img{
+      max-height: 80px;
+      width: 200px;
+      height: 80px;
+    }
   }
+
 }

@@ -10,7 +10,7 @@ class NavigationBar extends Component {
         <div className="sgds-container">
           <div className="navbar-brand">
             <a className="navbar-item">
-              <img src="/assets/img/logo_sgds.png" alt="" />
+              <img src="https://www.designsystem.tech.gov.sg/assets/img/logo-sgds.svg" alt="" />
             </a>
             <div className="navbar-burger burger" data-target="mainnav-2">
               <span />
