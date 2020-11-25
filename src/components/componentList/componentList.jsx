@@ -66,7 +66,7 @@ class ComponentList extends Component {
 
 	mainNavItems = {
 		brand: {
-			img: "https://www.designsystem.gov.sg/assets/img/logo_sgds.png",
+			img: "https://www.designsystem.gov.sg/assets/img/logo-sgds.svg",
 			name: "Brand",
 			link: ""
 		},

@@ -183,3 +183,10 @@ iframe{
 .appBody::-webkit-scrollbar {
   display: none;
 }
+
+.navbar-brand{
+  img{
+    width: 200px;
+    height: 80px;
+  }
+}
