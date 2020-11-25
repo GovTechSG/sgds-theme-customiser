@@ -56,23 +56,6 @@ class App extends Component {
   }
 
   render() {
-    let mainNavItems = {
-      brand: {
-        img: "https://www.designsystem.gov.sg/assets/img/logo-sgds.svg",
-        name: "Brand",
-        link: ""
-      },
-      links: [
-        {
-          img: "",
-          name: "Customiser View"
-        },
-        {
-          img: "",
-          name: "Template View"
-        }
-      ]
-    };
     return (
       <Provider store={store}>
         {/* <Masthead hasMaxWidth={false}/> */}
