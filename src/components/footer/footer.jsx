@@ -1,9 +1,15 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { Component } from "react";
 
-class Footer extends Component {
-  state = {};
+function FooterLink(props) {
+  return (
+    <a {...props} style={{ textDecoration: "underline" }}>
+      {props.children}
+    </a>
+  );
+}
 
+class Footer extends Component {
   render() {
     return (
       <footer className="sgds-footer">
@@ -19,15 +25,17 @@ class Footer extends Component {
             <div className="row">
               <div className="col is-4">
                 <p>
-                  A theme customiser for
-                  <a
-                    href="https://github.com/govtechsg/sgds"
-                    style={{ textDecoration: "underline" }}
-                  >
+                  A theme customiser for{" "}
+                  <FooterLink href="https://github.com/govtechsg/sgds">
                     SGDS
-                  </a>.
+                  </FooterLink>
+                  .
                 </p>
-                <p>Issues and pull requests requests welcome!</p>
+                <p>
+                  <FooterLink href="https://github.com/govtechsg/sgds">
+                    Issues and pull requests requests welcome!
+                  </FooterLink>
+                </p>
               </div>
             </div>
             <div className="row">
@@ -67,13 +75,13 @@ class Footer extends Component {
               </div>
               <div className="col is-12 has-text-right-desktop has-text-right-tablet has-text-left-mobile">
                 <p className="is-hidden-touch">
-                  © 2019 Government of Singapore. Last Updated 16 Sep 2019
+                  © 2019 Government of Singapore. Last Updated 23 Nov 2020
                 </p>
                 <p className="is-hidden-desktop">
                   © 2019 Government of Singapore
                 </p>
                 <p className="is-hidden-desktop last-updated">
-                  Last Updated 16 Sep 2019
+                  Last Updated 23 Nov 2020
                 </p>
               </div>
             </div>

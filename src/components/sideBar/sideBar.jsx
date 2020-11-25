@@ -1,6 +1,7 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import styled from "styled-components";
 
 // Import Presets
 import cssPresets from "../../cssPresets/cssPresets";
@@ -20,9 +21,21 @@ import {
   updateTableHeadColor,
   updateTableHoverable,
   updateTableFullwidth,
-  updateTableNarrow
+  updateTableNarrow,
 } from "../../store/actions/index";
 // import { statement } from "@babel/template";
+
+import { HelpModal, HelpModalToggle } from "../help";
+
+const StyledButtonGroup = styled.div`
+  button {
+    display: flex;
+    width: 100%;
+  }
+  button:not(:last-child) {
+    margin-bottom: 0.3rem;
+  }
+`;
 
 class Sidebar extends Component {
   constructor(props) {
@@ -33,11 +46,12 @@ class Sidebar extends Component {
       tableHeadColor: cssPresets.tablePresets.tableHeadColor,
       tableIsNarrow: cssPresets.tablePresets.tableIsNarrow,
       tableIsHoverable: cssPresets.tablePresets.tableIsHoverable,
-      tableIsFullwidth: cssPresets.tablePresets.tableIsFullwidth
+      tableIsFullwidth: cssPresets.tablePresets.tableIsFullwidth,
+      showHelpModal: false,
     };
   }
 
-  handleTableHeadColorUpdate = color => {
+  handleTableHeadColorUpdate = (color) => {
     try {
       this.props.updateTableHeadColor(color.hex);
     } catch (error) {
@@ -45,40 +59,40 @@ class Sidebar extends Component {
     }
   };
 
-  handleTableIsHoverableUpdate = event => {
+  handleTableIsHoverableUpdate = (event) => {
     const value =
       event.target.type === "checkbox"
         ? event.target.checked
         : event.target.value;
     this.setState(
       {
-        tableIsHoverable: value
+        tableIsHoverable: value,
       },
       () => this.props.updateTableHoverable(value)
     );
   };
 
-  handleTableIsFullwidthUpdate = event => {
+  handleTableIsFullwidthUpdate = (event) => {
     const value =
       event.target.type === "checkbox"
         ? event.target.checked
         : event.target.value;
     this.setState(
       {
-        tableIsFullwidth: value
+        tableIsFullwidth: value,
       },
       () => this.props.updateTableFullwidth(value)
     );
   };
 
-  handleTableIsNarrow = event => {
+  handleTableIsNarrow = (event) => {
     const value =
       event.target.type === "checkbox"
         ? event.target.checked
         : event.target.value;
     this.setState(
       {
-        tableIsNarrow: value
+        tableIsNarrow: value,
       },
 
       () => this.props.updateTableNarrow(value)
@@ -141,7 +155,7 @@ class Sidebar extends Component {
     }
   };
 
-  resetColors = colorCat => {
+  resetColors = (colorCat) => {
     if (colorCat === "prcolor") {
       try {
         this.props.updateThemePrimaryColor(
@@ -166,7 +180,9 @@ class Sidebar extends Component {
       }
     } else if (colorCat === "sucolor") {
       try {
-        this.props.updateThemeSuccessColor(cssPresets.themePresets.successColor);
+        this.props.updateThemeSuccessColor(
+          cssPresets.themePresets.successColor
+        );
       } catch (error) {
         console.log("Error: ", error);
       }
@@ -178,25 +194,33 @@ class Sidebar extends Component {
       }
     } else if (colorCat === "wacolor") {
       try {
-        this.props.updateThemeWarningColor(cssPresets.themePresets.warningColor);
+        this.props.updateThemeWarningColor(
+          cssPresets.themePresets.warningColor
+        );
       } catch (error) {
         console.log("Error: ", error);
       }
     } else if (colorCat === "resetAll") {
       try {
-        this.props.updateThemePrimaryColor(cssPresets.themePresets.primaryColor);
-        this.props.updateThemeSecondaryColor(cssPresets.themePresets.secondaryColor);
+        this.props.updateThemePrimaryColor(
+          cssPresets.themePresets.primaryColor
+        );
+        this.props.updateThemeSecondaryColor(
+          cssPresets.themePresets.secondaryColor
+        );
         this.props.updateThemeInfoColor(cssPresets.themePresets.infoColor);
-        this.props.updateThemeSuccessColor(cssPresets.themePresets.successColor);
+        this.props.updateThemeSuccessColor(
+          cssPresets.themePresets.successColor
+        );
         this.props.updateThemeDangerColor(cssPresets.themePresets.dangerColor);
-        this.props.updateThemeWarningColor(cssPresets.themePresets.warningColor);
+        this.props.updateThemeWarningColor(
+          cssPresets.themePresets.warningColor
+        );
       } catch (error) {
         console.log("Error: ", error);
       }
     }
   };
-
-
 
   resetTableHeadColerDefault = () => {
     try {
@@ -210,7 +234,7 @@ class Sidebar extends Component {
 
   //Export css/scss
   // Export style
-  exportStyle = exportcss => {
+  exportStyle = (exportcss) => {
     // var buttonLarge =
     // 	".button-large \r\n { \r\n\t padding-left: " +
     // 	this.props.buttonLargeHorizontalPadding +
@@ -275,14 +299,14 @@ class Sidebar extends Component {
     // 	this.props.smallFontsize +
     // 	"px; \r\n } \r\n";
 
-
-    let exportPrimaryColor = '$primary: ' + this.props.themePrimaryColor + ';\r\n';
-    let exportSecondaryColor = '$secondary: ' + this.props.themeSecondaryColor + ';\r\n';
-    let exportInfoColor = '$cyan: ' + this.props.infoColor + ';\r\n';
-    let exportSuccessColor = '$green: ' + this.props.successColor + ';\r\n';
-    let exportDangerColor = '$red: ' + this.props.dangerColor + ';\r\n';
-    let exportWarningColor = '$yellow: ' + this.props.warningColor + ';\r\n';
-
+    let exportPrimaryColor =
+      "$primary: " + this.props.themePrimaryColor + ";\r\n";
+    let exportSecondaryColor =
+      "$secondary: " + this.props.themeSecondaryColor + ";\r\n";
+    let exportInfoColor = "$cyan: " + this.props.infoColor + ";\r\n";
+    let exportSuccessColor = "$green: " + this.props.successColor + ";\r\n";
+    let exportDangerColor = "$red: " + this.props.dangerColor + ";\r\n";
+    let exportWarningColor = "$yellow: " + this.props.warningColor + ";\r\n";
 
     var style =
       exportPrimaryColor +
@@ -330,41 +354,42 @@ class Sidebar extends Component {
             <ColorPicker
               colorName="Primary Color"
               inputColor={this.props.themePrimaryColor}
-              changeColor={event => this.handleColorChange(event, "prcolor")}
+              changeColor={(event) => this.handleColorChange(event, "prcolor")}
             />
             {this.props.themePrimaryColor ===
-              cssPresets.themePresets.primaryColor ? null : (
-                <div
-                  className="resetBtn"
-                  onClick={() => this.resetColors("prcolor")}
-                >
-                  <a className="is-block margin-bottom">Reset to default</a>
-                </div>
-              )}
+            cssPresets.themePresets.primaryColor ? null : (
+              <div
+                className="resetBtn"
+                onClick={() => this.resetColors("prcolor")}
+              >
+                <a className="is-block margin-bottom">Reset to default</a>
+              </div>
+            )}
           </div>
           <div className="colorpickerCon">
             <ColorPicker
               colorName="Secondary Color"
               inputColor={this.props.themeSecondaryColor}
-              changeColor={event => this.handleColorChange(event, "secolor")}
+              changeColor={(event) => this.handleColorChange(event, "secolor")}
             />
             {this.props.themeSecondaryColor ===
-              cssPresets.themePresets.secondaryColor ? null : (
-                <div
-                  className="resetBtn"
-                  onClick={() => this.resetColors("secolor")}
-                >
-                  <a className="is-block margin-bottom">Reset to default</a>
-                </div>
-              )}
+            cssPresets.themePresets.secondaryColor ? null : (
+              <div
+                className="resetBtn"
+                onClick={() => this.resetColors("secolor")}
+              >
+                <a className="is-block margin-bottom">Reset to default</a>
+              </div>
+            )}
           </div>
           <div className="colorpickerCon">
             <ColorPicker
               colorName="Info Color"
               inputColor={this.props.infoColor}
-              changeColor={event => this.handleColorChange(event, "incolor")}
+              changeColor={(event) => this.handleColorChange(event, "incolor")}
             />
-            {this.props.infoColor === cssPresets.themePresets.infoColor ? null : (
+            {this.props.infoColor ===
+            cssPresets.themePresets.infoColor ? null : (
               <div
                 className="resetBtn"
                 onClick={() => this.resetColors("incolor")}
@@ -377,57 +402,49 @@ class Sidebar extends Component {
             <ColorPicker
               colorName="Success Color"
               inputColor={this.props.successColor}
-              changeColor={event => this.handleColorChange(event, "sucolor")}
+              changeColor={(event) => this.handleColorChange(event, "sucolor")}
             />
             {this.props.successColor ===
-              cssPresets.themePresets.successColor ? null : (
-                <div
-                  className="resetBtn"
-                  onClick={() => this.resetColors("sucolor")}
-                >
-                  <a className="is-block margin-bottom">Reset to default</a>
-                </div>
-              )}
+            cssPresets.themePresets.successColor ? null : (
+              <div
+                className="resetBtn"
+                onClick={() => this.resetColors("sucolor")}
+              >
+                <a className="is-block margin-bottom">Reset to default</a>
+              </div>
+            )}
           </div>
           <div className="colorpickerCon">
             <ColorPicker
               colorName="Danger Color"
               inputColor={this.props.dangerColor}
-              changeColor={event => this.handleColorChange(event, "dacolor")}
+              changeColor={(event) => this.handleColorChange(event, "dacolor")}
             />
             {this.props.dangerColor ===
-              cssPresets.themePresets.dangerColor ? null : (
-                <div
-                  className="resetBtn"
-                  onClick={() => this.resetColors("dacolor")}
-                >
-                  <a className="is-block margin-bottom">Reset to default</a>
-                </div>
-              )}
+            cssPresets.themePresets.dangerColor ? null : (
+              <div
+                className="resetBtn"
+                onClick={() => this.resetColors("dacolor")}
+              >
+                <a className="is-block margin-bottom">Reset to default</a>
+              </div>
+            )}
           </div>
           <div className="colorpickerCon">
             <ColorPicker
               colorName="Warning Color"
               inputColor={this.props.warningColor}
-              changeColor={event => this.handleColorChange(event, "wacolor")}
+              changeColor={(event) => this.handleColorChange(event, "wacolor")}
             />
             {this.props.warningColor ===
-              cssPresets.themePresets.warningColor ? null : (
-                <div
-                  className="resetBtn"
-                  onClick={() => this.resetColors("wacolor")}
-                >
-                  <a className="is-block margin-bottom">Reset to default</a>
-                </div>
-              )}
-          </div>
-          <div className="sgds-buttons margin--top">
-            <button className="sgds-button is-secondary is-small" onClick={this.exportStyle} isRounded buttonSize="large">
-              Export
-            </button>
-            <button className="sgds-button is-text is-small" onClick={() => this.resetColors('resetAll')}>
-              Reset All
-            </button>
+            cssPresets.themePresets.warningColor ? null : (
+              <div
+                className="resetBtn"
+                onClick={() => this.resetColors("wacolor")}
+              >
+                <a className="is-block margin-bottom">Reset to default</a>
+              </div>
+            )}
           </div>
           {/* <div className="colorpickerCon">
             <ColorPicker
@@ -661,8 +678,8 @@ class Sidebar extends Component {
               type="checkbox"
               checked={this.state.tableIsNarrow}
               onChange={this.handleTableIsNarrow}
-            /> $is-narrow {this.props.tableHeadColorDefault}
-            
+            />{" "}
+            $is-narrow {this.props.tableHeadColorDefault}
           </label>
           <label className="col is-12 inputTitle">
             <input
@@ -670,8 +687,8 @@ class Sidebar extends Component {
               type="checkbox"
               checked={this.state.tableIsHoverable}
               onChange={this.handleTableIsHoverableUpdate}
-            /> $is-hoverable
-            
+            />{" "}
+            $is-hoverable
           </label>
           <label className="col is-12 inputTitle">
             <input
@@ -679,7 +696,8 @@ class Sidebar extends Component {
               type="checkbox"
               checked={this.state.tableIsFullwidth}
               onChange={this.handleTableIsFullwidthUpdate}
-            />  $is-fullwidth
+            />{" "}
+            $is-fullwidth
           </label>
         </div>
       );
@@ -687,9 +705,15 @@ class Sidebar extends Component {
   };
 
   // Toggle Element
-  toggleElement = elementName => {
+  toggleElement = (elementName) => {
     this.setState({
-      showElement: elementName
+      showElement: elementName,
+    });
+  };
+
+  toggleHelpModal = () => {
+    this.setState({
+      showHelpModal: !this.state.showHelpModal,
     });
   };
 
@@ -743,13 +767,36 @@ class Sidebar extends Component {
           {this.renderButtonGroup()}
           {this.renderTypography()}
           {this.renderTables()}
+          <div className="buttonGroup">
+            <StyledButtonGroup>
+              <button
+                className="sgds-button is-secondary is-small"
+                onClick={this.exportStyle}
+                isRounded
+                buttonSize="large"
+              >
+                Export as Sass variables
+              </button>
+              <button
+                className="sgds-button is-text is-small"
+                onClick={() => this.resetColors("resetAll")}
+              >
+                Reset All
+              </button>
+
+              <HelpModalToggle onToggle={this.toggleHelpModal} />
+            </StyledButtonGroup>
+          </div>
         </div>
+        {this.state.showHelpModal && (
+          <HelpModal onHide={() => this.setState({ showHelpModal: false })} />
+        )}
       </div>
     );
   }
 }
 
-const mapStateToProps = state => {
+const mapStateToProps = (state) => {
   return {
     themePrimaryColor: state.cssProperties.themePrimaryColor,
     themeSecondaryColor: state.cssProperties.themeSecondaryColor,
@@ -760,34 +807,31 @@ const mapStateToProps = state => {
     tableHeadColor: state.cssProperties.tableHeadColor,
     tableIsNarrow: state.cssProperties.tableIsNarrow,
     tableIsHoverable: state.cssProperties.tableIsHoverable,
-    tableIsFullwidth: state.cssProperties.tableIsFullwidth
+    tableIsFullwidth: state.cssProperties.tableIsFullwidth,
   };
 };
 
-const mapDispatchToProps = dispatch => {
+const mapDispatchToProps = (dispatch) => {
   return {
-    updateThemePrimaryColor: themeSecondaryColor =>
+    updateThemePrimaryColor: (themeSecondaryColor) =>
       dispatch(updateThemePrimaryColor(themeSecondaryColor)),
-    updateThemeSecondaryColor: themePrimaryColor =>
+    updateThemeSecondaryColor: (themePrimaryColor) =>
       dispatch(updateThemeSecondaryColor(themePrimaryColor)),
-    updateThemeInfoColor: infoColor =>
+    updateThemeInfoColor: (infoColor) =>
       dispatch(updateThemeInfoColor(infoColor)),
-    updateThemeSuccessColor: successColor =>
+    updateThemeSuccessColor: (successColor) =>
       dispatch(updateThemeSuccessColor(successColor)),
-    updateThemeDangerColor: dangerColor =>
+    updateThemeDangerColor: (dangerColor) =>
       dispatch(updateThemeDangerColor(dangerColor)),
-    updateThemeWarningColor: warningColor =>
+    updateThemeWarningColor: (warningColor) =>
       dispatch(updateThemeWarningColor(warningColor)),
-    updateTableHeadColor: color => dispatch(updateTableHeadColor(color)),
-    updateTableNarrow: isNarrow => dispatch(updateTableNarrow(isNarrow)),
-    updateTableHoverable: isHoverable =>
+    updateTableHeadColor: (color) => dispatch(updateTableHeadColor(color)),
+    updateTableNarrow: (isNarrow) => dispatch(updateTableNarrow(isNarrow)),
+    updateTableHoverable: (isHoverable) =>
       dispatch(updateTableHoverable(isHoverable)),
-    updateTableFullwidth: isFullWidth =>
-      dispatch(updateTableFullwidth(isFullWidth))
+    updateTableFullwidth: (isFullWidth) =>
+      dispatch(updateTableFullwidth(isFullWidth)),
   };
 };
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(Sidebar);
+export default connect(mapStateToProps, mapDispatchToProps)(Sidebar);
