@@ -314,9 +314,9 @@ class Template extends Component {
         </div>
         <div className="p-6 text-center text-white" style={{ backgroundColor: this.props.themeSecondaryColor }}>
           <h2 className="mb-4">Lorem ipsum dolor sit amet.</h2>
-          <p>SGDS is <a href="https://github.com/GovTechSG/sgds" className="text-white" target="_blank">open source</a>.</p>
+          <p>SGDS is <a href="https://github.com/GovTechSG/sgds" className="text-white" target="_blank" rel="noreferrer">open source</a>.</p>
           <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis aspernatur harum modi ullam dignissimos delectus quae officiis eveniet dicta sequi.</p>
-          <Button variant="outline-light" href="https://form.gov.sg/#!/5bc440ac507956000fdbae91" target="_blank">Let's Connect</Button>
+          <Button variant="outline-light" href="https://form.gov.sg/#!/5bc440ac507956000fdbae91" target="_blank" rel="noreferrer">Let's Connect</Button>
         </div>
       </Frame>
     );
