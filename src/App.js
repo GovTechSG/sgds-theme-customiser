@@ -5,18 +5,14 @@ import React, { Component } from "react";
 import configureStore from "./store/configureStore";
 import { Provider } from "react-redux";
 
+import '@govtechsg/sgds-masthead/dist/sgds-masthead/sgds-masthead.css';
+import { SgdsMasthead } from "@govtechsg/sgds-masthead-react"
+
 // elements
-import {
-  MainNav,
-  MainNavBrand,
-  MainNavBurger,
-  MainNavItem,
-  MainNavMenu,
-  MainNavMenuStart,
-  MainNavMenuEnd,
-} from "sgds-govtech-react/dist/standard";
+import { Navbar, Nav } from '@govtechsg/sgds-react/Nav';
+import { Button } from '@govtechsg/sgds-react/Button';
 import Body from "./components/body/body";
-import Footer from "./components/footer/footer";
+import FooterComponent from "./components/footer/footer";
 
 // styles
 import "./App.scss";
@@ -43,92 +39,48 @@ class App extends Component {
     }
   };
 
-  toggleNavMenu = () => {
-    this.setState((state) => {
-      return {
-        showNavMenu: !state.showNavMenu,
-      };
-    });
-  };
-
-  componentDidMount() {
-    document.title = "SGDS Theme Customizer";
-  }
-
   render() {
     return (
       <Provider store={store}>
         {/* <Masthead hasMaxWidth={false}/> */}
-        <div className="sgds-masthead">
-          <div className="sgds-container is-fluid">
-            <div className="row">
-              <div className="col">
-                <a
-                  href="https://www.gov.sg"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <span className="sgds-icon sgds-icon-sg-crest"></span>
-                  <span className="is-text">
-                    A Singapore Government Agency Website
-                  </span>
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-        <MainNav isFluid>
-          <MainNavBrand>
-            <MainNavItem href="/">
-              <img
-                src="https://www.designsystem.gov.sg/assets/img/logo-sgds.svg"
-                alt="main logo"
-              />
-            </MainNavItem>
-            <MainNavBurger
-              onClick={this.toggleNavMenu}
-              expand={this.state.showNavMenu}
+        <SgdsMasthead />
+        <Navbar expand="md">
+          <Navbar.Brand href="/">
+            <img
+              src="https://www.designsystem.gov.sg/assets/img/logo-sgds.svg"
+              alt="Main Logo"
+              width="150"
             />
-          </MainNavBrand>
-          <MainNavMenu expand={this.state.showNavMenu}>
-            <MainNavMenuStart>
-              <MainNavItem
-                href="#!"
-                isUpperCase
-                isTab
-                onClick={() => this.selectMenuItem("Customiser View")}
-                isActive={this.state.showPanel === 0}
-              >
-                Customiser view
-              </MainNavItem>
-              <MainNavItem
-                href="#!"
-                isUpperCase
-                isTab
-                onClick={() => this.selectMenuItem("Template View")}
-                isActive={this.state.showPanel === 1}
-              >
-                Template view
-              </MainNavItem>
-            </MainNavMenuStart>
-            <MainNavMenuEnd>
-              <div
-                className="sgds-navbar-item"
-                style={{ display: "flex", alignItems: "center" }}
-              >
-                <a
-                  href="https://designsystem.gov.sg"
-                  className="sgds-button is-small is-rounded is-primary"
+          </Navbar.Brand>
+          <Navbar.Toggle aria-controls="mainNav" />
+          <Navbar.Collapse id="mainNav">
+            <Nav className="me-auto" activeKey={this.state.showPanel}>
+              <Nav.Item>
+                <Nav.Link
+                  onClick={() => this.selectMenuItem("Customiser View")}
+                  eventKey="0"
                 >
-                  SGDS Docs{" "}
-                  <span className="sgds-icon sgds-icon-external"></span>
-                </a>
-              </div>
-            </MainNavMenuEnd>
-          </MainNavMenu>
-        </MainNav>
+                  Customisor View
+                </Nav.Link>
+              </Nav.Item>
+              <Nav.Item>
+                <Nav.Link
+                  onClick={() => this.selectMenuItem("Template View")}
+                  eventKey="1"
+                >
+                  Template View
+                </Nav.Link>
+              </Nav.Item>
+            </Nav>
+            <div className="d-flex align-items-center">
+              <Button size="sm" href="https://v2dev.designsystem.gov.sg/" target="_blank">
+                SGDS Docs
+              </Button>
+            </div>
+          </Navbar.Collapse>
+        </Navbar>
         <Body display={this.state.showPanel} />
-        <Footer />
+        <FooterComponent />
       </Provider>
     );
   }

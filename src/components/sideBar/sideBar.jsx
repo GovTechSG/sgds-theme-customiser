@@ -1,7 +1,6 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import styled from "styled-components";
 
 // Import Presets
 import cssPresets from "../../cssPresets/cssPresets";
@@ -27,15 +26,7 @@ import {
 
 import { HelpModal, HelpModalToggle } from "../help";
 
-const StyledButtonGroup = styled.div`
-  button {
-    display: flex;
-    width: 100%;
-  }
-  button:not(:last-child) {
-    margin-bottom: 0.3rem;
-  }
-`;
+import { Button } from "@govtechsg/sgds-react"
 
 class Sidebar extends Component {
   constructor(props) {
@@ -767,25 +758,23 @@ class Sidebar extends Component {
           {this.renderButtonGroup()}
           {this.renderTypography()}
           {this.renderTables()}
-          <div className="buttonGroup">
-            <StyledButtonGroup>
-              <button
-                className="sgds-button is-secondary is-small"
+          <div className="d-grid p-2">
+              <Button
+                size="sm"
+                variant="secondary"
                 onClick={this.exportStyle}
-                isRounded
-                buttonSize="large"
               >
-                Export as Sass variables
-              </button>
-              <button
-                className="sgds-button is-text is-small"
+                Export as Sass Variables
+              </Button>
+              <Button
+                size="sm"
+                variant="light"
                 onClick={() => this.resetColors("resetAll")}
               >
-                Reset All
-              </button>
+                <u>Reset All</u>
+              </Button>
 
               <HelpModalToggle onToggle={this.toggleHelpModal} />
-            </StyledButtonGroup>
           </div>
         </div>
         {this.state.showHelpModal && (

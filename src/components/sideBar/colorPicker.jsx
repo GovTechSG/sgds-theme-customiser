@@ -44,14 +44,14 @@ class ColorPicker extends Component {
     };
     return (
       <div className="colorPicker">
-        <p className="has-text-weight-bold">{this.props.colorName}
-          <small className={this.colorContrast(this.props.inputColor, this.props.colorName) < 4.5 ? 'padding--left has-text-danger' : 'padding--left has-text-success' }>
+        <div className="fw-bold">{this.props.colorName}
+          <small className={this.colorContrast(this.props.inputColor, this.props.colorName) < 4.5 ? 'ps-2 text-danger' : 'ps-2 text-success' }>
             {this.colorContrast( this.props.inputColor, this.props.colorName)}
           </small>
-        </p>
+        </div>
         <div className="colorPickerContainer"  onClick={() => this.toggleColorPicker()}>
           <input
-            className="col is-11 color"
+            className="col color me-2"
             type="button"
             value={this.props.inputColor}
             readOnly
