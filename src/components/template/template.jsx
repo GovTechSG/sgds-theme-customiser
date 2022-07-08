@@ -221,7 +221,7 @@ class Template extends Component {
           <Row className="mb-4">
             <Col md="6">
               <h3>Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias, at.</h3>
-              Lorem ipsum dolor sit, amet consectetur adipisicing elit. Aliquam quo quis provident nesciunt ut maiores minima,
+              Lorem ipsum dolor sit, amet consectetur adipisicing elit. Aliquam quo quis provident nesciunt ut maiores minima,{" "}
               <a href="" className="text-decoration-none" style={{ color: this.props.infoColor }}>
                 ipsa explicabo doloremque quae
               </a>?
@@ -234,7 +234,7 @@ class Template extends Component {
             </Col>
             <Col md="6">
               <h3>Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias, at.</h3>
-              Lorem ipsum dolor sit, amet consectetur adipisicing elit. Aliquam quo quis provident nesciunt ut maiores minima,
+              Lorem ipsum dolor sit, amet consectetur adipisicing elit. Aliquam quo quis provident nesciunt ut maiores minima,{" "}
               <a href="" className="text-decoration-none" style={{ color: this.props.infoColor }}>
                 ipsa explicabo doloremque quae
               </a>?

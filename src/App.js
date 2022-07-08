@@ -27,7 +27,6 @@ class App extends Component {
   };
 
   selectMenuItem = (item) => {
-    console.log(item);
     if (item === "Template View") {
       this.setState({
         showPanel: 1,

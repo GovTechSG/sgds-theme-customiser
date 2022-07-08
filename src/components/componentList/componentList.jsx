@@ -91,7 +91,7 @@ class ComponentList extends Component {
 								</Navbar.Brand>
 								<Navbar.Toggle aria-controls="navigation" />
 								<Navbar.Collapse id="navigation">
-									<Nav className="me-auto">
+									<Nav className="me-auto" defaultActiveKey="1">
 										<NavDropdown
 											isMegaMenu
 											title="Megamenu"
