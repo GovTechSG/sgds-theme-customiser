@@ -1,11 +1,7 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
-import React, { useState } from "react";
+import React from "react";
 
 import { connect } from "react-redux";
-
-// Import Elements
-// import TableComponent from "../tableComponent/tableComponent";
-// import cssPresets from "../../cssPresets/cssPresets";
 
 import {
 	Nav,
@@ -19,13 +15,6 @@ import {
 	Col,
 	Container,
 } from "@govtechsg/sgds-react";
-
-// Import Redux Store
-import {
-	updateTableHoverable,
-	updateTableFullwidth,
-	updateThemePrimaryColor
-} from "../../store/actions/index";
 
 const ComponentList = (props) => {
 	return (
@@ -435,18 +424,6 @@ const mapStateToProps = state => {
 	};
 };
 
-const mapDispatchToProps = dispatch => {
-	return {
-		updateTableHoverable: isHoverable =>
-			dispatch(updateTableHoverable(isHoverable)),
-		updateTableFullwidth: isFullWidth =>
-			dispatch(updateTableFullwidth(isFullWidth)),
-		updateThemePrimaryColor: themePrimaryColor =>
-			dispatch(updateThemePrimaryColor(themePrimaryColor))
-	};
-};
-
 export default connect(
-	mapStateToProps,
-	mapDispatchToProps
+	mapStateToProps
 )(ComponentList);

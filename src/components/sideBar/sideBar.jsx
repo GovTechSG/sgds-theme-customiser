@@ -24,7 +24,7 @@ import {
 } from "../../store/actions/index";
 // import { statement } from "@babel/template";
 
-import { HelpModal, HelpModalToggle } from "../help";
+import { HelpModal, HelpModalToggle } from "./help";
 
 import { Button } from "@govtechsg/sgds-react"
 

@@ -9,7 +9,7 @@ import '@govtechsg/sgds-masthead/dist/sgds-masthead/sgds-masthead.css';
 import { SgdsMasthead } from "@govtechsg/sgds-masthead-react"
 
 // elements
-import { Navbar, Nav } from '@govtechsg/sgds-react/Nav';
+import { Navbar } from '@govtechsg/sgds-react/Nav';
 import { Button } from '@govtechsg/sgds-react/Button';
 import Body from "./components/body/body";
 import FooterComponent from "./components/footer/footer";
