@@ -6,8 +6,4 @@ export {
   updateThemeSuccessColor,
   updateThemeDangerColor,
   updateThemeWarningColor,
-  updateTableHeadColor,
-  updateTableNarrow,
-  updateTableHoverable,
-  updateTableFullwidth
 } from "./cssProperties";
