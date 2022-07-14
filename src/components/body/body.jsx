@@ -1,7 +1,7 @@
 import React from "react";
 
 // import elements
-import ComponentList from "./componentList";
+import ComponentList from "../components/componentList";
 import Sidebar from "../sideBar/sideBar";
 
 const Body = () => {
