@@ -32,7 +32,10 @@ export function BodyText(props) {
 
 export function TextColor(props) {
     return (
-        <p style={{ color: props.color}}>
+        <p
+            key={props.color}
+            style={{ color: props.color}}
+        >
             Nullam quis risus eget urna mollis ornare vel eu leo.
         </p>
     )

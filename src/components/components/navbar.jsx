@@ -11,6 +11,7 @@ const NavbarComponent = (props) => {
 
 	const sublinks = [...Array(3)].map((x, i) => 
 		<NavDropdown.Item
+            key={i}
 			href="/#"
 		>
 			Sublink
