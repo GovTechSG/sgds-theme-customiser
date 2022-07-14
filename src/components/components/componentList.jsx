@@ -5,13 +5,13 @@ import { connect } from "react-redux";
 
 import {Row, Col} from "@govtechsg/sgds-react";
 
-import { HeaderText, BodyText, TextColor, TextStyle } from './typography'
 import AccordionComponent from "./accordion";
 import BreadcrumbComponent from "./breadcrumb";
 import ButtonComponent from "./button";
 import { InformationalCard, StretchedLink, QuantityToggleCard } from "./card";
 import MainNavComponent from "./mainNavigation";
 import TableComponent from "./tableData";
+import { HeaderText, BodyText, TextColor, TextStyle } from './typography'
 
 const ComponentList = (props) => {
 	const colorArray = {
@@ -43,37 +43,16 @@ const ComponentList = (props) => {
 		</ButtonComponent>
 	)
 
-	const text = Object.values(colorArray).map((color) =>
-		<TextColor color={color}></TextColor>
-	)
-
 	const tableData = Object.values(colorArray).map((color) =>
 		<TableComponent bg={color} color="white"></TableComponent>
 	)
 
+	const textExamples = Object.values(colorArray).map((color) =>
+		<TextColor color={color}></TextColor>
+	)
+
 	return (
 		<div className="p-6 bg-light">
-			{/* Typography */}
-			<h2 className="text-primary mb-4">Typography</h2>
-			<Row>
-				<Col>
-					<p className="fw-bold">Header Text</p>
-					<HeaderText />
-				</Col>
-				<Col>
-					<p className="fw-bold">Example Body Text</p>
-					<BodyText color={props.infoColor}></BodyText>
-				</Col>
-				<Col>
-					<p className="fw-bold">Default Text Color</p>
-					{text}
-					<TextStyle />
-				</Col>
-			</Row>
-			{/* Typography */}
-
-			<br /><hr /><br />
-
 			{/* Accordion */}
 			<h2 className="text-primary mb-4">Accordion</h2>
 			<AccordionComponent />
@@ -137,6 +116,27 @@ const ComponentList = (props) => {
 				</tbody>
 			</table>
 			{/* Tables */}
+
+			<br /><hr /><br />
+
+			{/* Typography */}
+			<h2 className="text-primary mb-4">Typography</h2>
+			<Row>
+				<Col>
+					<p className="fw-bold">Header Text</p>
+					<HeaderText />
+				</Col>
+				<Col>
+					<p className="fw-bold">Example Body Text</p>
+					<BodyText color={props.infoColor}></BodyText>
+				</Col>
+				<Col>
+					<p className="fw-bold">Default Text Color</p>
+					{textExamples}
+					<TextStyle />
+				</Col>
+			</Row>
+			{/* Typography */}
 		</div>
 	);
 }
