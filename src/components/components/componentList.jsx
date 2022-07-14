@@ -6,6 +6,7 @@ import { connect } from "react-redux";
 import {Row, Col} from "@govtechsg/sgds-react";
 
 import AccordionComponent from "./accordion";
+import AlertComponent from "./alert";
 import BreadcrumbComponent from "./breadcrumb";
 import ButtonComponent from "./button";
 import { InformationalCard, StretchedLink, QuantityToggleCard } from "./card";
@@ -15,20 +16,33 @@ import { HeaderText, BodyText, TextColor, TextStyle } from './typography'
 
 const ComponentList = (props) => {
 	const colorArray = {
-		"Primary": props.themePrimaryColor,
-		"Secondary": props.themeSecondaryColor,
-		"Info": props.infoColor,
-		"Success": props.successColor,
-		"Danger": props.dangerColor,
-		"Warning": props.warningColor
+		"primary": props.themePrimaryColor,
+		"secondary": props.themeSecondaryColor,
+		"info": props.infoColor,
+		"success": props.successColor,
+		"danger": props.dangerColor,
+		"warning": props.warningColor
 	}
 
-	const buttons = Object.entries(colorArray).map( ([name, color]) =>
+	const capitalise = (str) => {
+		return str.charAt(0).toUpperCase() + str.slice(1)
+	}
+
+	const alerts = Object.entries(colorArray).map(([name, color]) =>
+		<AlertComponent
+			border={color}
+			variant={name}
+			text={capitalise(name) + " Alert"}
+		>
+		</AlertComponent>
+	)
+
+	const buttons = Object.entries(colorArray).map(([name, color]) =>
 		<ButtonComponent
 			bg={color}
 			border={color}
 			color="white"
-			text={name}
+			text={capitalise(name)}
 		>
 		</ButtonComponent>
 	)
@@ -38,7 +52,7 @@ const ComponentList = (props) => {
 			bg="transparent"
 			border={color}
 			color={color}
-			text={name}
+			text={capitalise(name)}
 		>
 		</ButtonComponent>
 	)
@@ -57,6 +71,13 @@ const ComponentList = (props) => {
 			<h2 className="text-primary mb-4">Accordion</h2>
 			<AccordionComponent />
 			{/* Accordion */}
+
+			<br /><hr /><br />
+
+			{/* Alert */}
+			<h2 className="text-primary mb-4">Alert</h2>
+			{alerts}
+			{/* Alert */}
 
 			<br /><hr /><br />
 

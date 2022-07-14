@@ -6,6 +6,7 @@ import configureStore from "./store/configureStore";
 import * as serviceWorker from "./serviceWorker";
 
 import "@govtechsg/sgds/sgds/sgds.css"
+import 'bootstrap-icons/font/bootstrap-icons.css';
 
 import App from "./App";
 

@@ -10,7 +10,7 @@ const ButtonComponent = (props) => {
                 backgroundColor: props.bg,
                 border: "1px solid" + props.border,
                 color: props.color
-                }}
+            }}
             className="me-2"
         >
             {props.text}
