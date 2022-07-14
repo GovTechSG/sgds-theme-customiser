@@ -10,7 +10,7 @@ import BreadcrumbComponent from "./breadcrumb";
 import ButtonComponent from "./button";
 import { InformationalCard, StretchedLink, QuantityToggleCard } from "./card";
 import MainNavComponent from "./mainNavigation";
-import TableComponent from "./tableData";
+import TableComponent from "./table";
 import { HeaderText, BodyText, TextColor, TextStyle } from './typography'
 
 const ComponentList = (props) => {
