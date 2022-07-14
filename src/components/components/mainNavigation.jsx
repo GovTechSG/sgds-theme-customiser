@@ -2,7 +2,7 @@ import React, { useState } from "react";
 
 import { Nav, Navbar, NavDropdown, Container, Row, Col } from "@govtechsg/sgds-react"
 
-const NavbarComponent = (props) => {
+const MainNavComponent = (props) => {
     const [active, setActive] = useState(0)
 
 	const handleNavClick = (eventKey) => {
@@ -85,4 +85,4 @@ const NavbarComponent = (props) => {
     )
 }
 
-export default NavbarComponent;
+export default MainNavComponent;
