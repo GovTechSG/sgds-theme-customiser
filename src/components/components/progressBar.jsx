@@ -5,7 +5,7 @@ import { ProgressBar } from "@govtechsg/sgds-react"
 const ProgressBarComponent = (props) => {
     return (
         <ProgressBar
-            now="75"
+            now={75}
             variant={props.variant}
             striped={props.striped}
             animated={props.animated}
