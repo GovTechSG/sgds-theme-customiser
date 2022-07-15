@@ -11,6 +11,7 @@ import { BadgeComponent, WrapperBadge, ButtonBadge } from "./badge";
 import BreadcrumbComponent from "./breadcrumb";
 import ButtonComponent from "./button";
 import { InformationalCard, StretchedLink, QuantityToggleCard } from "./card";
+import DropdownComponent from "./dropdown";
 import MainNavComponent from "./mainNavigation";
 import TableComponent from "./table";
 import { HeaderText, BodyText, TextColor, TextStyle } from './typography'
@@ -74,6 +75,26 @@ const ComponentList = (props) => {
 			text={capitalise(name)}
 		>
 		</ButtonComponent>
+	)
+
+	const dropdown = Object.entries(colorArray).map(([name, color]) =>
+		<DropdownComponent
+			bg={color}
+			border={color}
+			color="white"
+			text={capitalise(name)}
+		>
+		</DropdownComponent>
+	)
+
+	const outlineDropdown = Object.entries(colorArray).map(([name, color]) =>
+		<DropdownComponent
+			bg="transparent"
+			border={color}
+			color={color}
+			text={capitalise(name)}
+		>
+		</DropdownComponent>
 	)
 
 	const tableData = Object.values(colorArray).map((color) =>
@@ -155,6 +176,18 @@ const ComponentList = (props) => {
 				<QuantityToggleCard />
 			</Row>
 			{/* Card */}
+
+			<br /><hr /><br />
+
+			{/* Dropdown */}
+			<h2 className="text-primary mb-4">Dropdown</h2>
+			<div className="mb-2">
+				{dropdown}
+			</div>
+			<div className="mb-2">
+				{outlineDropdown}
+			</div>
+			{/* Dropdown */}
 
 			<br /><hr /><br />
 
