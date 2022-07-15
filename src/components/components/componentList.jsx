@@ -13,6 +13,7 @@ import ButtonComponent from "./button";
 import { InformationalCard, StretchedLink, QuantityToggleCard } from "./card";
 import DropdownComponent from "./dropdown";
 import MainNavComponent from "./mainNavigation";
+import ProgressBarComponent from "./progressBar";
 import TableComponent from "./table";
 import { HeaderText, BodyText, TextColor, TextStyle } from './typography'
 
@@ -77,7 +78,7 @@ const ComponentList = (props) => {
 			bg="transparent"
 			border={color}
 			color={color}
-			text={capitalise(name)}
+			text={"Outline " + capitalise(name)}
 		>
 		</ButtonComponent>
 	)
@@ -99,9 +100,39 @@ const ComponentList = (props) => {
 			bg="transparent"
 			border={color}
 			color={color}
-			text={capitalise(name)}
+			text={"Outline " + capitalise(name)}
 		>
 		</DropdownComponent>
+	)
+
+	const progressBar = Object.entries(colorArray).map(([name, color]) =>
+		<ProgressBarComponent
+			key={"progress-bar-" + name}
+			variant={name}
+			striped={false}
+			animated={false}
+		>
+		</ProgressBarComponent>
+	)
+
+	const progressBarStriped = Object.entries(colorArray).map(([name, color]) =>
+		<ProgressBarComponent
+			key={"progress-bar-striped" + name}
+			variant={name}
+			striped={true}
+			animated={false}
+		>
+		</ProgressBarComponent>
+	)
+
+	const progressBarAnimated = Object.entries(colorArray).map(([name, color]) =>
+		<ProgressBarComponent
+			key={"progress-bar-striped" + name}
+			variant={name}
+			striped={false}
+			animated={true}
+		>
+		</ProgressBarComponent>
 	)
 
 	const tableData = Object.entries(colorArray).map(([name, color]) =>
@@ -137,7 +168,7 @@ const ComponentList = (props) => {
 			
 			{/* Badge */}
 			<h2 className="text-primary mb-4">Badge</h2>
-			<Row className="mb-2">
+			<Row className="mb-4">
 				<Col className="mb-2">
 					<p className="fw-bold">Default Badge</p>
 					{defaultBadge}
@@ -211,6 +242,24 @@ const ComponentList = (props) => {
 					<MainNavComponent />
 				</div>
 			{/* Main Navigation */}
+
+			<br /><hr /><br />
+
+			{/* Progress Bar */}
+			<h2 className="text-primary mb-4">Progress Bar</h2>
+			<div className="mb-4">
+				<p className="fw-bold">Default Progress Bar</p>
+				{progressBar}
+			</div>
+			<div className="mb-4">
+				<p className="fw-bold">Striped Progress Bar</p>
+				{progressBarStriped}
+			</div>
+			<div>
+				<p className="fw-bold">Animated Progress Bar</p>
+				{progressBarAnimated}
+			</div>
+			{/* Progress Bar */}
 
 			<br /><hr /><br />
 

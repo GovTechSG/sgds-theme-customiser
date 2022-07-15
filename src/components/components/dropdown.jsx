@@ -4,7 +4,7 @@ import { Dropdown } from "@govtechsg/sgds-react"
 
 const DropdownComponent = (props) => {
     return (
-        <Dropdown className="d-inline-block me-2">
+        <Dropdown className="d-inline-block mb-2 me-2">
             <Dropdown.Toggle
                 style={{
                     backgroundColor: props.bg,
