@@ -95,7 +95,7 @@ const ComponentList = (props) => {
 
 	const outlineDropdown = Object.entries(colorArray).map(([name, color]) =>
 		<DropdownComponent
-			key={"dropdown-outline" + name}
+			key={"dropdown-outline-" + name}
 			bg="transparent"
 			border={color}
 			color={color}
@@ -104,7 +104,7 @@ const ComponentList = (props) => {
 		</DropdownComponent>
 	)
 
-	const tableData = Object.entries(colorArray).map((name, color) =>
+	const tableData = Object.entries(colorArray).map(([name, color]) =>
 		<TableComponent
 			key={"table-data-" + name}
 			bg={color}
@@ -112,7 +112,7 @@ const ComponentList = (props) => {
 		</TableComponent>
 	)
 
-	const textExamples = Object.entries(colorArray).map((name, color) =>
+	const textExamples = Object.entries(colorArray).map(([name, color]) =>
 		<TextColor
 			key={"text-example-" + name}
 			color={color}>
