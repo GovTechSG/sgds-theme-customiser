@@ -7,6 +7,7 @@ import {Row, Col} from "@govtechsg/sgds-react";
 
 import AccordionComponent from "./accordion";
 import AlertComponent from "./alert";
+import { BadgeComponent, WrapperBadge, ButtonBadge } from "./badge";
 import BreadcrumbComponent from "./breadcrumb";
 import ButtonComponent from "./button";
 import { InformationalCard, StretchedLink, QuantityToggleCard } from "./card";
@@ -28,7 +29,7 @@ const ComponentList = (props) => {
 		return str.charAt(0).toUpperCase() + str.slice(1)
 	}
 
-	const alerts = Object.entries(colorArray).map(([name, color]) =>
+	const alert = Object.entries(colorArray).map(([name, color]) =>
 		<AlertComponent
 			border={color}
 			variant={name}
@@ -37,7 +38,25 @@ const ComponentList = (props) => {
 		</AlertComponent>
 	)
 
-	const buttons = Object.entries(colorArray).map(([name, color]) =>
+	const defaultBadge = Object.entries(colorArray).map(([name, color]) =>
+		<BadgeComponent
+			bg={name}
+			pill={false}
+			text={capitalise(name)}
+		>
+		</BadgeComponent>
+	)
+
+	const pillBadge = Object.entries(colorArray).map(([name, color]) =>
+		<BadgeComponent
+			bg={name}
+			pill={true}
+			text={capitalise(name)}
+		>
+		</BadgeComponent>
+	)
+
+	const button = Object.entries(colorArray).map(([name, color]) =>
 		<ButtonComponent
 			bg={color}
 			border={color}
@@ -47,7 +66,7 @@ const ComponentList = (props) => {
 		</ButtonComponent>
 	)
 	
-	const outlineButtons = Object.entries(colorArray).map(([name, color]) =>
+	const outlineButton = Object.entries(colorArray).map(([name, color]) =>
 		<ButtonComponent
 			bg="transparent"
 			border={color}
@@ -76,8 +95,34 @@ const ComponentList = (props) => {
 
 			{/* Alert */}
 			<h2 className="text-primary mb-4">Alert</h2>
-			{alerts}
+			{alert}
 			{/* Alert */}
+
+			<br /><hr /><br />
+			
+			{/* Badge */}
+			<h2 className="text-primary mb-4">Badge</h2>
+			<Row className="mb-2">
+				<Col className="mb-2">
+					<p className="fw-bold">Default Badge</p>
+					{defaultBadge}
+				</Col>
+				<Col className="mb-2">
+					<p className="fw-bold">Pill Badge</p>
+					{pillBadge}
+				</Col>
+			</Row>
+			<Row>
+				<Col className="mb-2">
+					<p className="fw-bold">Wrapper Badge</p>
+					<WrapperBadge />
+				</Col>
+				<Col className="mb-2">
+					<p className="fw-bold">Button Badge</p>
+					<ButtonBadge />
+				</Col>
+			</Row>
+			{/* Badge */}
 
 			<br /><hr /><br />
 
@@ -88,13 +133,13 @@ const ComponentList = (props) => {
 
 			<br /><hr /><br />
 
-			{/* Buttons */}
-			<h2 className="text-primary mb-4">Buttons</h2>
+			{/* Button */}
+			<h2 className="text-primary mb-4">Button</h2>
 			<div className="mb-2">
-				{buttons}
+				{button}
 			</div>
 			<div className="mb-2">
-				{outlineButtons}
+				{outlineButton}
 			</div>
 			{/* Buttons */}
 
