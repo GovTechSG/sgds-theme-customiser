@@ -32,6 +32,7 @@ const ComponentList = (props) => {
 
 	const alert = Object.entries(colorArray).map(([name, color]) =>
 		<AlertComponent
+			key={"alert-" + name}
 			border={color}
 			variant={name}
 			text={capitalise(name) + " Alert"}
@@ -41,6 +42,7 @@ const ComponentList = (props) => {
 
 	const defaultBadge = Object.entries(colorArray).map(([name, color]) =>
 		<BadgeComponent
+			key={"badge-" + name}
 			bg={name}
 			pill={false}
 			text={capitalise(name)}
@@ -50,6 +52,7 @@ const ComponentList = (props) => {
 
 	const pillBadge = Object.entries(colorArray).map(([name, color]) =>
 		<BadgeComponent
+			key={"badge-pill-" + name}
 			bg={name}
 			pill={true}
 			text={capitalise(name)}
@@ -59,6 +62,7 @@ const ComponentList = (props) => {
 
 	const button = Object.entries(colorArray).map(([name, color]) =>
 		<ButtonComponent
+			key={"button-" + name}
 			bg={color}
 			border={color}
 			color="white"
@@ -69,6 +73,7 @@ const ComponentList = (props) => {
 	
 	const outlineButton = Object.entries(colorArray).map(([name, color]) =>
 		<ButtonComponent
+			key={"button-outline-" + name}
 			bg="transparent"
 			border={color}
 			color={color}
@@ -79,6 +84,7 @@ const ComponentList = (props) => {
 
 	const dropdown = Object.entries(colorArray).map(([name, color]) =>
 		<DropdownComponent
+			key={"dropdown-" + name}
 			bg={color}
 			border={color}
 			color="white"
@@ -89,6 +95,7 @@ const ComponentList = (props) => {
 
 	const outlineDropdown = Object.entries(colorArray).map(([name, color]) =>
 		<DropdownComponent
+			key={"dropdown-outline" + name}
 			bg="transparent"
 			border={color}
 			color={color}
@@ -97,12 +104,19 @@ const ComponentList = (props) => {
 		</DropdownComponent>
 	)
 
-	const tableData = Object.values(colorArray).map((color) =>
-		<TableComponent bg={color} color="white"></TableComponent>
+	const tableData = Object.entries(colorArray).map((name, color) =>
+		<TableComponent
+			key={"table-data-" + name}
+			bg={color}
+			color="white">
+		</TableComponent>
 	)
 
-	const textExamples = Object.values(colorArray).map((color) =>
-		<TextColor color={color}></TextColor>
+	const textExamples = Object.entries(colorArray).map((name, color) =>
+		<TextColor
+			key={"text-example-" + name}
+			color={color}>
+		</TextColor>
 	)
 
 	return (
