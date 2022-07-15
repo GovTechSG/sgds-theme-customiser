@@ -15,6 +15,7 @@ import DropdownComponent from "./dropdown";
 import MainNavComponent from "./mainNavigation";
 import ProgressBarComponent from "./progressBar";
 import TableComponent from "./table";
+import ToastComponent from "./toast";
 import { HeaderText, BodyText, TextColor, TextStyle } from './typography'
 
 const ComponentList = (props) => {
@@ -141,6 +142,14 @@ const ComponentList = (props) => {
 			bg={color}
 			color="white">
 		</TableComponent>
+	)
+
+	const toast = Object.entries(colorArray).map(([name, color]) =>
+		<ToastComponent
+			key={"toast-" + name}
+			status={name}
+		>
+		</ToastComponent>
 	)
 
 	const textExamples = Object.entries(colorArray).map(([name, color]) =>
@@ -278,6 +287,13 @@ const ComponentList = (props) => {
 				</tbody>
 			</table>
 			{/* Tables */}
+
+			<br /><hr /><br />
+
+			{/* Toast */}
+			<h2 className="text-primary mb-4">Toast</h2>
+			{toast}
+			{/* Toast */}
 
 			<br /><hr /><br />
 
