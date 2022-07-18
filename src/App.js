@@ -24,7 +24,7 @@ const App = () => {
   return (
     <Provider store={store}>
       <SgdsMasthead />
-      <Navbar className="justify-content-between">
+      <Navbar className="justify-content-between sticky-top bg-white">
         <Navbar.Brand href="/">
           <img
             src="https://www.designsystem.gov.sg/assets/img/logo-sgds.svg"

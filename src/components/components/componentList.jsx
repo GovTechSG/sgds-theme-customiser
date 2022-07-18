@@ -14,7 +14,9 @@ import { InformationalCard, StretchedLink, QuantityToggleCard } from "./card";
 import DropdownComponent from "./dropdown";
 import MainNavComponent from "./mainNavigation";
 import ProgressBarComponent from "./progressBar";
+import SideNavComponent from "./sideNavigation";
 import TableComponent from "./table";
+import { DefaultTabs, BasicToggleTabs, InfoToggleTabs } from "./tabs"
 import ToastComponent from "./toast";
 import { HeaderText, BodyText, TextColor, TextStyle } from './typography'
 
@@ -144,7 +146,7 @@ const ComponentList = (props) => {
 		</TableComponent>
 	)
 
-	const toast = Object.entries(colorArray).map(([name, color]) =>
+	const toast = ["success", "danger", "warning"].map((name) =>
 		<ToastComponent
 			key={"toast-" + name}
 			status={name}
@@ -246,10 +248,10 @@ const ComponentList = (props) => {
 			<br /><hr /><br />
 
 			{/* Main Navigation */}
-				<h2 className="text-primary mb-4">Main Navigation</h2>
-				<div className="bg-white">
-					<MainNavComponent />
-				</div>
+			<h2 className="text-primary mb-4">Main Navigation</h2>
+			<div className="bg-white">
+				<MainNavComponent />
+			</div>
 			{/* Main Navigation */}
 
 			<br /><hr /><br />
@@ -272,6 +274,17 @@ const ComponentList = (props) => {
 
 			<br /><hr /><br />
 
+			{/* Side Navigation */}
+			<h2 className="text-primary mb-4">Side Navigation</h2>
+			<Row>
+				<Col className="bg-white p-3" xs="3">
+					<SideNavComponent />
+				</Col>
+			</Row>
+			{/* Side Navigation */}
+
+			<br /><hr /><br />
+
 			{/* Tables */}
 			<h2 className="text-primary mb-4">Tables</h2>
 			<table className="table bg-white">
@@ -287,6 +300,24 @@ const ComponentList = (props) => {
 				</tbody>
 			</table>
 			{/* Tables */}
+
+			<br /><hr /><br />
+
+			{/* Tabs */}
+			<h2 className="text-primary mb-4">Tabs</h2>
+			<div className="mb-4">
+				<p className="fw-bold">Default Tabs</p>
+				<DefaultTabs />
+			</div>
+			<div className="mb-4">
+				<p className="fw-bold">Basic Toggle Tabs</p>
+				<BasicToggleTabs />
+			</div>
+			<div className="mb-4">
+				<p className="fw-bold">Info Toggle Tabs</p>
+				<InfoToggleTabs />
+			</div>
+			{/* Tabs */}
 
 			<br /><hr /><br />
 
