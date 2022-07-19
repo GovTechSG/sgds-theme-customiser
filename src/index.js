@@ -5,7 +5,7 @@ import { Provider } from "react-redux";
 import configureStore from "./store/configureStore";
 import * as serviceWorker from "./serviceWorker";
 
-import "@govtechsg/sgds/sgds/sgds.css"
+import "@govtechsg/sgds/css/sgds.css"
 import 'bootstrap-icons/font/bootstrap-icons.css';
 
 import App from "./App";
