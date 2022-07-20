@@ -11,6 +11,7 @@ import { BadgeComponent, WrapperBadge, ButtonBadge } from "./badge";
 import BreadcrumbComponent from "./breadcrumb";
 import ButtonComponent from "./button";
 import { InformationalCard, StretchedLink, QuantityToggleCard } from "./card";
+import FormCheckComponent from "./formCheck";
 import DropdownComponent from "./dropdown";
 import MainNavComponent from "./mainNavigation";
 import ProgressBarComponent from "./progressBar";
@@ -235,6 +236,13 @@ const ComponentList = (props) => {
 
 			<br /><hr /><br />
 
+			{/* Checkbox */}
+			<h2 className="text-primary mb-4">Checkbox</h2>
+			<FormCheckComponent />
+			{/* Checkbox */}
+
+			<br /><hr /><br />
+
 			{/* Dropdown */}
 			<h2 className="text-primary mb-4">Dropdown</h2>
 			<div className="mb-2">
@@ -271,6 +279,13 @@ const ComponentList = (props) => {
 				{progressBarAnimated}
 			</div>
 			{/* Progress Bar */}
+
+			<br /><hr /><br />
+
+			{/* Radio Button */}
+			<h2 className="text-primary mb-4">Radio Button</h2>
+			<FormCheckComponent type="radio" />
+			{/* Checkbox */}
 
 			<br /><hr /><br />
 
