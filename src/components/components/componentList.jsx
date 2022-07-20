@@ -7,11 +7,18 @@ import {Row, Col} from "@govtechsg/sgds-react";
 
 import AccordionComponent from "./accordion";
 import AlertComponent from "./alert";
+import { BadgeComponent, WrapperBadge, ButtonBadge } from "./badge";
 import BreadcrumbComponent from "./breadcrumb";
 import ButtonComponent from "./button";
 import { InformationalCard, StretchedLink, QuantityToggleCard } from "./card";
+import FormCheckComponent from "./formCheck";
+import DropdownComponent from "./dropdown";
 import MainNavComponent from "./mainNavigation";
+import ProgressBarComponent from "./progressBar";
+import SideNavComponent from "./sideNavigation";
 import TableComponent from "./table";
+import { DefaultTabs, BasicToggleTabs, InfoToggleTabs } from "./tabs"
+import ToastComponent from "./toast";
 import { HeaderText, BodyText, TextColor, TextStyle } from './typography'
 
 const ComponentList = (props) => {
@@ -28,8 +35,9 @@ const ComponentList = (props) => {
 		return str.charAt(0).toUpperCase() + str.slice(1)
 	}
 
-	const alerts = Object.entries(colorArray).map(([name, color]) =>
+	const alert = Object.entries(colorArray).map(([name, color]) =>
 		<AlertComponent
+			key={"alert-" + name}
 			border={color}
 			variant={name}
 			text={capitalise(name) + " Alert"}
@@ -37,8 +45,29 @@ const ComponentList = (props) => {
 		</AlertComponent>
 	)
 
-	const buttons = Object.entries(colorArray).map(([name, color]) =>
+	const defaultBadge = Object.entries(colorArray).map(([name, color]) =>
+		<BadgeComponent
+			key={"badge-" + name}
+			bg={name}
+			pill={false}
+			text={capitalise(name)}
+		>
+		</BadgeComponent>
+	)
+
+	const pillBadge = Object.entries(colorArray).map(([name, color]) =>
+		<BadgeComponent
+			key={"badge-pill-" + name}
+			bg={name}
+			pill={true}
+			text={capitalise(name)}
+		>
+		</BadgeComponent>
+	)
+
+	const button = Object.entries(colorArray).map(([name, color]) =>
 		<ButtonComponent
+			key={"button-" + name}
 			bg={color}
 			border={color}
 			color="white"
@@ -47,22 +76,90 @@ const ComponentList = (props) => {
 		</ButtonComponent>
 	)
 	
-	const outlineButtons = Object.entries(colorArray).map(([name, color]) =>
+	const outlineButton = Object.entries(colorArray).map(([name, color]) =>
 		<ButtonComponent
+			key={"button-outline-" + name}
 			bg="transparent"
 			border={color}
 			color={color}
-			text={capitalise(name)}
+			text={"Outline " + capitalise(name)}
 		>
 		</ButtonComponent>
 	)
 
-	const tableData = Object.values(colorArray).map((color) =>
-		<TableComponent bg={color} color="white"></TableComponent>
+	const dropdown = Object.entries(colorArray).map(([name, color]) =>
+		<DropdownComponent
+			key={"dropdown-" + name}
+			bg={color}
+			border={color}
+			color="white"
+			text={capitalise(name)}
+		>
+		</DropdownComponent>
 	)
 
-	const textExamples = Object.values(colorArray).map((color) =>
-		<TextColor color={color}></TextColor>
+	const outlineDropdown = Object.entries(colorArray).map(([name, color]) =>
+		<DropdownComponent
+			key={"dropdown-outline-" + name}
+			bg="transparent"
+			border={color}
+			color={color}
+			text={"Outline " + capitalise(name)}
+		>
+		</DropdownComponent>
+	)
+
+	const progressBar = Object.entries(colorArray).map(([name, color]) =>
+		<ProgressBarComponent
+			key={"progress-bar-" + name}
+			variant={name}
+			striped={false}
+			animated={false}
+		>
+		</ProgressBarComponent>
+	)
+
+	const progressBarStriped = Object.entries(colorArray).map(([name, color]) =>
+		<ProgressBarComponent
+			key={"progress-bar-striped" + name}
+			variant={name}
+			striped={true}
+			animated={false}
+		>
+		</ProgressBarComponent>
+	)
+
+	const progressBarAnimated = Object.entries(colorArray).map(([name, color]) =>
+		<ProgressBarComponent
+			key={"progress-bar-striped" + name}
+			variant={name}
+			striped={false}
+			animated={true}
+		>
+		</ProgressBarComponent>
+	)
+
+	const tableData = Object.entries(colorArray).map(([name, color]) =>
+		<TableComponent
+			key={"table-data-" + name}
+			bg={color}
+			color="white">
+		</TableComponent>
+	)
+
+	const toast = ["success", "danger", "warning"].map((name) =>
+		<ToastComponent
+			key={"toast-" + name}
+			status={name}
+		>
+		</ToastComponent>
+	)
+
+	const textExamples = Object.entries(colorArray).map(([name, color]) =>
+		<TextColor
+			key={"text-example-" + name}
+			color={color}>
+		</TextColor>
 	)
 
 	return (
@@ -76,8 +173,34 @@ const ComponentList = (props) => {
 
 			{/* Alert */}
 			<h2 className="text-primary mb-4">Alert</h2>
-			{alerts}
+			{alert}
 			{/* Alert */}
+
+			<br /><hr /><br />
+			
+			{/* Badge */}
+			<h2 className="text-primary mb-4">Badge</h2>
+			<Row className="mb-4">
+				<Col className="mb-2">
+					<p className="fw-bold">Default Badge</p>
+					{defaultBadge}
+				</Col>
+				<Col className="mb-2">
+					<p className="fw-bold">Pill Badge</p>
+					{pillBadge}
+				</Col>
+			</Row>
+			<Row>
+				<Col className="mb-2">
+					<p className="fw-bold">Wrapper Badge</p>
+					<WrapperBadge />
+				</Col>
+				<Col className="mb-2">
+					<p className="fw-bold">Button Badge</p>
+					<ButtonBadge />
+				</Col>
+			</Row>
+			{/* Badge */}
 
 			<br /><hr /><br />
 
@@ -88,13 +211,13 @@ const ComponentList = (props) => {
 
 			<br /><hr /><br />
 
-			{/* Buttons */}
-			<h2 className="text-primary mb-4">Buttons</h2>
+			{/* Button */}
+			<h2 className="text-primary mb-4">Button</h2>
 			<div className="mb-2">
-				{buttons}
+				{button}
 			</div>
 			<div className="mb-2">
-				{outlineButtons}
+				{outlineButton}
 			</div>
 			{/* Buttons */}
 
@@ -113,12 +236,67 @@ const ComponentList = (props) => {
 
 			<br /><hr /><br />
 
+			{/* Checkbox */}
+			<h2 className="text-primary mb-4">Checkbox</h2>
+			<FormCheckComponent />
+			{/* Checkbox */}
+
+			<br /><hr /><br />
+
+			{/* Dropdown */}
+			<h2 className="text-primary mb-4">Dropdown</h2>
+			<div className="mb-2">
+				{dropdown}
+			</div>
+			<div className="mb-2">
+				{outlineDropdown}
+			</div>
+			{/* Dropdown */}
+
+			<br /><hr /><br />
+
 			{/* Main Navigation */}
-				<h2 className="text-primary mb-4">Main Navigation</h2>
-				<div className="bg-white">
-					<MainNavComponent />
-				</div>
+			<h2 className="text-primary mb-4">Main Navigation</h2>
+			<div className="bg-white">
+				<MainNavComponent />
+			</div>
 			{/* Main Navigation */}
+
+			<br /><hr /><br />
+
+			{/* Progress Bar */}
+			<h2 className="text-primary mb-4">Progress Bar</h2>
+			<div className="mb-4">
+				<p className="fw-bold">Default Progress Bar</p>
+				{progressBar}
+			</div>
+			<div className="mb-4">
+				<p className="fw-bold">Striped Progress Bar</p>
+				{progressBarStriped}
+			</div>
+			<div>
+				<p className="fw-bold">Animated Progress Bar</p>
+				{progressBarAnimated}
+			</div>
+			{/* Progress Bar */}
+
+			<br /><hr /><br />
+
+			{/* Radio Button */}
+			<h2 className="text-primary mb-4">Radio Button</h2>
+			<FormCheckComponent type="radio" />
+			{/* Checkbox */}
+
+			<br /><hr /><br />
+
+			{/* Side Navigation */}
+			<h2 className="text-primary mb-4">Side Navigation</h2>
+			<Row>
+				<Col className="bg-white p-3" xs="3">
+					<SideNavComponent />
+				</Col>
+			</Row>
+			{/* Side Navigation */}
 
 			<br /><hr /><br />
 
@@ -137,6 +315,31 @@ const ComponentList = (props) => {
 				</tbody>
 			</table>
 			{/* Tables */}
+
+			<br /><hr /><br />
+
+			{/* Tabs */}
+			<h2 className="text-primary mb-4">Tabs</h2>
+			<div className="mb-4">
+				<p className="fw-bold">Default Tabs</p>
+				<DefaultTabs />
+			</div>
+			<div className="mb-4">
+				<p className="fw-bold">Basic Toggle Tabs</p>
+				<BasicToggleTabs />
+			</div>
+			<div className="mb-4">
+				<p className="fw-bold">Info Toggle Tabs</p>
+				<InfoToggleTabs />
+			</div>
+			{/* Tabs */}
+
+			<br /><hr /><br />
+
+			{/* Toast */}
+			<h2 className="text-primary mb-4">Toast</h2>
+			{toast}
+			{/* Toast */}
 
 			<br /><hr /><br />
 

@@ -52,5 +52,8 @@
     "@govtechsg/sgds": "^2.0.0-alpha.3",
     "@govtechsg/sgds-react": "^2.0.0-alpha.1",
     "@govtechsg/sgds-masthead-react": "^0.0.8"
+  },
+  "overrides": {
+    "autoprefixer": "10.4.5"
   }
 }

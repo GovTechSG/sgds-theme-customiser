@@ -4,7 +4,6 @@ import React from "react";
 const TableComponent = (props) => {
     return (
         <tr
-            key={props.bg}
             style={{
                 backgroundColor: props.bg,
                 color: props.color

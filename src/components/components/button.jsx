@@ -5,13 +5,12 @@ import { Button } from "@govtechsg/sgds-react"
 const ButtonComponent = (props) => {
     return (
         <Button
-            key={props.text}
             style={{
                 backgroundColor: props.bg,
                 border: "1px solid" + props.border,
                 color: props.color
             }}
-            className="me-2"
+            className="mb-2 me-2"
         >
             {props.text}
         </Button>
